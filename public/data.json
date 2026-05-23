@@ -1,1 +1,476 @@
-{}
+{
+  "meta": {
+    "obra_id": "essence",
+    "nome": "Obra Essence Residence",
+    "endereco": "Av. Exemplo, 123 – São Paulo/SP",
+    "qtd_unidades": 2,
+    "qtd_andares": 15,
+    "data_inicio": "2025-06-01",
+    "data_prevista": "2026-12-31",
+    "status": "ativa",
+    "gerado_em": "2026-05-23T02:59:04.158Z",
+    "schema_version": "1.0"
+  },
+  "kpis": {
+    "progresso_geral": 56.3,
+    "done": 2,
+    "doing": 4,
+    "idle": 62,
+    "late": 0,
+    "np": 2
+  },
+  "etapas": [
+    {
+      "etapa_id": "proj_vedacao",
+      "nome": "Projeto de vedação",
+      "abrev": "Proj. Vedação",
+      "grupo": "vedacao",
+      "eh_projeto": true,
+      "data_prev": "2026-01-15",
+      "peso": 2.8571,
+      "ordem": 1
+    },
+    {
+      "etapa_id": "alvenaria",
+      "nome": "Alvenaria da Vedação",
+      "abrev": "Alvenaria",
+      "grupo": "vedacao",
+      "eh_projeto": false,
+      "data_prev": "2026-01-30",
+      "peso": 2.8571,
+      "ordem": 2
+    },
+    {
+      "etapa_id": "encunhamento",
+      "nome": "Encunhamento",
+      "abrev": "Encunhamento",
+      "grupo": "vedacao",
+      "eh_projeto": false,
+      "data_prev": "2026-02-10",
+      "peso": 2.8571,
+      "ordem": 3
+    },
+    {
+      "etapa_id": "proj_infra_el",
+      "nome": "Projeto de Infra Elétrica",
+      "abrev": "Proj. Infra El.",
+      "grupo": "eletrica",
+      "eh_projeto": true,
+      "data_prev": "2026-01-10",
+      "peso": 2.8571,
+      "ordem": 4
+    },
+    {
+      "etapa_id": "infra_eletrica",
+      "nome": "Infra Elétrica",
+      "abrev": "Infra El.",
+      "grupo": "eletrica",
+      "eh_projeto": false,
+      "data_prev": "2026-02-05",
+      "peso": 2.8571,
+      "ordem": 5
+    },
+    {
+      "etapa_id": "proj_quadros",
+      "nome": "Proj. Quadros Distribuição",
+      "abrev": "Proj. Quadros",
+      "grupo": "eletrica",
+      "eh_projeto": true,
+      "data_prev": "2026-01-20",
+      "peso": 2.8571,
+      "ordem": 6
+    },
+    {
+      "etapa_id": "quadros_dist",
+      "nome": "Quadros de Distribuição",
+      "abrev": "Quadros Dist.",
+      "grupo": "eletrica",
+      "eh_projeto": false,
+      "data_prev": "2026-02-20",
+      "peso": 2.8571,
+      "ordem": 7
+    },
+    {
+      "etapa_id": "proj_prumada",
+      "nome": "Projeto de Prumada",
+      "abrev": "Proj. Prumada",
+      "grupo": "eletrica",
+      "eh_projeto": true,
+      "data_prev": "2026-01-12",
+      "peso": 2.8571,
+      "ordem": 8
+    },
+    {
+      "etapa_id": "prumada",
+      "nome": "Prumada",
+      "abrev": "Prumada",
+      "grupo": "eletrica",
+      "eh_projeto": false,
+      "data_prev": "2026-02-15",
+      "peso": 2.8571,
+      "ordem": 9
+    },
+    {
+      "etapa_id": "proj_aereo_hid",
+      "nome": "Proj. Aéreo Hidráulica",
+      "abrev": "Proj. Aér. Hid.",
+      "grupo": "hidraulica",
+      "eh_projeto": true,
+      "data_prev": "2026-01-18",
+      "peso": 2.8571,
+      "ordem": 10
+    },
+    {
+      "etapa_id": "aereo_hidraulica",
+      "nome": "Aéreo Hidráulica",
+      "abrev": "Aéreo Hid.",
+      "grupo": "hidraulica",
+      "eh_projeto": false,
+      "data_prev": "2026-02-25",
+      "peso": 2.8571,
+      "ordem": 11
+    },
+    {
+      "etapa_id": "proj_dist_hid",
+      "nome": "Proj. Dist. Hidráulica",
+      "abrev": "Proj. Dist. Hid.",
+      "grupo": "hidraulica",
+      "eh_projeto": true,
+      "data_prev": "2026-01-22",
+      "peso": 2.8571,
+      "ordem": 12
+    },
+    {
+      "etapa_id": "dist_hidraulica",
+      "nome": "Distribuição Hidráulica",
+      "abrev": "Dist. Hid.",
+      "grupo": "hidraulica",
+      "eh_projeto": false,
+      "data_prev": "2026-03-01",
+      "peso": 2.8571,
+      "ordem": 13
+    },
+    {
+      "etapa_id": "proj_hd_banh",
+      "nome": "Proj. Hd. Banheira",
+      "abrev": "Proj. Banh.",
+      "grupo": "hidraulica",
+      "eh_projeto": true,
+      "data_prev": "2026-01-25",
+      "peso": 2.8571,
+      "ordem": 14
+    },
+    {
+      "etapa_id": "infra_hd_banh",
+      "nome": "Infra Hd. Banheira",
+      "abrev": "Infra Banh.",
+      "grupo": "hidraulica",
+      "eh_projeto": false,
+      "data_prev": "2026-03-05",
+      "peso": 2.8571,
+      "ordem": 15
+    },
+    {
+      "etapa_id": "proj_gas",
+      "nome": "Proj. Infra Gás",
+      "abrev": "Proj. Gás",
+      "grupo": "hidraulica",
+      "eh_projeto": true,
+      "data_prev": "2026-01-15",
+      "peso": 2.8571,
+      "ordem": 16
+    },
+    {
+      "etapa_id": "infra_gas",
+      "nome": "Infra Gás",
+      "abrev": "Infra Gás",
+      "grupo": "hidraulica",
+      "eh_projeto": false,
+      "data_prev": "2026-02-28",
+      "peso": 2.8571,
+      "ordem": 17
+    },
+    {
+      "etapa_id": "det_nichos",
+      "nome": "Detalhe dos Nichos",
+      "abrev": "Det. Nichos",
+      "grupo": "instalacoes",
+      "eh_projeto": true,
+      "data_prev": "2026-02-01",
+      "peso": 2.8571,
+      "ordem": 18
+    },
+    {
+      "etapa_id": "nichos",
+      "nome": "Nichos",
+      "abrev": "Nichos",
+      "grupo": "instalacoes",
+      "eh_projeto": false,
+      "data_prev": "2026-03-10",
+      "peso": 2.8571,
+      "ordem": 19
+    },
+    {
+      "etapa_id": "det_contrapiso",
+      "nome": "Detalhe Contrapisos",
+      "abrev": "Det. Contrapiso",
+      "grupo": "instalacoes",
+      "eh_projeto": true,
+      "data_prev": "2026-02-01",
+      "peso": 2.8571,
+      "ordem": 20
+    },
+    {
+      "etapa_id": "contrapiso",
+      "nome": "Contrapiso",
+      "abrev": "Contrapiso",
+      "grupo": "instalacoes",
+      "eh_projeto": false,
+      "data_prev": "2026-03-15",
+      "peso": 2.8571,
+      "ordem": 21
+    },
+    {
+      "etapa_id": "proj_ar",
+      "nome": "Proj. Ar Condicionado",
+      "abrev": "Proj. A/C",
+      "grupo": "instalacoes",
+      "eh_projeto": true,
+      "data_prev": "2026-02-05",
+      "peso": 2.8571,
+      "ordem": 22
+    },
+    {
+      "etapa_id": "ar_condicionado",
+      "nome": "Ar Condicionado",
+      "abrev": "Ar Cond.",
+      "grupo": "instalacoes",
+      "eh_projeto": false,
+      "data_prev": "2026-03-20",
+      "peso": 2.8571,
+      "ordem": 23
+    },
+    {
+      "etapa_id": "proj_aspiracao",
+      "nome": "Proj. Aspiração Central",
+      "abrev": "Proj. Aspir.",
+      "grupo": "instalacoes",
+      "eh_projeto": true,
+      "data_prev": "2026-02-05",
+      "peso": 2.8571,
+      "ordem": 24
+    },
+    {
+      "etapa_id": "aspiracao",
+      "nome": "Aspiração Central",
+      "abrev": "Aspiração",
+      "grupo": "instalacoes",
+      "eh_projeto": false,
+      "data_prev": "2026-03-25",
+      "peso": 2.8571,
+      "ordem": 25
+    },
+    {
+      "etapa_id": "proj_automacao",
+      "nome": "Proj. Automação",
+      "abrev": "Proj. Autom.",
+      "grupo": "instalacoes",
+      "eh_projeto": true,
+      "data_prev": "2026-02-10",
+      "peso": 2.8571,
+      "ordem": 26
+    },
+    {
+      "etapa_id": "automacao",
+      "nome": "Automação",
+      "abrev": "Automação",
+      "grupo": "instalacoes",
+      "eh_projeto": false,
+      "data_prev": "2026-04-01",
+      "peso": 2.8571,
+      "ordem": 27
+    },
+    {
+      "etapa_id": "proj_acabamento",
+      "nome": "Proj. Acabamento Interno",
+      "abrev": "Proj. Acab.",
+      "grupo": "acabamento",
+      "eh_projeto": true,
+      "data_prev": "2026-03-01",
+      "peso": 2.8571,
+      "ordem": 28
+    },
+    {
+      "etapa_id": "gesso_liso",
+      "nome": "Gesso Liso",
+      "abrev": "Gesso Liso",
+      "grupo": "acabamento",
+      "eh_projeto": false,
+      "data_prev": "2026-04-10",
+      "peso": 2.8571,
+      "ordem": 29
+    },
+    {
+      "etapa_id": "forro",
+      "nome": "Forro",
+      "abrev": "Forro",
+      "grupo": "acabamento",
+      "eh_projeto": false,
+      "data_prev": "2026-04-15",
+      "peso": 2.8571,
+      "ordem": 30
+    },
+    {
+      "etapa_id": "impermeabilizacao",
+      "nome": "Impermeabilização",
+      "abrev": "Impermeab.",
+      "grupo": "acabamento",
+      "eh_projeto": false,
+      "data_prev": "2026-04-05",
+      "peso": 2.8571,
+      "ordem": 31
+    },
+    {
+      "etapa_id": "revestimentos",
+      "nome": "Revestimentos",
+      "abrev": "Revestimentos",
+      "grupo": "acabamento",
+      "eh_projeto": false,
+      "data_prev": "2026-04-20",
+      "peso": 2.8571,
+      "ordem": 32
+    },
+    {
+      "etapa_id": "proj_bancadas",
+      "nome": "Projeto de Bancadas",
+      "abrev": "Proj. Bancadas",
+      "grupo": "acabamento",
+      "eh_projeto": true,
+      "data_prev": "2026-03-10",
+      "peso": 2.8571,
+      "ordem": 33
+    },
+    {
+      "etapa_id": "granito",
+      "nome": "Granito",
+      "abrev": "Granito",
+      "grupo": "acabamento",
+      "eh_projeto": false,
+      "data_prev": "2026-05-01",
+      "peso": 2.8571,
+      "ordem": 34
+    },
+    {
+      "etapa_id": "pintura",
+      "nome": "Pintura",
+      "abrev": "Pintura",
+      "grupo": "acabamento",
+      "eh_projeto": false,
+      "data_prev": "2026-05-15",
+      "peso": 2.8571,
+      "ordem": 35
+    }
+  ],
+  "unidades": [
+    {
+      "unidade": "11",
+      "andar": 1,
+      "progresso": 56.3,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 100,
+          "atualizado_em": "2026-05-21 10:30:00"
+        },
+        "alvenaria": {
+          "valor": 75,
+          "atualizado_em": "2026-05-21 10:30:00"
+        },
+        "encunhamento": {
+          "valor": 50,
+          "atualizado_em": "2026-05-21 10:30:00"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-05-21 10:30:00"
+        },
+        "infra_eletrica": {
+          "valor": "NP",
+          "atualizado_em": "2026-05-21 10:30:00"
+        }
+      }
+    },
+    {
+      "unidade": "12",
+      "andar": 1,
+      "progresso": 56.3,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 100,
+          "atualizado_em": "2026-05-21 10:30:00"
+        },
+        "alvenaria": {
+          "valor": 75,
+          "atualizado_em": "2026-05-21 10:30:00"
+        },
+        "encunhamento": {
+          "valor": 50,
+          "atualizado_em": "2026-05-21 10:30:00"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-05-21 10:30:00"
+        },
+        "infra_eletrica": {
+          "valor": "NP",
+          "atualizado_em": "2026-05-21 10:30:00"
+        }
+      }
+    }
+  ],
+  "historico_recente": [
+    {
+      "timestamp": "2026-05-20 09:00:00",
+      "obra_id": "essence",
+      "unidade": "31",
+      "etapa_id": "pintura",
+      "valor_anterior": 0,
+      "valor_novo": 0,
+      "usuario": "import_script",
+      "ip": "localhost",
+      "fonte": "import"
+    },
+    {
+      "timestamp": "2026-05-20 16:12:05",
+      "obra_id": "essence",
+      "unidade": "21",
+      "etapa_id": "contrapiso",
+      "valor_anterior": 100,
+      "valor_novo": 100,
+      "usuario": "maria@construtora.com",
+      "ip": "191.x.x.x",
+      "fonte": "admin"
+    },
+    {
+      "timestamp": "2026-05-21 10:31:22",
+      "obra_id": "essence",
+      "unidade": "12",
+      "etapa_id": "infra_eletrica",
+      "valor_anterior": 0,
+      "valor_novo": 25,
+      "usuario": "joao@construtora.com",
+      "ip": "177.72.x.x",
+      "fonte": "admin"
+    },
+    {
+      "timestamp": "2026-05-21 10:30:00",
+      "obra_id": "essence",
+      "unidade": "11",
+      "etapa_id": "alvenaria",
+      "valor_anterior": 50,
+      "valor_novo": 75,
+      "usuario": "joao@construtora.com",
+      "ip": "177.72.x.x",
+      "fonte": "admin"
+    }
+  ]
+}
