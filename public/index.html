@@ -623,29 +623,41 @@ const ETAPAS = GRUPOS.flatMap(g => g.etapas.map(e => ({...e, grupo:g.id, grupoCo
 const UNIDADES = [];
 for(let a=1;a<=15;a++){UNIDADES.push({u:`${a}1`,a});UNIDADES.push({u:`${a}2`,a})}
 
-// dados fictícios determinísticos
-function gerarDados(){
-  const d={};let seed=137;
-  const rand=()=>{seed=(seed*1103515245+12345)&0x7fffffff;return seed/0x7fffffff};
-  const hoje=new Date('2026-05-21');
-  UNIDADES.forEach(({u,a})=>{
-    d[u]={};
-    const base=Math.max(0,1-(a-1)/18);
-    ETAPAS.forEach((e,i)=>{
-      const fp=e.projeto?1.15:.85,fe=1-(i/ETAPAS.length)*.3;
-      let p=base*fp*fe*100+(rand()-.5)*30;
-      p=Math.max(0,Math.min(100,p));
-      p=Math.round(p/25)*25;
-      const podeNP=['Banh','Gás','Aspir','Autom'].some(k=>e.nome.includes(k));
-      if(podeNP&&rand()<.15){d[u][e.nome]='NP';return}
-      if(p>0&&p<100&&rand()<.08){d[u][e.nome]='ATR';return}
-      d[u][e.nome]=p;
-    });
-  });
-  return d;
+// ── CONEXÃO COM JSON REAL (GitHub) ──────────────────────────────────────
+const DATA_URL = 'https://raw.githubusercontent.com/miltonfigueiredo97-lang/dashboard-administracaoobra/main/public/data.json';
+let DADOS = {};
+const TODAY = new Date();
+
+async function carregarDados() {
+  try {
+    const r = await fetch(DATA_URL + '?t=' + Date.now());
+    const json = await r.json();
+
+    // popula DADOS a partir do JSON do Apps Script
+    if (json.unidades) {
+      json.unidades.forEach(u => {
+        DADOS[u.unidade] = {};
+        Object.entries(u.etapas || {}).forEach(([etapa_id, cel]) => {
+          // mapeia etapa_id → nome da etapa
+          const etapa = ETAPAS.find(e => e.id === etapa_id);
+          const chave = etapa ? etapa.nome : etapa_id;
+          DADOS[u.unidade][chave] = cel.valor !== undefined ? cel.valor : cel;
+        });
+      });
+    }
+
+    // atualiza meta no header
+    if (json.meta) {
+      const el = document.querySelector('.header-meta');
+      if (el) el.innerHTML = `Última atualização<br><strong>${new Date(json.meta.gerado_em).toLocaleString('pt-BR')}</strong><br>${json.meta.qtd_unidades} unidades · ${json.etapas ? json.etapas.length : 35} etapas`;
+    }
+
+    renderAll();
+  } catch(err) {
+    console.error('Erro ao carregar dados:', err);
+    renderAll(); // renderiza vazio se falhar
+  }
 }
-let DADOS=gerarDados();
-const TODAY=new Date('2026-05-21');
 
 function statusOf(v){
   if(v==='NP')return 'np';
@@ -849,7 +861,10 @@ function tick(){
 }
 tick();setInterval(tick,1000);
 
-renderAll();
+// carrega dados reais e renderiza
+carregarDados();
+// atualiza a cada 5 minutos
+setInterval(carregarDados, 5 * 60 * 1000);
 </script>
 </body>
 </html>

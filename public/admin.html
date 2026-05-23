@@ -440,7 +440,10 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;f
 <div class="toast" id="toast"></div>
 
 <script>
-// ── DADOS DEMO ─────────────────────────────────────────────────────────────
+// ── CONEXÃO REAL COM APPS SCRIPT ────────────────────────────────────────
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzE4Mb7jRbLOBcaIkH6TIIaroxRGq4p-6O2kwEI48D98MH2HgvGpDGpQtf43xWvqWK_/exec';
+const ADMIN_TOKEN = '49b90f8fd08860a2a6b5902960c2c72412d724f1be32239eeb87727e780bee34';
+const OBRA_ID = 'essence';
 const GRUPOS = [
   {id:'vedacao',   nome:'Vedação',    etapas:[
     {id:'proj_vedacao',  nome:'Projeto de Vedação',   projeto:true,  prev:'2026-01-15'},
@@ -540,29 +543,49 @@ function zerarPendentes(){
   renderAtualTab();
 }
 
-function salvarTudo(){
+async function salvarTudo(){
   const n = Object.values(pendentes).reduce((a,u)=>a+Object.keys(u).length,0);
   if(n===0) return;
-  // DEMO: simula save. Em produção: POST no Apps Script
   const itens = [];
   Object.entries(pendentes).forEach(([u,etapas])=>{
     Object.entries(etapas).forEach(([eid,val])=>{
       itens.push({unidade:u, etapa_id:eid, valor:val});
     });
   });
-  console.log('Salvando:', itens);
-  // adiciona ao histórico demo
-  itens.forEach(i=>{
-    HISTORICO_DEMO.unshift({
-      ts: new Date().toLocaleString('pt-BR'),
-      ap: i.unidade, etapa: i.etapa_id,
-      de: '—', para: i.valor, user: usuario
+
+  document.getElementById('btn-salvar-global').disabled = true;
+  document.getElementById('btn-salvar-bar').disabled = true;
+  toast('Salvando...');
+
+  try {
+    const res = await fetch(`${SCRIPT_URL}?token=${ADMIN_TOKEN}`, {
+      method: 'POST',
+      body: JSON.stringify({ action: 'salvar_bulk', obra_id: OBRA_ID, usuario, itens }),
     });
-  });
-  Object.keys(pendentes).forEach(k=>delete pendentes[k]);
-  atualizarContador();
-  toast(`${n} item(ns) salvos com sucesso!`);
-  renderAtualTab();
+    const json = await res.json();
+    if (json.ok) {
+      // adiciona ao histórico local
+      itens.forEach(i => {
+        HISTORICO_DEMO.unshift({
+          ts: new Date().toLocaleString('pt-BR'),
+          ap: i.unidade, etapa: i.etapa_id,
+          de: '—', para: i.valor, user: usuario
+        });
+      });
+      Object.keys(pendentes).forEach(k=>delete pendentes[k]);
+      atualizarContador();
+      toast(`${n} item(ns) salvos!`);
+      renderAtualTab();
+    } else {
+      toast('Erro: ' + (json.erro || 'falha ao salvar'), 'err');
+      document.getElementById('btn-salvar-global').disabled = false;
+      document.getElementById('btn-salvar-bar').disabled = false;
+    }
+  } catch(err) {
+    toast('Erro de conexão: ' + err.message, 'err');
+    document.getElementById('btn-salvar-global').disabled = false;
+    document.getElementById('btn-salvar-bar').disabled = false;
+  }
 }
 
 // histórico demo
