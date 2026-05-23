@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Essence · Mapa de Obra</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1117;--bg2:#161b23;--bg3:#1d2330;--bg4:#242d3d;
+  --border:#2a3347;--border2:#374460;
+  --text:#f0f2f7;--text2:#a8b3cc;--text3:#5a6a88;
+  --yellow:#f5c518;--yellow2:#c49a10;--yglow:rgba(245,197,24,.18);
+  --green:#22d3a0;--gbg:rgba(34,211,160,.15);
+  --blue:#60a5fa;--bbg:rgba(96,165,250,.15);
+  --red:#f87171;--rbg:rgba(248,113,113,.15);
+  --orange:#fb923c;
+  --r:14px;--rsm:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;min-height:100vh;overflow-x:hidden}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--bg2);border-top:1px solid var(--border);display:flex;padding-bottom:env(safe-area-inset-bottom,0px)}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 4px;gap:4px;border:none;background:none;color:var(--text3);font-family:'Sora',sans-serif;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;transition:color .15s}
+.nav-btn.active{color:var(--yellow)}
+.nav-icon{font-size:22px;line-height:1}
+
+.page{display:none;flex-direction:column;min-height:100vh;padding-bottom:80px}
+.page.active{display:flex}
+
+.page-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.brand-mark{width:36px;height:36px;background:var(--yellow);border-radius:9px;display:grid;place-items:center;font-weight:900;font-size:16px;color:#111;flex-shrink:0}
+.page-title{font-size:15px;font-weight:700}
+.page-sub{font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:1px}
+.icon-btn{width:40px;height:40px;border-radius:var(--rsm);background:var(--bg3);border:1px solid var(--border);color:var(--text2);display:grid;place-items:center;font-size:20px;cursor:pointer;flex-shrink:0}
+
+.kpis{padding:14px 14px 0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kpi{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px}
+.kpi.main{grid-column:1/-1;display:flex;align-items:center;gap:14px}
+.kpi-icon{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;font-size:22px;flex-shrink:0}
+.kpi-label{font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--text3);font-family:'JetBrains Mono',monospace;font-weight:600;margin-bottom:5px}
+.kpi-value{font-family:'JetBrains Mono',monospace;font-size:30px;font-weight:700;line-height:1;color:var(--yellow)}
+.kpi-bar{height:4px;background:var(--border);border-radius:999px;margin-top:8px;overflow:hidden}
+.kpi-bar-fill{height:100%;background:linear-gradient(90deg,var(--yellow2),var(--yellow));border-radius:999px;transition:width 1s ease}
+.kpi-val-sm{font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;line-height:1;margin-top:6px}
+.kpi-lbl-sm{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-bottom:2px}
+
+.filter-bar{padding:12px 14px 0;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.filter-bar::-webkit-scrollbar{display:none}
+.ftab{padding:9px 18px;border-radius:999px;border:1px solid var(--border);background:var(--bg3);color:var(--text2);font-size:13px;font-weight:600;white-space:nowrap;cursor:pointer;flex-shrink:0}
+.ftab.active{background:var(--yellow);border-color:var(--yellow);color:#111}
+
+.filter-row{padding:10px 14px;display:flex;gap:8px;align-items:center}
+.search-input{flex:1;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:10px 16px;border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:14px;outline:none}
+.search-input:focus{border-color:var(--yellow)}
+.search-input::placeholder{color:var(--text3)}
+.pill-btn{padding:9px 16px;border-radius:999px;border:1px solid var(--border);background:var(--bg3);color:var(--text2);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0}
+.pill-btn.on{background:var(--yglow);border-color:var(--yellow);color:var(--yellow)}
+
+.legenda{display:flex;gap:12px;flex-wrap:wrap;padding:0 14px 12px;font-size:12px;color:var(--text2)}
+.leg-item{display:flex;align-items:center;gap:6px}
+.leg-dot{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-size:11px;font-weight:700}
+
+.mapa-wrap{margin:0 14px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:auto;flex:1;-webkit-overflow-scrolling:touch}
+.mapa-wrap::-webkit-scrollbar{height:5px;width:5px}
+.mapa-wrap::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:999px}
+
+table{border-collapse:separate;border-spacing:3px;font-family:'JetBrains Mono',monospace;padding:8px}
+
+thead tr.grp-row th{background:var(--bg2);font-family:'Sora',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:8px 6px 6px;text-align:center;white-space:nowrap;border-radius:6px;position:sticky;top:0;z-index:5}
+thead tr.grp-row th.corner{position:sticky;left:0;z-index:6;background:var(--bg2)}
+thead tr.grp-row th.grp-vedacao{background:rgba(167,139,250,.15);color:#c4b5fd}
+thead tr.grp-row th.grp-eletrica{background:rgba(245,158,11,.15);color:#fbbf24}
+thead tr.grp-row th.grp-hidraulica{background:rgba(96,165,250,.15);color:#93c5fd}
+thead tr.grp-row th.grp-instalacoes{background:rgba(34,211,160,.15);color:#6ee7b7}
+thead tr.grp-row th.grp-acabamento{background:rgba(248,113,113,.15);color:#fca5a5}
+
+thead tr.lbl-row th{position:sticky;top:40px;z-index:4;background:var(--bg3);padding:8px 5px;font-size:11px;font-weight:600;color:var(--text);white-space:nowrap;text-align:center;border-radius:6px;min-width:52px;border:1px solid var(--border)}
+thead tr.lbl-row th.ap-th{position:sticky;left:0;top:40px;z-index:6;background:var(--bg3);color:var(--yellow);font-weight:700;min-width:52px;border:1px solid var(--yellow)}
+thead tr.lbl-row th.col-proj{color:var(--text3);font-style:italic;background:rgba(167,139,250,.06)}
+
+tbody td{padding:2px;vertical-align:middle}
+tbody td.ap-td{position:sticky;left:0;z-index:2;background:var(--bg3);color:var(--yellow);font-weight:700;font-size:13px;text-align:center;padding:0 6px;border-radius:8px;border:1px solid var(--border2);min-width:52px;white-space:nowrap}
+tbody tr.floor-div td{padding-top:6px}
+
+.cell{display:grid;place-items:center;width:52px;height:42px;border-radius:8px;font-size:14px;font-weight:700;position:relative;border:1.5px solid transparent;transition:transform .1s}
+tbody td:active .cell{transform:scale(.85)}
+.cell.s-idle{background:var(--bg3);color:var(--text2);border-color:var(--border)}
+.cell.s-done{background:var(--gbg);color:var(--green);border-color:rgba(34,211,160,.3)}
+.cell.s-doing{background:var(--bbg);color:var(--blue);border-color:rgba(96,165,250,.3)}
+.cell.s-late{background:var(--rbg);color:var(--red);border-color:rgba(248,113,113,.3);font-size:10px}
+.cell.s-np{background:repeating-linear-gradient(45deg,transparent,transparent 3px,rgba(74,85,104,.3) 3px,rgba(74,85,104,.3) 4px);color:var(--text3);font-size:9px;border-color:var(--border)}
+.cell.late-warn::after{content:'';position:absolute;top:4px;right:4px;width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.cell-pct{font-size:8px;position:absolute;bottom:2px;right:3px;opacity:.75}
+
+.hide-proj thead tr.grp-row th.grp-proj,
+.hide-proj thead tr.lbl-row th.col-proj,
+.hide-proj tbody td.col-proj{display:none}
+
+.update-bar{padding:6px 14px 4px;font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;text-align:right}
+
+.rel-wrap{padding:14px;display:flex;flex-direction:column;gap:12px}
+.rel-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.rel-card-title{padding:14px 16px;border-bottom:1px solid var(--border);font-size:14px;font-weight:700}
+.rel-row{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border)}
+.rel-row:last-child{border:none}
+.rel-ap{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--yellow);font-size:15px;min-width:40px}
+.rel-bar-wrap{flex:1;height:8px;background:var(--border);border-radius:999px;overflow:hidden}
+.rel-bar{height:100%;border-radius:999px}
+.rel-pct{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;min-width:48px;text-align:right}
+
+.loading{display:flex;align-items:center;justify-content:center;gap:10px;padding:48px 20px;color:var(--text3);font-family:'JetBrains Mono',monospace;font-size:13px}
+.spinner{width:22px;height:22px;border:2px solid var(--border);border-top-color:var(--yellow);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<div class="page active" id="page-mapa">
+  <div class="page-header">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="brand-mark">E</div>
+      <div><div class="page-title">Essence Residence</div><div class="page-sub">Mapa de Acompanhamento</div></div>
+    </div>
+    <button class="icon-btn" onclick="carregarDados()">↻</button>
+  </div>
+  <div class="kpis">
+    <div class="kpi main">
+      <div class="kpi-icon" style="background:var(--yglow)">📐</div>
+      <div style="flex:1;min-width:0">
+        <div class="kpi-label">Progresso Geral</div>
+        <div class="kpi-value" id="kpi-prog">—</div>
+        <div class="kpi-bar"><div class="kpi-bar-fill" id="kpi-bar" style="width:0%"></div></div>
+      </div>
+    </div>
+    <div class="kpi" style="text-align:center"><div class="kpi-lbl-sm">Concluídos</div><div class="kpi-val-sm" style="color:var(--green)" id="kpi-done">—</div></div>
+    <div class="kpi" style="text-align:center"><div class="kpi-lbl-sm">Em Execução</div><div class="kpi-val-sm" style="color:var(--blue)" id="kpi-doing">—</div></div>
+    <div class="kpi" style="text-align:center"><div class="kpi-lbl-sm">Atrasados</div><div class="kpi-val-sm" style="color:var(--red)" id="kpi-late">—</div></div>
+    <div class="kpi" style="text-align:center"><div class="kpi-lbl-sm">Não Iniciados</div><div class="kpi-val-sm" style="color:var(--text3)" id="kpi-idle">—</div></div>
+  </div>
+  <div class="filter-bar">
+    <button class="ftab active" data-f="todos">Todos</button>
+    <button class="ftab" data-f="atrasados">⚠ Atrasados</button>
+    <button class="ftab" data-f="emexec">● Em execução</button>
+    <button class="ftab" data-f="concluidos">✓ Concluídos</button>
+  </div>
+  <div class="filter-row">
+    <input class="search-input" id="search" placeholder="🔍 Buscar AP..." oninput="filtrarBusca(this.value)">
+    <button class="pill-btn" id="btn-hide" onclick="toggleProj(this)">👁 Projetos</button>
+  </div>
+  <div class="legenda">
+    <div class="leg-item"><div class="leg-dot" style="background:var(--gbg);color:var(--green)">✓</div>Concluído</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--bbg);color:var(--blue)">●</div>Execução</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--rbg);color:var(--red);font-size:9px">ATR</div>Atrasado</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--bg3);color:var(--text2)">□</div>Não iniciado</div>
+    <div class="leg-item"><span style="color:var(--orange);font-size:20px;line-height:1">●</span>Fora do prazo</div>
+  </div>
+  <div class="mapa-wrap" id="mapa-wrap"><div class="loading"><div class="spinner"></div>Carregando...</div></div>
+  <div class="update-bar" id="update-bar"></div>
+</div>
+
+<div class="page" id="page-rel">
+  <div class="page-header">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="brand-mark">E</div>
+      <div><div class="page-title">Relatórios</div><div class="page-sub">Progresso por AP</div></div>
+    </div>
+  </div>
+  <div class="rel-wrap" id="rel-wrap"><div class="loading"><div class="spinner"></div>Carregando...</div></div>
+</div>
+
+<nav class="bottom-nav">
+  <button class="nav-btn active" data-page="mapa" onclick="switchPage(this)"><span class="nav-icon">◉</span>Mapa</button>
+  <button class="nav-btn" data-page="rel" onclick="switchPage(this)"><span class="nav-icon">📊</span>Relatório</button>
+  <button class="nav-btn" onclick="window.location.href='admin.html'"><span class="nav-icon">🔐</span>Admin</button>
+</nav>
+
+<script>
+const DATA_URL= + GITHUB_RAW + ;
+const TODAY=new Date();
+let DADOS={},UNIDADES=[],jsonKPIs={};
+
+const GRUPOS=[
+  {id:'vedacao',nome:'Vedação',etapas:[
+    {id:'proj_vedacao',nome:'Projeto de Vedação',abrev:'P.Vedação',projeto:true,prev:'2026-01-15'},
+    {id:'alvenaria',nome:'Alvenaria',abrev:'Alvenaria',projeto:false,prev:'2026-01-30'},
+    {id:'encunhamento',nome:'Encunhamento',abrev:'Encunham.',projeto:false,prev:'2026-02-10'},
+  ]},
+  {id:'eletrica',nome:'Elétrica',etapas:[
+    {id:'proj_infra_el',nome:'Proj. Infra Elétrica',abrev:'P.Infra El.',projeto:true,prev:'2026-01-10'},
+    {id:'infra_eletrica',nome:'Infra Elétrica',abrev:'Infra El.',projeto:false,prev:'2026-02-05'},
+    {id:'proj_quadros',nome:'Proj. Quadros Dist.',abrev:'P.Quadros',projeto:true,prev:'2026-01-20'},
+    {id:'quadros_dist',nome:'Quadros de Distribuição',abrev:'Quadros',projeto:false,prev:'2026-02-20'},
+    {id:'proj_prumada',nome:'Proj. Prumada',abrev:'P.Prumada',projeto:true,prev:'2026-01-12'},
+    {id:'prumada',nome:'Prumada',abrev:'Prumada',projeto:false,prev:'2026-02-15'},
+  ]},
+  {id:'hidraulica',nome:'Hidráulica',etapas:[
+    {id:'proj_aereo_hid',nome:'Proj. Aéreo Hidráulica',abrev:'P.Aér.Hid.',projeto:true,prev:'2026-01-18'},
+    {id:'aereo_hidraulica',nome:'Aéreo Hidráulica',abrev:'Aéreo Hid.',projeto:false,prev:'2026-02-25'},
+    {id:'proj_dist_hid',nome:'Proj. Dist. Hidráulica',abrev:'P.Dist.Hid.',projeto:true,prev:'2026-01-22'},
+    {id:'dist_hidraulica',nome:'Distribuição Hidráulica',abrev:'Dist.Hid.',projeto:false,prev:'2026-03-01'},
+    {id:'proj_hd_banh',nome:'Proj. Hd. Banheira',abrev:'P.Banh.',projeto:true,prev:'2026-01-25'},
+    {id:'infra_hd_banh',nome:'Infra Hd. Banheira',abrev:'I.Banh.',projeto:false,prev:'2026-03-05'},
+    {id:'proj_gas',nome:'Proj. Infra Gás',abrev:'P.Gás',projeto:true,prev:'2026-01-15'},
+    {id:'infra_gas',nome:'Infra Gás',abrev:'Infra Gás',projeto:false,prev:'2026-02-28'},
+  ]},
+  {id:'instalacoes',nome:'Instalações',etapas:[
+    {id:'det_nichos',nome:'Detalhe dos Nichos',abrev:'Det.Nichos',projeto:true,prev:'2026-02-01'},
+    {id:'nichos',nome:'Nichos',abrev:'Nichos',projeto:false,prev:'2026-03-10'},
+    {id:'det_contrapiso',nome:'Detalhe Contrapisos',abrev:'Det.Cpiso',projeto:true,prev:'2026-02-01'},
+    {id:'contrapiso',nome:'Contrapiso',abrev:'Contrapiso',projeto:false,prev:'2026-03-15'},
+    {id:'proj_ar',nome:'Proj. Ar Condicionado',abrev:'P.A/C',projeto:true,prev:'2026-02-05'},
+    {id:'ar_condicionado',nome:'Ar Condicionado',abrev:'Ar Cond.',projeto:false,prev:'2026-03-20'},
+    {id:'proj_aspiracao',nome:'Proj. Aspiração Central',abrev:'P.Aspir.',projeto:true,prev:'2026-02-05'},
+    {id:'aspiracao',nome:'Aspiração Central',abrev:'Aspiração',projeto:false,prev:'2026-03-25'},
+    {id:'proj_automacao',nome:'Proj. Automação',abrev:'P.Autom.',projeto:true,prev:'2026-02-10'},
+    {id:'automacao',nome:'Automação',abrev:'Automação',projeto:false,prev:'2026-04-01'},
+  ]},
+  {id:'acabamento',nome:'Acabamento',etapas:[
+    {id:'proj_acabamento',nome:'Proj. Acabamento Interno',abrev:'P.Acab.',projeto:true,prev:'2026-03-01'},
+    {id:'gesso_liso',nome:'Gesso Liso',abrev:'Gesso',projeto:false,prev:'2026-04-10'},
+    {id:'forro',nome:'Forro',abrev:'Forro',projeto:false,prev:'2026-04-15'},
+    {id:'impermeabilizacao',nome:'Impermeabilização',abrev:'Impermeab.',projeto:false,prev:'2026-04-05'},
+    {id:'revestimentos',nome:'Revestimentos',abrev:'Revestim.',projeto:false,prev:'2026-04-20'},
+    {id:'proj_bancadas',nome:'Proj. Bancadas',abrev:'P.Bancadas',projeto:true,prev:'2026-03-10'},
+    {id:'granito',nome:'Granito',abrev:'Granito',projeto:false,prev:'2026-05-01'},
+    {id:'pintura',nome:'Pintura',abrev:'Pintura',projeto:false,prev:'2026-05-15'},
+  ]},
+];
+const ETAPAS=GRUPOS.flatMap(g=>g.etapas.map(e=>({...e,grupo:g.id})));
+
+async function carregarDados(){
+  document.getElementById('mapa-wrap').innerHTML='<div class="loading"><div class="spinner"></div>Carregando...</div>';
+  try{
+    const r=await fetch(DATA_URL+'?t='+Date.now());
+    const json=await r.json();
+    if(json.unidades){
+      UNIDADES=json.unidades.map(u=>({u:String(u.unidade),a:u.andar,prog:u.progresso||0}));
+      json.unidades.forEach(u=>{
+        DADOS[String(u.unidade)]={};
+        Object.entries(u.etapas||{}).forEach(([eid,cel])=>{
+          DADOS[String(u.unidade)][eid]=cel.valor!==undefined?cel.valor:cel;
+        });
+      });
+      jsonKPIs=json.kpis||{};
+    }
+    renderKPIs();renderMapa();renderRel();
+    const ts=json.meta?.gerado_em?new Date(json.meta.gerado_em).toLocaleString('pt-BR'):'—';
+    document.getElementById('update-bar').textContent='Atualizado: '+ts;
+  }catch(e){
+    document.getElementById('mapa-wrap').innerHTML='<div class="loading" style="color:var(--red)">Erro ao carregar. Toque ↻ para tentar novamente.</div>';
+  }
+}
+
+function renderKPIs(){
+  document.getElementById('kpi-prog').textContent=(jsonKPIs.progresso_geral||0).toFixed(1)+'%';
+  document.getElementById('kpi-bar').style.width=(jsonKPIs.progresso_geral||0)+'%';
+  document.getElementById('kpi-done').textContent=jsonKPIs.done||0;
+  document.getElementById('kpi-doing').textContent=jsonKPIs.doing||0;
+  document.getElementById('kpi-late').textContent=jsonKPIs.late||0;
+  document.getElementById('kpi-idle').textContent=jsonKPIs.idle||0;
+}
+
+function statusOf(v){if(v==='NP')return'np';if(v==='ATR')return'late';const n=Number(v);if(!n)return'idle';if(n===100)return'done';return'doing';}
+function symbolOf(v){if(v==='NP')return'NP';if(v==='ATR')return'ATR';const n=Number(v);if(!n)return'□';if(n===100)return'✓';return'●';}
+function isLate(v,prev){if(v==='NP'||Number(v)===100)return false;return prev&&new Date(prev)<TODAY;}
+
+function renderMapa(){
+  if(!UNIDADES.length){document.getElementById('mapa-wrap').innerHTML='<div class="loading" style="color:var(--text3)">Sem dados.</div>';return;}
+  let h='<table><thead><tr class="grp-row"><th class="corner"></th>';
+  GRUPOS.forEach(g=>{h+='<th class="grp-'+g.id+'" colspan="'+g.etapas.length+'">'+g.nome+'</th>';});
+  h+='</tr><tr class="lbl-row"><th class="ap-th">AP</th>';
+  ETAPAS.forEach(e=>{h+='<th class="'+(e.projeto?'col-proj':'')+'" title="'+e.nome+'">'+e.abrev+'</th>';});
+  h+='</tr></thead><tbody>';
+  let lastA=-1;
+  UNIDADES.forEach(function(un){
+    var u=un.u,a=un.a;
+    var div=a!==lastA;lastA=a;
+    h+='<tr class="'+(div?'floor-div':'')+'"><td class="ap-td">'+u+'</td>';
+    ETAPAS.forEach(function(e){
+      var v=(DADOS[u]||{})[e.id];
+      var val=v!==undefined?v:0;
+      var st=statusOf(val);
+      var sym=symbolOf(val);
+      var pct=typeof val==='number'&&val>0&&val<100;
+      var lw=isLate(val,e.prev);
+      h+='<td class="'+(e.projeto?'col-proj':'')+'">';
+      h+='<div class="cell s-'+st+(lw?' late-warn':'')+'"><span>'+sym+'</span>';
+      if(pct)h+='<span class="cell-pct">'+val+'</span>';
+      h+='</div></td>';
+    });
+    h+='</tr>';
+  });
+  h+='</tbody></table>';
+  document.getElementById('mapa-wrap').innerHTML=h;
+}
+
+function renderRel(){
+  var sorted=[].concat(UNIDADES).sort(function(a,b){return b.prog-a.prog;});
+  function card(title,list){
+    var c='<div class="rel-card"><div class="rel-card-title">'+title+'</div>';
+    list.forEach(function(u){
+      var p=u.prog.toFixed(1);
+      var cor=u.prog>=100?'var(--green)':u.prog>50?'var(--yellow)':'var(--red)';
+      c+='<div class="rel-row"><span class="rel-ap">'+u.u+'</span><div class="rel-bar-wrap"><div class="rel-bar" style="width:'+u.prog+'%;background:'+cor+'"></div></div><span class="rel-pct" style="color:'+cor+'">'+p+'%</span></div>';
+    });
+    return c+'</div>';
+  }
+  document.getElementById('rel-wrap').innerHTML=
+    card('🏆 Top 10 · Mais avançados',sorted.slice(0,10))+
+    card('⚠ Bottom 10 · Mais atrasados',[].concat(sorted).reverse().slice(0,10));
+}
+
+function toggleProj(btn){
+  var wrap=document.getElementById('mapa-wrap');
+  var t=wrap.querySelector('table');if(!t)return;
+  t.classList.toggle('hide-proj');
+  var on=t.classList.contains('hide-proj');
+  btn.classList.toggle('on',on);
+  btn.textContent=on?'🙈 Projetos':'👁 Projetos';
+}
+
+document.querySelectorAll('.ftab').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.ftab').forEach(function(x){x.classList.remove('active');});
+    b.classList.add('active');
+    filtrarStatus(b.dataset.f);
+  });
+});
+
+function filtrarStatus(f){
+  document.querySelectorAll('tbody tr').forEach(function(tr){
+    var ap=tr.querySelector('.ap-td');if(!ap)return;
+    var u=ap.textContent.trim();
+    var un=UNIDADES.find(function(x){return x.u===u;});
+    var show=true;
+    if(f==='atrasados')show=ETAPAS.some(function(e){return (DADOS[u]||{})[e.id]==='ATR';});
+    else if(f==='emexec')show=un&&un.prog>0&&un.prog<100;
+    else if(f==='concluidos')show=un&&un.prog>=99.5;
+    tr.style.display=show?'':'none';
+  });
+}
+
+function filtrarBusca(q){
+  document.querySelectorAll('tbody tr').forEach(function(tr){
+    var ap=tr.querySelector('.ap-td');if(!ap)return;
+    tr.style.display=(!q||ap.textContent.includes(q))?'':'none';
+  });
+}
+
+function switchPage(btn){
+  document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
+  document.getElementById('page-'+btn.dataset.page).classList.add('active');
+}
+
+carregarDados();
+setInterval(carregarDados,5*60*1000);
+</script>
+</body>
+</html>
