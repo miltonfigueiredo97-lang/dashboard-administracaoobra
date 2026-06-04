@@ -426,7 +426,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
 
 <!-- BOTTOM NAV -->
 <nav class="bottom-nav">
-  <button class="nav-btn active" data-panel="acomp" onclick="switchPanel(this)"><span class="nav-icon">&#128203;</span>Acomp.</button>
+  <button class="nav-btn active" data-panel="acomp" onclick="switchPanel(this)"><span class="nav-icon">&#128200;</span>Acomp.</button>
   <button class="nav-btn" data-panel="mexer" onclick="switchPanel(this)"><span class="nav-icon">&#9881;</span>Mexer dep.</button>
   <button class="nav-btn" data-panel="hist" onclick="switchPanel(this)"><span class="nav-icon">&#128203;</span>Log</button>
   <button class="nav-btn" data-panel="nom" onclick="switchPanel(this)"><span class="nav-icon">&#128196;</span>Nomencl.</button>
@@ -480,6 +480,28 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
   </div>
 </div>
 
+
+<!-- MODAL EDITAR USUÁRIO -->
+<div class="modal-overlay" id="modal-edit-user" style="display:none">
+  <div class="modal-box">
+    <div class="modal-handle"></div>
+    <div class="modal-title">Editar Usuário</div>
+    <div class="field"><label>Nome</label><input type="text" id="edit-nome" placeholder="Nome completo"></div>
+    <div class="field"><label>E-mail</label><input type="email" id="edit-email" placeholder="email@exemplo.com"></div>
+    <div class="field"><label>Nova senha (deixe em branco para manter)</label><input type="password" id="edit-senha" placeholder="Nova senha (opcional)"></div>
+    <div class="field"><label>Nível</label>
+      <select class="sel" id="edit-role" style="width:100%">
+        <option value="user">Usuário</option>
+        <option value="admin">Admin</option>
+      </select>
+    </div>
+    <div class="modal-err" id="edit-user-err"></div>
+    <div class="modal-actions">
+      <button class="mbtn mbtn-cancel" onclick="fecharModal('modal-edit-user')">Cancelar</button>
+      <button class="mbtn mbtn-ok" onclick="salvarEditUser()">Salvar</button>
+    </div>
+  </div>
+</div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -1041,6 +1063,39 @@ function abrirModalNom(tipo){
 }
 function fecharModal(id){document.getElementById(id).style.display='none';}
 
+var editUserIdx=-1;
+function editarUser(i){
+  editUserIdx=i;
+  var u=getUsers()[i];
+  document.getElementById('edit-nome').value=u.nome;
+  document.getElementById('edit-email').value=u.email;
+  document.getElementById('edit-role').value=u.role;
+  document.getElementById('edit-senha').value='';
+  document.getElementById('edit-user-err').style.display='none';
+  document.getElementById('modal-edit-user').style.display='flex';
+}
+async function salvarEditUser(){
+  var i=editUserIdx;
+  var lista=getUsers();
+  var nome=document.getElementById('edit-nome').value.trim();
+  var email=document.getElementById('edit-email').value.trim().toLowerCase();
+  var senha=document.getElementById('edit-senha').value;
+  var role=document.getElementById('edit-role').value;
+  var err=document.getElementById('edit-user-err');
+  if(!nome||!email){err.style.display='block';err.textContent='Nome e e-mail obrigatorios.';return;}
+  if(senha&&senha.length<6){err.style.display='block';err.textContent='Senha minimo 6 caracteres.';return;}
+  var duplicado=lista.find(function(u,idx){return u.email===email&&idx!==i;});
+  if(duplicado){err.style.display='block';err.textContent='E-mail ja em uso por outro usuario.';return;}
+  lista[i].nome=nome;
+  lista[i].email=email;
+  lista[i].role=role;
+  if(senha)lista[i].hash=await sha256(senha);
+  saveUsers(lista);
+  fecharModal('modal-edit-user');
+  renderUsuarios();
+  toast('Usuario atualizado!');
+}
+
 async function salvarNomItem(){
   var tipo=nomTipoAtivo;
   var id=document.getElementById('nf-id');
@@ -1100,8 +1155,10 @@ function renderUsuarios(){
     return '<div class="user-item"><div class="u-avatar">'+u.nome.charAt(0).toUpperCase()+'</div>'+
     '<div class="u-info"><div class="u-name">'+u.nome+'</div><div class="u-email">'+u.email+'</div>'+
     '<span class="u-role role-'+u.role+'">'+(u.role==='admin'?'Admin':'Usuario')+'</span></div>'+
-    (u.email!==(ME?ME.email:'')?'<button class="u-del" onclick="removerUser('+i+')">&#10005;</button>':'<span style="font-size:11px;color:var(--text3)">voce</span>')+
-    '</div>';
+    '<div style="display:flex;gap:6px">'+
+    '<button class="nom-edit" onclick="editarUser('+i+')" title="Editar">&#9998;</button>'+
+    (u.email!==(ME?ME.email:'')?'<button class="u-del" onclick="removerUser('+i+')">&#10005;</button>':'<span style="font-size:11px;color:var(--text3);padding:0 4px">voce</span>')+
+    '</div></div>';
   }).join('');
 }
 function abrirModalUser(){document.getElementById('modal-user').style.display='flex';}
@@ -1131,6 +1188,7 @@ function switchPanel(btn){
   panelAtual=btn.dataset.panel;
   document.getElementById('panel-'+panelAtual).classList.add('active');
   document.getElementById('t-title').textContent=panelTitles[panelAtual]||'';
+  if(panelAtual==='acomp'){renderAndares();renderAcompContent();}
   if(panelAtual==='hist')carregarHistorico();
   if(panelAtual==='nom')renderNomListas();
   if(panelAtual==='users')renderUsuarios();
