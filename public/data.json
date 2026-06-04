@@ -8,7 +8,7 @@
     "data_inicio": "2025-06-01",
     "data_prevista": "2026-12-31",
     "status": "ativa",
-    "gerado_em": "2026-06-04T21:51:36.032Z",
+    "gerado_em": "2026-06-04T21:52:26.173Z",
     "schema_version": "2.0"
   },
   "kpis": {
@@ -1245,7 +1245,7 @@
       "local_nome": "AP 11",
       "tarefa_id": "infra_eletrica",
       "tarefa_nome": "Infra Elétrica",
-      "pct_tarefa": 0,
+      "pct_tarefa": 100,
       "area_total_m2": 1
     }
   ]
