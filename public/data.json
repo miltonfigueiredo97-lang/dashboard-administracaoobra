@@ -8,8 +8,8 @@
     "data_inicio": "2025-06-01",
     "data_prevista": "2026-12-31",
     "status": "ativa",
-    "gerado_em": "2026-05-23T02:59:04.158Z",
-    "schema_version": "1.0"
+    "gerado_em": "2026-06-04T20:59:13.288Z",
+    "schema_version": "2.0"
   },
   "kpis": {
     "progresso_geral": 56.3,
@@ -427,6 +427,785 @@
       }
     }
   ],
+  "nomenclatura": {
+    "locais": [
+      {
+        "obra_id": "essence",
+        "andar": 1,
+        "local_id": "ap1",
+        "nome_local": "AP 1",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 1,
+        "local_id": "ap2",
+        "nome_local": "AP 2",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 1,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 1,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 2,
+        "local_id": "ap1",
+        "nome_local": "AP 1",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 2,
+        "local_id": "ap2",
+        "nome_local": "AP 2",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 2,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 2,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 3,
+        "local_id": "ap1",
+        "nome_local": "AP 1",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 3,
+        "local_id": "ap2",
+        "nome_local": "AP 2",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 3,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 3,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 4,
+        "local_id": "ap1",
+        "nome_local": "AP 1",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 4,
+        "local_id": "ap2",
+        "nome_local": "AP 2",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 4,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 4,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 5,
+        "local_id": "ap1",
+        "nome_local": "AP 1",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 5,
+        "local_id": "ap2",
+        "nome_local": "AP 2",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 5,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 5,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 6,
+        "local_id": "ap1",
+        "nome_local": "AP 1",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 6,
+        "local_id": "ap2",
+        "nome_local": "AP 2",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 6,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 6,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 7,
+        "local_id": "ap1",
+        "nome_local": "AP 1",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 7,
+        "local_id": "ap2",
+        "nome_local": "AP 2",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 7,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 7,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 8,
+        "local_id": "ap1",
+        "nome_local": "AP 1",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 8,
+        "local_id": "ap2",
+        "nome_local": "AP 2",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 8,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 8,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 9,
+        "local_id": "ap1",
+        "nome_local": "AP 1",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 9,
+        "local_id": "ap2",
+        "nome_local": "AP 2",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 9,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 9,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 10,
+        "local_id": "ap1",
+        "nome_local": "AP 1",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 10,
+        "local_id": "ap2",
+        "nome_local": "AP 2",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 10,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 10,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 11,
+        "local_id": "ap1",
+        "nome_local": "AP 1",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 11,
+        "local_id": "ap2",
+        "nome_local": "AP 2",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 11,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 11,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 12,
+        "local_id": "ap1",
+        "nome_local": "AP 1",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 12,
+        "local_id": "ap2",
+        "nome_local": "AP 2",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 12,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 12,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 13,
+        "local_id": "ap1",
+        "nome_local": "AP 1",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 13,
+        "local_id": "ap2",
+        "nome_local": "AP 2",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 13,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 13,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 14,
+        "local_id": "ap1",
+        "nome_local": "AP 1",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 14,
+        "local_id": "ap2",
+        "nome_local": "AP 2",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 14,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 14,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 15,
+        "local_id": "ap1",
+        "nome_local": "AP 1",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 15,
+        "local_id": "ap2",
+        "nome_local": "AP 2",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 15,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 15,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      }
+    ],
+    "tarefas": [
+      {
+        "obra_id": "essence",
+        "tarefa_id": "infra_eletrica",
+        "nome": "Infra Elétrica",
+        "grupo": "eletrica",
+        "unidade": "m²",
+        "aplica_em": "ap",
+        "ativo": "SIM",
+        "ordem": 3
+      },
+      {
+        "obra_id": "essence",
+        "tarefa_id": "infra_hidraulica",
+        "nome": "Infra Hidráulica",
+        "grupo": "hidraulica",
+        "unidade": "m²",
+        "aplica_em": "ap",
+        "ativo": "SIM",
+        "ordem": 4
+      },
+      {
+        "obra_id": "essence",
+        "tarefa_id": "infra_gas",
+        "nome": "Infra Gás",
+        "grupo": "hidraulica",
+        "unidade": "m",
+        "aplica_em": "ap",
+        "ativo": "SIM",
+        "ordem": 5
+      },
+      {
+        "obra_id": "essence",
+        "tarefa_id": "contrapiso",
+        "nome": "Contrapiso",
+        "grupo": "instalacoes",
+        "unidade": "m²",
+        "aplica_em": "ap",
+        "ativo": "SIM",
+        "ordem": 6
+      },
+      {
+        "obra_id": "essence",
+        "tarefa_id": "impermeabilizacao",
+        "nome": "Impermeabilização",
+        "grupo": "acabamento",
+        "unidade": "m²",
+        "aplica_em": "ap",
+        "ativo": "SIM",
+        "ordem": 7
+      },
+      {
+        "obra_id": "essence",
+        "tarefa_id": "gesso_liso",
+        "nome": "Gesso Liso",
+        "grupo": "acabamento",
+        "unidade": "m²",
+        "aplica_em": "ap",
+        "ativo": "SIM",
+        "ordem": 8
+      },
+      {
+        "obra_id": "essence",
+        "tarefa_id": "forro",
+        "nome": "Forro de Gesso",
+        "grupo": "acabamento",
+        "unidade": "m²",
+        "aplica_em": "ap",
+        "ativo": "SIM",
+        "ordem": 9
+      },
+      {
+        "obra_id": "essence",
+        "tarefa_id": "revestimento_piso",
+        "nome": "Revestimento de Piso",
+        "grupo": "acabamento",
+        "unidade": "m²",
+        "aplica_em": "ap",
+        "ativo": "SIM",
+        "ordem": 10
+      },
+      {
+        "obra_id": "essence",
+        "tarefa_id": "revestimento_parede",
+        "nome": "Revestimento de Parede",
+        "grupo": "acabamento",
+        "unidade": "m²",
+        "aplica_em": "ap",
+        "ativo": "SIM",
+        "ordem": 11
+      },
+      {
+        "obra_id": "essence",
+        "tarefa_id": "pintura",
+        "nome": "Pintura",
+        "grupo": "acabamento",
+        "unidade": "m²",
+        "aplica_em": "ap",
+        "ativo": "SIM",
+        "ordem": 12
+      },
+      {
+        "obra_id": "essence",
+        "tarefa_id": "granito",
+        "nome": "Granito / Bancadas",
+        "grupo": "acabamento",
+        "unidade": "m²",
+        "aplica_em": "ap",
+        "ativo": "SIM",
+        "ordem": 13
+      },
+      {
+        "obra_id": "essence",
+        "tarefa_id": "esquadrias",
+        "nome": "Esquadrias (Portas/Janelas)",
+        "grupo": "acabamento",
+        "unidade": "un",
+        "aplica_em": "ap",
+        "ativo": "SIM",
+        "ordem": 14
+      },
+      {
+        "obra_id": "essence",
+        "tarefa_id": "louças_metais",
+        "nome": "Louças e Metais",
+        "grupo": "acabamento",
+        "unidade": "un",
+        "aplica_em": "ap",
+        "ativo": "SIM",
+        "ordem": 15
+      },
+      {
+        "obra_id": "essence",
+        "tarefa_id": "limpeza_obra",
+        "nome": "Limpeza de Obra",
+        "grupo": "instalacoes",
+        "unidade": "m²",
+        "aplica_em": "ap",
+        "ativo": "SIM",
+        "ordem": 16
+      },
+      {
+        "obra_id": "essence",
+        "tarefa_id": "pintura_hall",
+        "nome": "Pintura Hall/Escada",
+        "grupo": "acabamento",
+        "unidade": "m²",
+        "aplica_em": "area_comum",
+        "ativo": "SIM",
+        "ordem": 17
+      },
+      {
+        "obra_id": "essence",
+        "tarefa_id": "revestimento_hall",
+        "nome": "Revestimento Hall/Escada",
+        "grupo": "acabamento",
+        "unidade": "m²",
+        "aplica_em": "area_comum",
+        "ativo": "SIM",
+        "ordem": 18
+      }
+    ],
+    "comodos": [
+      {
+        "obra_id": "essence",
+        "local_id": "ap",
+        "comodo_id": "sala",
+        "nome_comodo": "Sala de Estar / Jantar",
+        "area_m2": 28.5,
+        "ordem": 1,
+        "ativo": "SIM",
+        "obs": ""
+      },
+      {
+        "obra_id": "essence",
+        "local_id": "ap",
+        "comodo_id": "cozinha",
+        "nome_comodo": "Cozinha",
+        "area_m2": 12,
+        "ordem": 2,
+        "ativo": "SIM",
+        "obs": ""
+      },
+      {
+        "obra_id": "essence",
+        "local_id": "ap",
+        "comodo_id": "area_servico",
+        "nome_comodo": "Área de Serviço",
+        "area_m2": 4.5,
+        "ordem": 3,
+        "ativo": "SIM",
+        "obs": ""
+      },
+      {
+        "obra_id": "essence",
+        "local_id": "ap",
+        "comodo_id": "quarto_suite",
+        "nome_comodo": "Quarto 1 (Suíte)",
+        "area_m2": 16,
+        "ordem": 4,
+        "ativo": "SIM",
+        "obs": ""
+      },
+      {
+        "obra_id": "essence",
+        "local_id": "ap",
+        "comodo_id": "wc_suite",
+        "nome_comodo": "WC da Suíte",
+        "area_m2": 5.5,
+        "ordem": 5,
+        "ativo": "SIM",
+        "obs": ""
+      },
+      {
+        "obra_id": "essence",
+        "local_id": "ap",
+        "comodo_id": "quarto2",
+        "nome_comodo": "Quarto 2",
+        "area_m2": 12,
+        "ordem": 6,
+        "ativo": "SIM",
+        "obs": ""
+      },
+      {
+        "obra_id": "essence",
+        "local_id": "ap",
+        "comodo_id": "quarto3",
+        "nome_comodo": "Quarto 3",
+        "area_m2": 10,
+        "ordem": 7,
+        "ativo": "SIM",
+        "obs": ""
+      },
+      {
+        "obra_id": "essence",
+        "local_id": "ap",
+        "comodo_id": "wc_social",
+        "nome_comodo": "WC Social",
+        "area_m2": 4,
+        "ordem": 8,
+        "ativo": "SIM",
+        "obs": ""
+      },
+      {
+        "obra_id": "essence",
+        "local_id": "ap",
+        "comodo_id": "varanda",
+        "nome_comodo": "Varanda",
+        "area_m2": 8,
+        "ordem": 9,
+        "ativo": "SIM",
+        "obs": ""
+      },
+      {
+        "obra_id": "essence",
+        "local_id": "ap",
+        "comodo_id": "circulacao",
+        "nome_comodo": "Circulação Interna",
+        "area_m2": 6,
+        "ordem": 10,
+        "ativo": "SIM",
+        "obs": ""
+      },
+      {
+        "obra_id": "essence",
+        "local_id": "hall",
+        "comodo_id": "hall_andar",
+        "nome_comodo": "Hall do Andar",
+        "area_m2": 18,
+        "ordem": 1,
+        "ativo": "SIM",
+        "obs": ""
+      },
+      {
+        "obra_id": "essence",
+        "local_id": "escada",
+        "comodo_id": "caixa_esc",
+        "nome_comodo": "Caixa de Escada",
+        "area_m2": 12,
+        "ordem": 1,
+        "ativo": "SIM",
+        "obs": ""
+      },
+      {
+        "obra_id": "essence",
+        "local_id": "escada",
+        "comodo_id": "corredor",
+        "nome_comodo": "Corredor",
+        "area_m2": 8,
+        "ordem": 2,
+        "ativo": "SIM",
+        "obs": ""
+      }
+    ]
+  },
+  "resumo_acompanhamento": [],
   "historico_recente": [
     {
       "timestamp": "2026-05-20 09:00:00",
