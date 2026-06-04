@@ -686,7 +686,7 @@ var DADOS_ACOMP={};
 
 async function carregarNomenclatura(){
   try{
-    var r=await fetch(SCRIPT_URL+'?action=nomenclatura&obra='+OBRA_ID+'&t='+Date.now());
+    var r=await fetch(SCRIPT_URL+'?action=nomenclatura&obra='+OBRA_ID+'&t='+Date.now(), {redirect:'follow'});
     var json=await r.json();
     if(json.locais) NOM=json;
     renderAcompContent();
@@ -1068,7 +1068,7 @@ async function resolverNC(idx){
 }
 async function carregarNC(){
   try{
-    var r=await fetch(SCRIPT_URL+'?action=nao_conformidades&obra='+OBRA_ID+'&t='+Date.now());
+    var r=await fetch(SCRIPT_URL+'?action=nao_conformidades&obra='+OBRA_ID+'&t='+Date.now(), {redirect:'follow'});
     var dados=await r.json();
     if(Array.isArray(dados))NAO_CONFORMIDADES=dados;
   }catch(e){}
@@ -1243,7 +1243,7 @@ async function carregarHistorico(){
   var list=document.getElementById('log-list');
   list.innerHTML='<div class="loading"><div class="spinner"></div>Carregando...</div>';
   try{
-    var r=await fetch(SCRIPT_URL+'?action=historico&obra='+OBRA_ID+'&limit=50&t='+Date.now());
+    var r=await fetch(SCRIPT_URL+'?action=historico&obra='+OBRA_ID+'&limit=50&t='+Date.now(), {redirect:'follow'});
     var dados=await r.json();
     if(!dados.length){list.innerHTML='<p class="empty">Sem alteracoes</p>';return;}
     var ETAPAS=getEtapas();
