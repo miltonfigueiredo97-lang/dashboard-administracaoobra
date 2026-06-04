@@ -232,6 +232,39 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
 .sub-tab{flex:1;padding:8px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;color:var(--text3);border:none;background:none;font-family:'Sora',sans-serif;text-align:center}
 .sub-tab:hover{color:var(--text)}
 .sub-tab.active{background:var(--bg2);color:var(--yellow);box-shadow:0 1px 4px rgba(0,0,0,.3)}
+
+/* STATUS BUTTONS */
+.status-btns{display:flex;gap:6px;margin-top:8px}
+.sbtn-status{flex:1;padding:8px 4px;border-radius:var(--rsm);border:1.5px solid var(--border);background:var(--bg4);font-size:11px;font-weight:700;cursor:pointer;font-family:'JetBrains Mono',monospace;color:var(--text3);text-align:center;transition:all .15s}
+.sbtn-status:active{transform:scale(.95)}
+.sbtn-status.visualizado{border-color:#a78bfa;background:rgba(167,139,250,.15);color:#a78bfa}
+.sbtn-status.conferido{border-color:var(--green);background:var(--gbg);color:var(--green)}
+.sbtn-status.problema{border-color:var(--red);background:var(--rbg);color:var(--red)}
+
+/* PREVIEW % TAREFA/AP */
+.preview-bar{background:var(--bg4);border-radius:var(--rsm);padding:8px 12px;margin:6px 16px 10px;display:flex;gap:16px;align-items:center}
+.preview-item{display:flex;flex-direction:column;gap:2px}
+.preview-lbl{font-size:9px;color:var(--text3);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em}
+.preview-val{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700}
+.preview-mini-bar{flex:1;height:3px;background:var(--border);border-radius:999px;overflow:hidden;margin-top:4px}
+.preview-mini-fill{height:100%;border-radius:999px;transition:width .3s ease}
+
+/* NAO CONFORMIDADES */
+.nc-item{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:8px}
+.nc-header{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:8px}
+.nc-local{font-size:13px;font-weight:700;color:var(--red)}
+.nc-meta{font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:2px}
+.nc-desc{font-size:13px;color:var(--text2);line-height:1.5;margin-bottom:10px;padding:8px 12px;background:var(--bg4);border-radius:var(--rsm);border-left:3px solid var(--red)}
+.nc-status{display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:10px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.nc-aberto{background:var(--rbg);color:var(--red)}
+.nc-resolvido{background:var(--gbg);color:var(--green)}
+.nc-actions{display:flex;gap:8px;margin-top:10px}
+.nc-btn{flex:1;padding:10px;border-radius:var(--rsm);border:1px solid var(--border);background:var(--bg4);font-size:12px;font-weight:600;cursor:pointer;font-family:'Sora',sans-serif;color:var(--text2)}
+.nc-btn.resolve{border-color:var(--green);color:var(--green);background:var(--gbg)}
+.nc-filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.nc-stat{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:12px 16px;flex:1;text-align:center}
+.nc-stat-val{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700}
+.nc-stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-top:3px;font-family:'JetBrains Mono',monospace}
 </style>
 </head>
 <body>
@@ -424,12 +457,30 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
   </div>
 </div>
 
+
+  <!-- NAO CONFORMIDADES -->
+  <div class="panel" id="panel-nc">
+    <div style="display:flex;gap:8px;margin-bottom:4px">
+      <div class="nc-stat"><div class="nc-stat-val" style="color:var(--red)" id="nc-total-aberto">0</div><div class="nc-stat-lbl">Abertos</div></div>
+      <div class="nc-stat"><div class="nc-stat-val" style="color:var(--green)" id="nc-total-resolvido">0</div><div class="nc-stat-lbl">Resolvidos</div></div>
+    </div>
+    <div class="nc-filter-row">
+      <select class="sel" id="nc-fil-andar" onchange="renderNC()" style="flex:1"><option value="">Todos os andares</option></select>
+      <select class="sel" id="nc-fil-status" onchange="renderNC()" style="flex:1">
+        <option value="">Todos</option>
+        <option value="aberto">Abertos</option>
+        <option value="resolvido">Resolvidos</option>
+      </select>
+    </div>
+    <div id="nc-list"><p class="empty">Nenhuma não conformidade registrada</p></div>
+  </div>
 <!-- BOTTOM NAV -->
 <nav class="bottom-nav">
   <button class="nav-btn active" data-panel="acomp" onclick="switchPanel(this)"><span class="nav-icon">&#128200;</span>Acomp.</button>
   <button class="nav-btn" data-panel="mexer" onclick="switchPanel(this)"><span class="nav-icon">&#9881;</span>Mexer dep.</button>
   <button class="nav-btn" data-panel="hist" onclick="switchPanel(this)"><span class="nav-icon">&#128203;</span>Log</button>
   <button class="nav-btn" data-panel="nom" onclick="switchPanel(this)"><span class="nav-icon">&#128196;</span>Nomencl.</button>
+  <button class="nav-btn" data-panel="nc" onclick="switchPanel(this)"><span class="nav-icon">&#9888;</span>N.Conf.</button>
   <button class="nav-btn" data-panel="users" onclick="switchPanel(this)"><span class="nav-icon">&#128101;</span>Users</button>
 </nav>
 
@@ -502,6 +553,27 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
     </div>
   </div>
 </div>
+
+<!-- MODAL PROBLEMA -->
+<div class="modal-overlay" id="modal-problema" style="display:none">
+  <div class="modal-box">
+    <div class="modal-handle"></div>
+    <div class="modal-title">&#9888; Registrar Problema</div>
+    <div style="font-size:12px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-bottom:14px;padding:8px 12px;background:var(--rbg);border-radius:var(--rsm)" id="prob-titulo"></div>
+    <input type="hidden" id="prob-andar"><input type="hidden" id="prob-lid">
+    <input type="hidden" id="prob-lnome"><input type="hidden" id="prob-tid">
+    <input type="hidden" id="prob-tnome"><input type="hidden" id="prob-cid">
+    <input type="hidden" id="prob-cnome">
+    <div class="field"><label>Descreva o problema</label>
+      <textarea id="prob-desc" placeholder="Ex: Alvenaria com fissura na parede sul, necessita retrabalho..." style="width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:12px 14px;border-radius:var(--rsm);font-family:'Sora',sans-serif;font-size:14px;outline:none;resize:vertical;min-height:100px;line-height:1.5"></textarea>
+    </div>
+    <div class="modal-err" id="prob-err">Descreva o problema antes de salvar.</div>
+    <div class="modal-actions">
+      <button class="mbtn mbtn-cancel" onclick="fecharModal('modal-problema')">Cancelar</button>
+      <button class="mbtn mbtn-ok" style="background:var(--red);color:#fff" onclick="salvarProblema()">Registrar</button>
+    </div>
+  </div>
+</div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -548,6 +620,7 @@ async function fazerLogin(){
   renderAndares();
   renderUsuarios();
   carregarHistorico();
+  preencherFiltrosNC();
 }
 function logout(){ME=null;document.getElementById('overlay').style.display='flex';document.getElementById('app').classList.remove('show');}
 document.getElementById('login-senha').addEventListener('keydown',function(e){if(e.key==='Enter')fazerLogin();});
@@ -784,12 +857,8 @@ function getComodos(lid){
 
 function renderAcompContent(){
   var wrap=document.getElementById('acomp-content');
-  if(!NOM.locais.length){
-    wrap.innerHTML='<div class="loading"><div class="spinner"></div>Carregando nomenclatura...</div>';
-    return;
-  }
+  if(!NOM.locais.length){wrap.innerHTML='<div class="loading"><div class="spinner"></div>Carregando...</div>';return;}
   var locais=NOM.locais.filter(function(l){return l.ativo==='SIM'&&(String(l.andar)===String(andarSel)||!l.andar);});
-  // deduplicar por local_id (caso venham locais sem andar que valem pra todos)
   var vistosLocal={};
   locais=locais.filter(function(l){if(vistosLocal[l.local_id])return false;vistosLocal[l.local_id]=true;return true;});
   if(!locais.length){wrap.innerHTML='<p class="empty">Nenhum local cadastrado</p>';return;}
@@ -799,121 +868,239 @@ function renderAcompContent(){
     var cor=prog>=100?'var(--green)':prog>50?'var(--yellow)':'var(--blue)';
     var tarefas=getTarefasParaLocal(local.local_id);
     html+='<div class="local-card" id="lc-'+local.local_id+'">';
-    html+='<div class="local-hdr" onclick="toggleLocal(\''+local.local_id+'\')">';
-    html+='<div class="local-nome">'+local.nome_local+'</div>';
-    html+='<div style="display:flex;align-items:center;gap:10px"><div class="local-prog" style="color:'+cor+'">'+prog.toFixed(1)+'%</div><div class="chevron">&#8250;</div></div>';
-    html+='</div>';
-    html+='<div class="local-progbar"><div class="local-progbar-fill" style="width:'+prog+'%;background:'+cor+'"></div></div>';
+    html+='<div class="local-hdr" onclick="toggleLocal(\''+local.local_id+'\')"><div class="local-nome">'+local.nome_local+'</div>';
+    html+='<div style="display:flex;align-items:center;gap:10px"><div class="local-prog" id="lprog-'+andarSel+'-'+local.local_id+'" style="color:'+cor+'">'+prog.toFixed(1)+'%</div><div class="chevron">&#8250;</div></div></div>';
+    html+='<div class="local-progbar"><div class="local-progbar-fill" id="lbar-'+andarSel+'-'+local.local_id+'" style="width:'+prog+'%;background:'+cor+'"></div></div>';
     html+='<div class="local-body">';
-    if(!tarefas.length){html+='<p class="empty">Nenhuma tarefa para este tipo de local</p>';}
     tarefas.forEach(function(tarefa){
       var comodos=getComodos(local.local_id);
       var areaTot=comodos.reduce(function(a,c){return a+Number(c.area_m2||0);},0);
-      var progTar=0;
-      if(comodos.length){
-        var soma=0;
-        comodos.forEach(function(c){
-          var k=andarSel+'|'+local.local_id+'|'+tarefa.tarefa_id+'|'+c.comodo_id;
-          var d=DADOS_ACOMP[k];
-          var pct=d?Number(d.pct_exec)||0:0;
-          var area=Number(c.area_m2)||0;
-          soma+=areaTot>0?(pct*area/areaTot):pct;
-        });
-        progTar=Math.round(soma*10)/10;
-      }
+      var progTar=calcProgTarefa(andarSel,local.local_id,tarefa.tarefa_id,comodos,areaTot);
       var corT=progTar>=100?'var(--green)':progTar>0?'var(--blue)':'var(--text3)';
       html+='<div class="tarefa-row" id="tr-'+local.local_id+'-'+tarefa.tarefa_id+'">';
-      html+='<div class="tarefa-hdr" onclick="toggleTarefa(\''+local.local_id+'\',\''+tarefa.tarefa_id+'\')">';
-      html+='<div class="tarefa-nome">'+tarefa.nome+'</div>';
-      html+='<div style="display:flex;align-items:center;gap:8px"><div class="tarefa-prog" style="color:'+corT+'">'+progTar.toFixed(1)+'%</div><div class="tarefa-chev">&#8250;</div></div>';
+      html+='<div class="tarefa-hdr" onclick="toggleTarefa(\''+local.local_id+'\',\''+tarefa.tarefa_id+'\')"><div class="tarefa-nome">'+tarefa.nome+'</div>';
+      html+='<div style="display:flex;align-items:center;gap:8px"><div class="tarefa-prog" id="tprog-'+andarSel+'-'+local.local_id+'-'+tarefa.tarefa_id+'" style="color:'+corT+'">'+progTar.toFixed(1)+'%</div><div class="tarefa-chev">&#8250;</div></div></div>';
+      // preview bar
+      html+='<div class="preview-bar" id="prev-'+andarSel+'-'+local.local_id+'-'+tarefa.tarefa_id+'" style="display:none">';
+      html+='<div class="preview-item"><div class="preview-lbl">Tarefa</div><div class="preview-val" id="prev-tar-val-'+andarSel+'-'+local.local_id+'-'+tarefa.tarefa_id+'" style="color:'+corT+'">'+progTar.toFixed(1)+'%</div><div class="preview-mini-bar"><div class="preview-mini-fill" id="prev-tar-bar-'+andarSel+'-'+local.local_id+'-'+tarefa.tarefa_id+'" style="width:'+progTar+'%;background:'+corT+'"></div></div></div>';
+      html+='<div class="preview-item"><div class="preview-lbl">'+local.nome_local+'</div><div class="preview-val" id="prev-local-val-'+andarSel+'-'+local.local_id+'" style="color:'+cor+'">'+prog.toFixed(1)+'%</div><div class="preview-mini-bar"><div class="preview-mini-fill" id="prev-local-bar-'+andarSel+'-'+local.local_id+'" style="width:'+prog+'%;background:'+cor+'"></div></div></div>';
       html+='</div>';
       html+='<div class="tarefa-body">';
-      if(!comodos.length){
-        html+='<div style="padding:14px 16px">';
-        // sem cômodos: input direto
-        var k=andarSel+'|'+local.local_id+'|'+tarefa.tarefa_id+'|_';
-        var d=DADOS_ACOMP[k];
-        var pct=d?Number(d.pct_exec)||0:0;
-        var sid=('c_'+andarSel+'_'+local.local_id+'_'+tarefa.tarefa_id+'__').replace(/[^a-z0-9]/gi,'_');
-        html+='<div class="comodo-edit">';
-        html+='<input type="number" class="pct-small" id="inp_'+sid+'" min="0" max="100" step="1" value="'+pct+'">';
+      comodos.forEach(function(comodo){
+        var k=andarSel+'|'+local.local_id+'|'+tarefa.tarefa_id+'|'+comodo.comodo_id;
+        var d=DADOS_ACOMP[k]||{pct_exec:0,status_vis:0,status_conf:0};
+        var pct=Number(d.pct_exec)||0;
+        var cor2=pct>=100?'var(--green)':pct>0?'var(--blue)':'var(--border2)';
+        var sid2=('c_'+andarSel+'_'+local.local_id+'_'+tarefa.tarefa_id+'_'+comodo.comodo_id).replace(/[^a-z0-9]/gi,'_');
+        var vis=d.status_vis?'visualizado':'';
+        var conf=d.status_conf?'conferido':'';
+        html+='<div class="comodo-item" style="flex-direction:column;align-items:stretch;padding:12px 16px">';
+        html+='<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">';
+        html+='<div class="comodo-info"><div class="comodo-nome">'+comodo.nome_comodo+'</div><div class="comodo-area">'+Number(comodo.area_m2||0)+'m2</div></div>';
+        html+='<input type="range" class="slider-sm" id="sl_'+sid2+'" min="0" max="100" step="1" value="'+pct+'" data-andar="'+andarSel+'" data-lid="'+local.local_id+'" data-tid="'+tarefa.tarefa_id+'" data-cid="'+comodo.comodo_id+'" data-ltid="'+andarSel+'-'+local.local_id+'-'+tarefa.tarefa_id+'">';
+        html+='<input type="number" class="pct-small" id="inp_'+sid2+'" min="0" max="100" step="1" value="'+pct+'">';
         html+='<span class="pct-small-unit">%</span>';
-        html+='<input type="range" class="slider-sm" id="sl_'+sid+'" min="0" max="100" step="1" value="'+pct+'">';
-        html+='</div></div>';
-        html+='<script>(function(){';
-        html+='var sl=document.getElementById("sl_'+sid+'");';
-        html+='var inp=document.getElementById("inp_'+sid+'");';
-        html+='if(sl)sl.oninput=function(){inp.value=sl.value;addPendAcomp('+andarSel+',"'+local.local_id+'","'+tarefa.tarefa_id+'","_",parseInt(sl.value),0,"m2");};';
-        html+='if(inp)inp.onchange=function(){var v=Math.max(0,Math.min(100,parseInt(inp.value)||0));inp.value=v;if(sl)sl.value=v;addPendAcomp('+andarSel+',"'+local.local_id+'","'+tarefa.tarefa_id+'","_",v,0,"m2");};';
-        html+='})();<\/script>';
-      } else {
-        comodos.forEach(function(comodo){
-          var k=andarSel+'|'+local.local_id+'|'+tarefa.tarefa_id+'|'+comodo.comodo_id;
-          var d=DADOS_ACOMP[k];
-          var pct=d?Number(d.pct_exec)||0:0;
-          var area=Number(comodo.area_m2)||0;
-          var cor2=pct>=100?'var(--green)':pct>0?'var(--blue)':'var(--border2)';
-          var sid2=('c_'+andarSel+'_'+local.local_id+'_'+tarefa.tarefa_id+'_'+comodo.comodo_id).replace(/[^a-z0-9]/gi,'_');
-          html+='<div class="comodo-item">';
-          html+='<div class="comodo-info"><div class="comodo-nome">'+comodo.nome_comodo+'</div><div class="comodo-area">'+area+'m2</div></div>';
-          html+='<input type="range" class="slider-sm" id="sl_'+sid2+'" min="0" max="100" step="1" value="'+pct+'">';
-          html+='<input type="number" class="pct-small" id="inp_'+sid2+'" min="0" max="100" step="1" value="'+pct+'">';
-          html+='<span class="pct-small-unit">%</span>';
-          html+='</div>';
-          html+='<script>(function(){';
-          html+='var sl=document.getElementById("sl_'+sid2+'");';
-          html+='var inp=document.getElementById("inp_'+sid2+'");';
-          html+='if(sl)sl.oninput=function(){inp.value=sl.value;addPendAcomp('+andarSel+',"'+local.local_id+'","'+tarefa.tarefa_id+'","'+comodo.comodo_id+'",parseInt(sl.value),0,"m2");};';
-          html+='if(inp)inp.onchange=function(){var v=Math.max(0,Math.min(100,parseInt(inp.value)||0));inp.value=v;if(sl)sl.value=v;addPendAcomp('+andarSel+',"'+local.local_id+'","'+tarefa.tarefa_id+'","'+comodo.comodo_id+'",v,0,"m2");};';
-          html+='})();<\/script>';
-        });
-      }
+        html+='</div>';
+        html+='<div class="status-btns">';
+        html+='<button class="sbtn-status '+vis+'" id="vis_'+sid2+'" onclick="toggleStatus(\'vis\',\''+sid2+'\','+andarSel+',\''+local.local_id+'\',\''+tarefa.tarefa_id+'\',\''+comodo.comodo_id+'\')">&#128065; Visualizado</button>';
+        html+='<button class="sbtn-status '+conf+'" id="conf_'+sid2+'" onclick="toggleStatus(\'conf\',\''+sid2+'\','+andarSel+',\''+local.local_id+'\',\''+tarefa.tarefa_id+'\',\''+comodo.comodo_id+'\')">&#10003; Conferido</button>';
+        html+='<button class="sbtn-status" onclick="abrirProblema('+andarSel+',\''+local.local_id+'\',\''+local.nome_local+'\',\''+tarefa.tarefa_id+'\',\''+tarefa.nome+'\',\''+comodo.comodo_id+'\',\''+comodo.nome_comodo+'\')">&#9888; Problema</button>';
+        html+='</div>';
+        html+='</div>';
+      });
       html+='</div></div>';
     });
     html+='</div></div>';
   });
   wrap.innerHTML=html;
-  // Attach eventos dos sliders/inputs depois do innerHTML
   attachAcompEvents();
 }
 
+
 function attachAcompEvents(){
-  var wrap=document.getElementById('acomp-content');
-  if(!wrap)return;
+  var wrap=document.getElementById('acomp-content');if(!wrap)return;
   wrap.querySelectorAll('.slider-sm').forEach(function(sl){
+    if(sl._bound)return;sl._bound=true;
     var sid=sl.id.replace('sl_','');
     var inp=document.getElementById('inp_'+sid);
-    if(!sl._bound){
-      sl._bound=true;
-      sl.addEventListener('input',function(){
-        if(inp){inp.value=sl.value;}
-        // extrair dados do sid: c_andar_localid_tarefaid_comodoid
-        var parts=sid.split('_').slice(1); // remover 'c'
-        if(parts.length>=4){
-          var andar=parseInt(parts[0]);
-          var lid=parts[1];
-          var tid=parts[2];
-          var cid=parts.slice(3).join('_')||'_';
-          addPendAcomp(andar,lid,tid,cid,parseInt(sl.value)||0,0,'m2');
-        }
-      });
-    }
+    var andar=parseInt(sl.dataset.andar);
+    var lid=sl.dataset.lid;
+    var tid=sl.dataset.tid;
+    var cid=sl.dataset.cid;
+    var ltid=sl.dataset.ltid; // andar-lid-tid
+    sl.addEventListener('input',function(){
+      var v=parseInt(sl.value)||0;
+      if(inp)inp.value=v;
+      addPendAcomp(andar,lid,tid,cid,v,0,'m2');
+      atualizarPreview(andar,lid,tid,ltid);
+    });
     if(inp&&!inp._bound){
       inp._bound=true;
       inp.addEventListener('change',function(){
         var v=Math.max(0,Math.min(100,parseInt(inp.value)||0));
-        inp.value=v;sl.value=v;
-        var parts=sid.split('_').slice(1);
-        if(parts.length>=4){
-          var andar=parseInt(parts[0]);
-          var lid=parts[1];
-          var tid=parts[2];
-          var cid=parts.slice(3).join('_')||'_';
-          addPendAcomp(andar,lid,tid,cid,v,0,'m2');
-        }
+        inp.value=v;if(sl)sl.value=v;
+        addPendAcomp(andar,lid,tid,cid,v,0,'m2');
+        atualizarPreview(andar,lid,tid,ltid);
       });
     }
   });
+}
+
+function calcProgTarefa(andar,lid,tid,comodos,areaTot){
+  if(!comodos||!comodos.length)return 0;
+  var soma=0;
+  comodos.forEach(function(c){
+    var k=andar+'|'+lid+'|'+tid+'|'+c.comodo_id;
+    var d=DADOS_ACOMP[k];var pct=d?Number(d.pct_exec)||0:0;
+    var area=Number(c.area_m2)||0;
+    soma+=areaTot>0?(pct*area/areaTot):pct;
+  });
+  return Math.round(soma*10)/10;
+}
+
+function atualizarPreview(andar,lid,tid,ltid){
+  // mostrar preview bar
+  var prevEl=document.getElementById('prev-'+ltid);
+  if(prevEl)prevEl.style.display='flex';
+  // recalcular tarefa
+  var comodos=getComodos(lid);
+  var areaTot=comodos.reduce(function(a,c){return a+Number(c.area_m2||0);},0);
+  var progTar=calcProgTarefa(andar,lid,tid,comodos,areaTot);
+  var corT=progTar>=100?'var(--green)':progTar>0?'var(--blue)':'var(--text3)';
+  var tvEl=document.getElementById('prev-tar-val-'+ltid);
+  var tbEl=document.getElementById('prev-tar-bar-'+ltid);
+  var tpEl=document.getElementById('tprog-'+ltid);
+  if(tvEl){tvEl.textContent=progTar.toFixed(1)+'%';tvEl.style.color=corT;}
+  if(tbEl){tbEl.style.width=progTar+'%;';tbEl.style.background=corT;}
+  if(tpEl){tpEl.textContent=progTar.toFixed(1)+'%';tpEl.style.color=corT;}
+  // recalcular local
+  var progLocal=getProgLocal(andar,lid);
+  var corL=progLocal>=100?'var(--green)':progLocal>50?'var(--yellow)':'var(--blue)';
+  var lvEl=document.getElementById('prev-local-val-'+andar+'-'+lid);
+  var lbEl=document.getElementById('prev-local-bar-'+andar+'-'+lid);
+  var lpEl=document.getElementById('lprog-'+andar+'-'+lid);
+  var lbarEl=document.getElementById('lbar-'+andar+'-'+lid);
+  if(lvEl){lvEl.textContent=progLocal.toFixed(1)+'%';lvEl.style.color=corL;}
+  if(lbEl){lbEl.style.width=progLocal+'%';lbEl.style.background=corL;}
+  if(lpEl){lpEl.textContent=progLocal.toFixed(1)+'%';lpEl.style.color=corL;}
+  if(lbarEl){lbarEl.style.width=progLocal+'%';lbarEl.style.background=corL;}
+}
+
+function toggleStatus(tipo,sid,andar,lid,tid,cid){
+  var k=andar+'|'+lid+'|'+tid+'|'+cid;
+  if(!DADOS_ACOMP[k])DADOS_ACOMP[k]={pct_exec:0};
+  var field='status_'+tipo;
+  DADOS_ACOMP[k][field]=DADOS_ACOMP[k][field]?0:1;
+  var btnId=(tipo==='vis'?'vis_':'conf_')+sid;
+  var btn=document.getElementById(btnId);
+  if(btn){
+    if(tipo==='vis')btn.classList.toggle('visualizado',!!DADOS_ACOMP[k][field]);
+    else btn.classList.toggle('conferido',!!DADOS_ACOMP[k][field]);
+  }
+  // add ao pendente para salvar o status
+  var cur=pendentesAcomp.find(function(x){return x.key===k;});
+  if(cur){cur['status_'+tipo]=DADOS_ACOMP[k][field];}
+  else{
+    var pct=DADOS_ACOMP[k].pct_exec||0;
+    pendentesAcomp.push({key:k,andar:andar,local_id:lid,tarefa_id:tid,comodo_id:cid,pct_exec:pct,qtd_exec:0,unidade:'m2',status_vis:DADOS_ACOMP[k].status_vis||0,status_conf:DADOS_ACOMP[k].status_conf||0});
+  }
+  atualizarSaveBar();
+}
+
+// NAO CONFORMIDADES
+var NAO_CONFORMIDADES=[];
+function abrirProblema(andar,lid,lnome,tid,tnome,cid,cnome){
+  document.getElementById('prob-andar').value=andar;
+  document.getElementById('prob-lid').value=lid;
+  document.getElementById('prob-lnome').value=lnome;
+  document.getElementById('prob-tid').value=tid;
+  document.getElementById('prob-tnome').value=tnome;
+  document.getElementById('prob-cid').value=cid;
+  document.getElementById('prob-cnome').value=cnome;
+  document.getElementById('prob-desc').value='';
+  document.getElementById('prob-titulo').textContent=lnome+' · '+tnome+' · '+cnome;
+  document.getElementById('prob-err').style.display='none';
+  document.getElementById('modal-problema').style.display='flex';
+}
+async function salvarProblema(){
+  var desc=document.getElementById('prob-desc').value.trim();
+  if(!desc){document.getElementById('prob-err').style.display='block';return;}
+  var nc={
+    id:'nc_'+Date.now(),
+    andar:document.getElementById('prob-andar').value,
+    local_id:document.getElementById('prob-lid').value,
+    local_nome:document.getElementById('prob-lnome').value,
+    tarefa_id:document.getElementById('prob-tid').value,
+    tarefa_nome:document.getElementById('prob-tnome').value,
+    comodo_id:document.getElementById('prob-cid').value,
+    comodo_nome:document.getElementById('prob-cnome').value,
+    descricao:desc,
+    status:'aberto',
+    data_registro:new Date().toLocaleString('pt-BR'),
+    usuario:ME?ME.nome:'admin',
+    data_resolucao:'',
+  };
+  NAO_CONFORMIDADES.push(nc);
+  fecharModal('modal-problema');
+  toast('Problema registrado!','warn');
+  // salvar no Sheets
+  try{
+    var res=await fetch(SCRIPT_URL+'?token='+(ME?ME.hash:''),{
+      method:'POST',
+      body:JSON.stringify({action:'salvar_nc',obra_id:OBRA_ID,usuario:ME?ME.email:'admin',item:nc})
+    });
+    var json=await res.json();
+    if(json.ok)toast('Salvo no Sheets!');
+    else toast('Erro: '+(json.erro||'falha'),'err');
+  }catch(e){toast('Salvo localmente (sem conexao)','warn');}
+  if(panelAtual==='nc')renderNC();
+}
+async function resolverNC(idx){
+  NAO_CONFORMIDADES[idx].status='resolvido';
+  NAO_CONFORMIDADES[idx].data_resolucao=new Date().toLocaleString('pt-BR');
+  try{
+    await fetch(SCRIPT_URL+'?token='+(ME?ME.hash:''),{
+      method:'POST',
+      body:JSON.stringify({action:'resolver_nc',obra_id:OBRA_ID,id:NAO_CONFORMIDADES[idx].id,usuario:ME?ME.email:'admin'})
+    });
+  }catch(e){}
+  renderNC();toast('Marcado como resolvido!');
+}
+async function carregarNC(){
+  try{
+    var r=await fetch(SCRIPT_URL+'?action=nao_conformidades&obra='+OBRA_ID+'&t='+Date.now());
+    var dados=await r.json();
+    if(Array.isArray(dados))NAO_CONFORMIDADES=dados;
+  }catch(e){}
+  renderNC();
+}
+function renderNC(){
+  var fil_andar=document.getElementById('nc-fil-andar').value;
+  var fil_status=document.getElementById('nc-fil-status').value;
+  var lista=NAO_CONFORMIDADES.filter(function(nc){
+    if(fil_andar&&String(nc.andar)!==String(fil_andar))return false;
+    if(fil_status&&nc.status!==fil_status)return false;
+    return true;
+  });
+  var abertos=NAO_CONFORMIDADES.filter(function(x){return x.status==='aberto';}).length;
+  var resolvidos=NAO_CONFORMIDADES.filter(function(x){return x.status==='resolvido';}).length;
+  document.getElementById('nc-total-aberto').textContent=abertos;
+  document.getElementById('nc-total-resolvido').textContent=resolvidos;
+  var list=document.getElementById('nc-list');
+  if(!lista.length){list.innerHTML='<p class="empty">Nenhuma não conformidade'+(fil_andar||fil_status?' com este filtro':'')+'</p>';return;}
+  list.innerHTML=lista.map(function(nc,i){
+    return '<div class="nc-item">'+
+      '<div class="nc-header">'+
+        '<div><div class="nc-local">'+nc.andar+'o · '+nc.local_nome+'</div>'+
+        '<div class="nc-meta">'+nc.tarefa_nome+' · '+nc.comodo_nome+'</div>'+
+        '<div class="nc-meta">'+nc.data_registro+' · '+nc.usuario+'</div></div>'+
+        '<span class="nc-status nc-'+nc.status+'">'+nc.status.toUpperCase()+'</span>'+
+      '</div>'+
+      '<div class="nc-desc">'+nc.descricao+'</div>'+
+      (nc.status==='aberto'?'<div class="nc-actions"><button class="nc-btn resolve" onclick="resolverNC('+i+')">&#10003; Marcar resolvido</button></div>':
+       '<div class="nc-meta">Resolvido em: '+nc.data_resolucao+'</div>')+
+    '</div>';
+  }).join('');
 }
 
 function toggleLocal(lid){var c=document.getElementById('lc-'+lid);if(c)c.classList.toggle('open');}
@@ -949,6 +1136,12 @@ function initSelects(){
     d.innerHTML='<input type="checkbox" data-eid="'+e.id+'" onchange="updateBulkCount()"> '+e.nome;
     be.appendChild(d);
   });
+}
+function preencherFiltrosNC(){
+  var sel=document.getElementById('nc-fil-andar');
+  if(sel&&sel.options.length<=1){
+    for(var a=1;a<=15;a++){sel.innerHTML+='<option value="'+a+'">'+a+'o Andar</option>';}
+  }
 }
 function updateBulkCount(){
   var aps=document.querySelectorAll('#bulk-aps .chip.sel').length;
@@ -1224,7 +1417,7 @@ function removerUser(i){
 
 // PANELS / SUB-TABS
 var panelAtual='acomp';var subAtual={mexer:'andar',nom:'nom-locais'};
-var panelTitles={acomp:'Acompanhamento',mexer:'Mexer depois',hist:'Historico',nom:'Nomenclatura',users:'Usuarios'};
+var panelTitles={acomp:'Acompanhamento',mexer:'Mexer depois',hist:'Historico',nom:'Nomenclatura',users:'Usuarios',nc:'Nao Conformidades'};
 function switchPanel(btn){
   document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
@@ -1236,6 +1429,7 @@ function switchPanel(btn){
   if(panelAtual==='hist')carregarHistorico();
   if(panelAtual==='nom')renderNomListas();
   if(panelAtual==='users')renderUsuarios();
+  if(panelAtual==='nc')carregarNC();
 }
 function switchSub(btn){
   var panel=btn.closest('.panel');
