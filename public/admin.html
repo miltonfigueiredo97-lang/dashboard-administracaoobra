@@ -788,7 +788,10 @@ function renderAcompContent(){
     wrap.innerHTML='<div class="loading"><div class="spinner"></div>Carregando nomenclatura...</div>';
     return;
   }
-  var locais=NOM.locais.filter(function(l){return l.ativo==='SIM';});
+  var locais=NOM.locais.filter(function(l){return l.ativo==='SIM'&&(String(l.andar)===String(andarSel)||!l.andar);});
+  // deduplicar por local_id (caso venham locais sem andar que valem pra todos)
+  var vistosLocal={};
+  locais=locais.filter(function(l){if(vistosLocal[l.local_id])return false;vistosLocal[l.local_id]=true;return true;});
   if(!locais.length){wrap.innerHTML='<p class="empty">Nenhum local cadastrado</p>';return;}
   var html='';
   locais.forEach(function(local){
@@ -870,6 +873,47 @@ function renderAcompContent(){
     html+='</div></div>';
   });
   wrap.innerHTML=html;
+  // Attach eventos dos sliders/inputs depois do innerHTML
+  attachAcompEvents();
+}
+
+function attachAcompEvents(){
+  var wrap=document.getElementById('acomp-content');
+  if(!wrap)return;
+  wrap.querySelectorAll('.slider-sm').forEach(function(sl){
+    var sid=sl.id.replace('sl_','');
+    var inp=document.getElementById('inp_'+sid);
+    if(!sl._bound){
+      sl._bound=true;
+      sl.addEventListener('input',function(){
+        if(inp){inp.value=sl.value;}
+        // extrair dados do sid: c_andar_localid_tarefaid_comodoid
+        var parts=sid.split('_').slice(1); // remover 'c'
+        if(parts.length>=4){
+          var andar=parseInt(parts[0]);
+          var lid=parts[1];
+          var tid=parts[2];
+          var cid=parts.slice(3).join('_')||'_';
+          addPendAcomp(andar,lid,tid,cid,parseInt(sl.value)||0,0,'m2');
+        }
+      });
+    }
+    if(inp&&!inp._bound){
+      inp._bound=true;
+      inp.addEventListener('change',function(){
+        var v=Math.max(0,Math.min(100,parseInt(inp.value)||0));
+        inp.value=v;sl.value=v;
+        var parts=sid.split('_').slice(1);
+        if(parts.length>=4){
+          var andar=parseInt(parts[0]);
+          var lid=parts[1];
+          var tid=parts[2];
+          var cid=parts.slice(3).join('_')||'_';
+          addPendAcomp(andar,lid,tid,cid,v,0,'m2');
+        }
+      });
+    }
+  });
 }
 
 function toggleLocal(lid){var c=document.getElementById('lc-'+lid);if(c)c.classList.toggle('open');}
