@@ -694,7 +694,7 @@ async function carregarNomenclatura(){
 
   // 2. Atualiza do Sheets em background
   try{
-    var r=await fetch(SCRIPT_URL+'?action=nomenclatura&obra='+OBRA_ID+'&t='+Date.now(), {redirect:'follow'});
+    var r=await fetch(SCRIPT_URL+'?action=nomenclatura&obra='+OBRA_ID+'&t='+Date.now());
     var text=await r.text();
     var json=JSON.parse(text);
     if(json.locais){
@@ -704,7 +704,7 @@ async function carregarNomenclatura(){
   }catch(e){console.warn('Nomenclatura:',e);}
 
   try{
-    var r2=await fetch(SCRIPT_URL+'?action=acompanhamento&obra='+OBRA_ID+'&t='+Date.now(), {redirect:'follow'});
+    var r2=await fetch(SCRIPT_URL+'?action=acompanhamento&obra='+OBRA_ID+'&t='+Date.now());
     var text2=await r2.text();
     var dados=JSON.parse(text2);
     if(Array.isArray(dados)){
@@ -1098,7 +1098,7 @@ async function carregarNC(){
   if(cache){try{var c=JSON.parse(cache);if(Array.isArray(c)){NAO_CONFORMIDADES=c;renderNC();}}catch(e){}}
   // atualiza do Sheets
   try{
-    var r=await fetch(SCRIPT_URL+'?action=nao_conformidades&obra='+OBRA_ID+'&t='+Date.now(), {redirect:'follow'});
+    var r=await fetch(SCRIPT_URL+'?action=nao_conformidades&obra='+OBRA_ID+'&t='+Date.now());
     var text=await r.text();
     var dados=JSON.parse(text);
     if(Array.isArray(dados)){
@@ -1277,7 +1277,7 @@ async function carregarHistorico(){
   var list=document.getElementById('log-list');
   list.innerHTML='<div class="loading"><div class="spinner"></div>Carregando...</div>';
   try{
-    var r=await fetch(SCRIPT_URL+'?action=historico&obra='+OBRA_ID+'&limit=50&t='+Date.now(), {redirect:'follow'});
+    var r=await fetch(SCRIPT_URL+'?action=historico&obra='+OBRA_ID+'&limit=50&t='+Date.now());
     var dados=await r.json();
     if(!dados.length){list.innerHTML='<p class="empty">Sem alteracoes</p>';return;}
     var ETAPAS=getEtapas();
