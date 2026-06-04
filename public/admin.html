@@ -684,38 +684,34 @@ UNIDADES.forEach(function(un){DADOS[un.u]={};getEtapas().forEach(function(e){DAD
 var NOM={locais:[],tarefas:[],comodos:[]};
 var DADOS_ACOMP={};
 
-async function carregarNomenclatura(){
-  // 1. Carrega cache instantâneo do localStorage
-  var cacheNom=localStorage.getItem('nom_'+OBRA_ID);
-  var cacheAcomp=localStorage.getItem('acomp_'+OBRA_ID);
-  if(cacheNom){try{var n=JSON.parse(cacheNom);if(n.locais)NOM=n;}catch(e){}}
-  if(cacheAcomp){try{DADOS_ACOMP=JSON.parse(cacheAcomp);}catch(e){}}
-  if(NOM.locais.length){renderAcompContent();renderNomListas();}
-
-  // 2. Atualiza do Sheets em background
+async function fetchJSON(url){
   try{
-    var r=await fetch(SCRIPT_URL+'?action=nomenclatura&obra='+OBRA_ID+'&t='+Date.now());
+    var r=await fetch(url);
     var text=await r.text();
-    var json=JSON.parse(text);
-    if(json.locais){
-      NOM=json;
-      localStorage.setItem('nom_'+OBRA_ID,JSON.stringify(json));
-    }
-  }catch(e){console.warn('Nomenclatura:',e);}
+    var start=text.indexOf('[');
+    var start2=text.indexOf('{');
+    if(start2>=0&&(start<0||start2<start))start=start2;
+    if(start<0)throw new Error('JSON nao encontrado');
+    return JSON.parse(text.slice(start));
+  }catch(e){
+    console.warn('fetchJSON erro:',e.message);
+    return null;
+  }
+}
 
-  try{
-    var r2=await fetch(SCRIPT_URL+'?action=acompanhamento&obra='+OBRA_ID+'&t='+Date.now());
-    var text2=await r2.text();
-    var dados=JSON.parse(text2);
-    if(Array.isArray(dados)){
-      DADOS_ACOMP={};
-      dados.forEach(function(d){
-        var key=d.andar+'|'+d.local_id+'|'+d.tarefa_id+'|'+d.comodo_id;
-        DADOS_ACOMP[key]={pct_exec:Number(d.pct_exec)||0,qtd_exec:Number(d.qtd_exec)||0};
-      });
-      localStorage.setItem('acomp_'+OBRA_ID,JSON.stringify(DADOS_ACOMP));
-    }
-  }catch(e){console.warn('Acompanhamento:',e);}
+async function carregarNomenclatura(){
+  var json=await fetchJSON(SCRIPT_URL+'?action=nomenclatura&obra='+OBRA_ID+'&t='+Date.now());
+  if(json&&json.locais) NOM=json;
+
+  var dados=await fetchJSON(SCRIPT_URL+'?action=acompanhamento&obra='+OBRA_ID+'&t='+Date.now());
+  if(Array.isArray(dados)){
+    DADOS_ACOMP={};
+    dados.forEach(function(d){
+      var key=String(d.andar)+'|'+d.local_id+'|'+d.tarefa_id+'|'+d.comodo_id;
+      DADOS_ACOMP[key]={pct_exec:Number(d.pct_exec)||0,qtd_exec:Number(d.qtd_exec)||0};
+    });
+    console.log('DADOS_ACOMP:',Object.keys(DADOS_ACOMP).length,'registros');
+  }
 
   renderAcompContent();
   renderNomListas();
@@ -790,7 +786,7 @@ async function salvarTudo(){
       });
       var json=await res.json();
       if(!json.ok){toast('Erro acomp: '+(json.erro||'falha'),'err');ok=false;}
-      else{pendentesAcomp=[];localStorage.removeItem('acomp_'+OBRA_ID);}
+      else{pendentesAcomp=[];}
     }catch(e){toast('Erro de conexão','err');ok=false;}
   }
   // salvar mapa direto
@@ -1067,7 +1063,6 @@ async function salvarProblema(){
   };
   NAO_CONFORMIDADES.push(nc);
   fecharModal('modal-problema');
-  localStorage.removeItem('nc_'+OBRA_ID);
   toast('Problema registrado!','warn');
   // salvar no Sheets
   try{
@@ -1093,19 +1088,9 @@ async function resolverNC(idx){
   renderNC();toast('Marcado como resolvido!');
 }
 async function carregarNC(){
-  // cache instantâneo
-  var cache=localStorage.getItem('nc_'+OBRA_ID);
-  if(cache){try{var c=JSON.parse(cache);if(Array.isArray(c)){NAO_CONFORMIDADES=c;renderNC();}}catch(e){}}
-  // atualiza do Sheets
-  try{
-    var r=await fetch(SCRIPT_URL+'?action=nao_conformidades&obra='+OBRA_ID+'&t='+Date.now());
-    var text=await r.text();
-    var dados=JSON.parse(text);
-    if(Array.isArray(dados)){
-      NAO_CONFORMIDADES=dados;
-      localStorage.setItem('nc_'+OBRA_ID,JSON.stringify(dados));
-    }
-  }catch(e){console.warn('NC:',e);}
+  var dados=await fetchJSON(SCRIPT_URL+'?action=nao_conformidades&obra='+OBRA_ID+'&t='+Date.now());
+  if(Array.isArray(dados)) NAO_CONFORMIDADES=dados;
+  console.log('NC:',NAO_CONFORMIDADES.length,'registros');
   renderNC();
 }
 function renderNC(){
@@ -1277,9 +1262,9 @@ async function carregarHistorico(){
   var list=document.getElementById('log-list');
   list.innerHTML='<div class="loading"><div class="spinner"></div>Carregando...</div>';
   try{
-    var r=await fetch(SCRIPT_URL+'?action=historico&obra='+OBRA_ID+'&limit=50&t='+Date.now());
-    var dados=await r.json();
-    if(!dados.length){list.innerHTML='<p class="empty">Sem alteracoes</p>';return;}
+    var dados=await fetchJSON(SCRIPT_URL+'?action=historico&obra='+OBRA_ID+'&limit=50&t='+Date.now());
+    if(!dados) dados=[];
+    if(!Array.isArray(dados)||!dados.length){list.innerHTML='<p class="empty">Sem alteracoes</p>';return;}
     var ETAPAS=getEtapas();
     list.innerHTML=dados.map(function(h){
       var en=ETAPAS.find(function(e){return e.id===h.etapa_id;});
