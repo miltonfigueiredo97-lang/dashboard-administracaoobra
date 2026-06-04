@@ -8,7 +8,7 @@
     "data_inicio": "2025-06-01",
     "data_prevista": "2026-12-31",
     "status": "ativa",
-    "gerado_em": "2026-06-04T22:28:25.067Z",
+    "gerado_em": "2026-06-04T22:34:22.734Z",
     "schema_version": "2.0"
   },
   "kpis": {
@@ -1245,8 +1245,18 @@
       "local_nome": "AP 11",
       "tarefa_id": "infra_eletrica",
       "tarefa_nome": "Infra Elétrica",
-      "pct_tarefa": 22.5,
-      "area_total_m2": 2
+      "pct_tarefa": 58,
+      "area_total_m2": 1
+    },
+    {
+      "obra_id": "essence",
+      "andar": 1,
+      "local_id": "ap2",
+      "local_nome": "AP 12",
+      "tarefa_id": "infra_eletrica",
+      "tarefa_nome": "Infra Elétrica",
+      "pct_tarefa": 47,
+      "area_total_m2": 1
     }
   ]
 }
