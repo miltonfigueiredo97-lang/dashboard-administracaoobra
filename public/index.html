@@ -172,6 +172,7 @@ tbody td:active .cell{transform:scale(.85)}
 <nav class="bottom-nav">
   <button class="nav-btn active" data-page="mapa" onclick="switchPage(this)"><span class="nav-icon">◉</span>Mapa</button>
   <button class="nav-btn" data-page="rel" onclick="switchPage(this)"><span class="nav-icon">📊</span>Relatório</button>
+  <button class="nav-btn" data-page="acomp" onclick="switchPage(this)"><span class="nav-icon">📋</span>Acomp.</button>
   <button class="nav-btn" onclick="window.location.href='admin.html'"><span class="nav-icon">🔐</span>Admin</button>
 </nav>
 
@@ -353,6 +354,169 @@ function switchPage(btn){
   btn.classList.add('active');
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
   document.getElementById('page-'+btn.dataset.page).classList.add('active');
+}
+
+
+// ── ACOMPANHAMENTO ───────────────────────────────────────────────────────────
+var andarSel = 1;
+var NOM = { locais:[], tarefas:[], comodos:[] };
+var RESUMO = [];
+
+function renderAndares() {
+  var wrap = document.getElementById('acomp-andares');
+  if (!wrap) return;
+  var html = '';
+  for (var a=1; a<=15; a++) {
+    html += '<button class="andar-chip'+(a===andarSel?' active':'')+'" onclick="selAndar('+a+')">'+a+'º</button>';
+  }
+  wrap.innerHTML = html;
+}
+
+function selAndar(a) {
+  andarSel = a;
+  document.querySelectorAll('.andar-chip').forEach(function(b) {
+    b.classList.toggle('active', parseInt(b.textContent)===a);
+  });
+  renderAcompContent();
+}
+
+function renderAcompContent() {
+  var wrap = document.getElementById('acomp-content');
+  if (!wrap) return;
+  if (!NOM.locais.length) {
+    wrap.innerHTML = '<p style="color:var(--text3);font-size:13px;text-align:center;padding:32px;font-family:'JetBrains Mono',monospace">Carregando nomenclatura...</p>';
+    return;
+  }
+
+  var locaisDoAndar = NOM.locais.filter(function(l) { return l.ativo === 'SIM'; });
+  var html = '';
+
+  locaisDoAndar.forEach(function(local) {
+    // progresso do local = média das tarefas
+    var tarefasLocal = NOM.tarefas.filter(function(t) {
+      return t.ativo==='SIM' && (t.aplica_em==='todos' || t.aplica_em===local.tipo || (t.aplica_em==='ap' && local.tipo==='apartamento') || (t.aplica_em==='area_comum' && local.tipo==='area_comum'));
+    });
+
+    var progLocal = 0;
+    var nTarefas = 0;
+    tarefasLocal.forEach(function(t) {
+      var resumoItem = RESUMO.find(function(r) {
+        return String(r.andar)===String(andarSel) && r.local_id===local.local_id && r.tarefa_id===t.tarefa_id;
+      });
+      if (resumoItem) { progLocal += Number(resumoItem.pct_tarefa)||0; nTarefas++; }
+    });
+    progLocal = nTarefas > 0 ? Math.round(progLocal/nTarefas*10)/10 : 0;
+
+    var corProg = progLocal>=100?'var(--green)':progLocal>50?'var(--yellow)':'var(--blue)';
+
+    html += '<div class="local-card" id="lc-'+local.local_id+'">';
+    html += '<div class="local-header" onclick="toggleLocal(''+local.local_id+'')">';
+    html += '<div class="local-nome">'+local.nome_local+'</div>';
+    html += '<div style="display:flex;align-items:center;gap:10px">';
+    html += '<div class="local-prog" style="color:'+corProg+'">'+progLocal.toFixed(1)+'%</div>';
+    html += '<div class="chevron">›</div>';
+    html += '</div></div>';
+    html += '<div class="local-bar"><div class="local-bar-fill" style="width:'+progLocal+'%;background:'+corProg+'"></div></div>';
+    html += '<div class="local-body">';
+
+    tarefasLocal.forEach(function(tarefa) {
+      var resumoItem = RESUMO.find(function(r) {
+        return String(r.andar)===String(andarSel) && r.local_id===local.local_id && r.tarefa_id===tarefa.tarefa_id;
+      });
+      var progTarefa = resumoItem ? Number(resumoItem.pct_tarefa)||0 : 0;
+      var corTar = progTarefa>=100?'var(--green)':progTarefa>0?'var(--blue)':'var(--text3)';
+
+      var comodos = NOM.comodos.filter(function(c) {
+        return c.ativo==='SIM' && (c.local_id===local.local_id || c.local_id===local.tipo || (local.tipo==='apartamento'&&c.local_id==='ap'));
+      });
+
+      html += '<div class="tarefa-row" id="tr-'+local.local_id+'-'+tarefa.tarefa_id+'">';
+      html += '<div class="tarefa-header" onclick="toggleTarefa(''+local.local_id+'',''+tarefa.tarefa_id+'')">';
+      html += '<div class="tarefa-nome">'+tarefa.nome+'</div>';
+      html += '<div style="display:flex;align-items:center;gap:8px">';
+      html += '<div class="tarefa-prog" style="color:'+corTar+'">'+progTarefa.toFixed(1)+'%</div>';
+      html += '<div class="chevron" style="font-size:14px">›</div>';
+      html += '</div></div>';
+      html += '<div class="tarefa-body">';
+
+      if (comodos.length === 0) {
+        html += '<p style="color:var(--text3);font-size:12px;font-family:'JetBrains Mono',monospace">Nenhum cômodo cadastrado</p>';
+      } else {
+        comodos.forEach(function(comodo) {
+          var area = Number(comodo.area_m2)||0;
+          // buscar dado de ACOMPANHAMENTO
+          var dadoComp = (DADOS_ACOMP[andarSel+'|'+local.local_id+'|'+tarefa.tarefa_id+'|'+comodo.comodo_id])||{pct_exec:0};
+          var pct = Number(dadoComp.pct_exec)||0;
+          var corC = pct>=100?'#22d3a0':pct>0?'#60a5fa':'#374460';
+          html += '<div class="comodo-item">';
+          html += '<div class="comodo-nome">'+comodo.nome_comodo+'</div>';
+          html += '<div class="comodo-area">'+area+'m²</div>';
+          html += '<div class="comodo-bar-wrap"><div class="comodo-bar" style="width:'+pct+'%;background:'+corC+'"></div></div>';
+          html += '<div class="comodo-pct" style="color:'+corC+'">'+pct+'%</div>';
+          html += '</div>';
+        });
+      }
+
+      html += '</div></div>';
+    });
+
+    html += '</div></div>';
+  });
+
+  wrap.innerHTML = html || '<p style="color:var(--text3);font-size:13px;text-align:center;padding:32px">Nenhum local cadastrado</p>';
+}
+
+var DADOS_ACOMP = {};
+
+function toggleLocal(lid) {
+  var card = document.getElementById('lc-'+lid);
+  if (card) card.classList.toggle('open');
+}
+function toggleTarefa(lid, tid) {
+  var row = document.getElementById('tr-'+lid+'-'+tid);
+  if (row) row.classList.toggle('open');
+}
+
+// Integrar carregarDados para preencher NOM e RESUMO
+var _origCarregarDados = carregarDados;
+carregarDados = async function() {
+  await _origCarregarDados();
+};
+
+// Sobrescrever carregarDados completamente para capturar nomenclatura e resumo
+var DATA_URL_ORIG = DATA_URL;
+async function carregarDados() {
+  document.getElementById('mapa-wrap').innerHTML='<div class="loading"><div class="spinner"></div>Carregando...</div>';
+  try {
+    var r = await fetch(DATA_URL_ORIG+'?t='+Date.now());
+    var json = await r.json();
+    if (json.unidades) {
+      UNIDADES = json.unidades.map(function(u){return {u:String(u.unidade),a:u.andar,prog:u.progresso||0};});
+      json.unidades.forEach(function(u){
+        DADOS[String(u.unidade)]={};
+        Object.entries(u.etapas||{}).forEach(function(entry){
+          DADOS[String(u.unidade)][entry[0]] = entry[1].valor!==undefined?entry[1].valor:entry[1];
+        });
+      });
+      jsonKPIs = json.kpis||{};
+    }
+    if (json.nomenclatura) {
+      NOM = json.nomenclatura;
+    }
+    if (json.resumo_acompanhamento) {
+      RESUMO = json.resumo_acompanhamento;
+      DADOS_ACOMP = {};
+      json.resumo_acompanhamento.forEach(function(r2) {
+        // não é por comodo aqui, é por tarefa — ok
+      });
+    }
+    renderKPIs(); renderMapa(); renderRel();
+    renderAndares(); renderAcompContent();
+    var ts = json.meta && json.meta.gerado_em ? new Date(json.meta.gerado_em).toLocaleString('pt-BR') : '—';
+    document.getElementById('update-bar').textContent='Atualizado: '+ts;
+  } catch(e) {
+    document.getElementById('mapa-wrap').innerHTML='<div class="loading" style="color:var(--red)">Erro ao carregar. Toque ↻ para tentar novamente.</div>';
+  }
 }
 
 carregarDados();
