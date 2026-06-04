@@ -61,8 +61,8 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
 .nav-icon{font-size:19px;line-height:1}
 
 /* PANELS */
-.panel{display:none;flex-direction:column;padding:14px;gap:12px;flex:1}
-.panel.active{display:flex}
+.panel{display:none;flex-direction:column;padding:14px;gap:12px;flex:1;overflow:hidden}
+.panel.active{display:flex;overflow:hidden}
 
 /* CARDS */
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
@@ -460,11 +460,11 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
 
   <!-- NAO CONFORMIDADES -->
   <div class="panel" id="panel-nc">
-    <div style="display:flex;gap:8px;margin-bottom:4px">
+    <div style="display:flex;gap:8px;margin-bottom:4px;flex-shrink:0">
       <div class="nc-stat"><div class="nc-stat-val" style="color:var(--red)" id="nc-total-aberto">0</div><div class="nc-stat-lbl">Abertos</div></div>
       <div class="nc-stat"><div class="nc-stat-val" style="color:var(--green)" id="nc-total-resolvido">0</div><div class="nc-stat-lbl">Resolvidos</div></div>
     </div>
-    <div class="nc-filter-row">
+    <div class="nc-filter-row" style="flex-shrink:0">
       <select class="sel" id="nc-fil-andar" onchange="renderNC()" style="flex:1"><option value="">Todos os andares</option></select>
       <select class="sel" id="nc-fil-status" onchange="renderNC()" style="flex:1">
         <option value="">Todos</option>
@@ -472,7 +472,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
         <option value="resolvido">Resolvidos</option>
       </select>
     </div>
-    <div id="nc-list"><p class="empty">Nenhuma não conformidade registrada</p></div>
+    <div id="nc-list" style="overflow-y:auto;flex:1"><p class="empty">Nenhuma não conformidade registrada</p></div>
   </div>
 <!-- BOTTOM NAV -->
 <nav class="bottom-nav">
