@@ -8,7 +8,7 @@
     "data_inicio": "2025-06-01",
     "data_prevista": "2026-12-31",
     "status": "ativa",
-    "gerado_em": "2026-06-04T23:20:29.862Z",
+    "gerado_em": "2026-06-04T23:33:15.459Z",
     "schema_version": "2.0"
   },
   "kpis": {
@@ -1241,22 +1241,22 @@
     {
       "obra_id": "essence",
       "andar": 1,
-      "local_id": "ap1",
-      "local_nome": "AP 11",
+      "local_id": "ap2",
+      "local_nome": "AP 12",
       "tarefa_id": "infra_eletrica",
       "tarefa_nome": "Infra Elétrica",
-      "pct_tarefa": 52,
+      "pct_tarefa": 0,
       "area_total_m2": 1
     },
     {
       "obra_id": "essence",
       "andar": 1,
-      "local_id": "ap2",
-      "local_nome": "AP 12",
-      "tarefa_id": "infra_eletrica",
-      "tarefa_nome": "Infra Elétrica",
-      "pct_tarefa": 47,
-      "area_total_m2": 1
+      "local_id": "ap1",
+      "local_nome": "AP 11",
+      "tarefa_id": "infra_hidraulica",
+      "tarefa_nome": "Infra Hidráulica",
+      "pct_tarefa": 41.7,
+      "area_total_m2": 3
     }
   ]
 }
