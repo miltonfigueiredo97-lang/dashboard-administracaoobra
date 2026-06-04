@@ -686,14 +686,29 @@ var DADOS_ACOMP={};
 
 async function carregarNomenclatura(){
   try{
+    // carrega nomenclatura
     var r=await fetch(SCRIPT_URL+'?action=nomenclatura&obra='+OBRA_ID+'&t='+Date.now(), {redirect:'follow'});
     var json=await r.json();
     if(json.locais) NOM=json;
-    renderAcompContent();
-    renderNomListas();
   }catch(e){
-    toast('Erro ao carregar nomenclatura — usando padrão','warn');
+    toast('Erro ao carregar nomenclatura','warn');
   }
+  try{
+    // carrega dados já salvos do acompanhamento
+    var r2=await fetch(SCRIPT_URL+'?action=acompanhamento&obra='+OBRA_ID+'&t='+Date.now(), {redirect:'follow'});
+    var dados=await r2.json();
+    if(Array.isArray(dados)){
+      DADOS_ACOMP={};
+      dados.forEach(function(d){
+        var key=d.andar+'|'+d.local_id+'|'+d.tarefa_id+'|'+d.comodo_id;
+        DADOS_ACOMP[key]={pct_exec:Number(d.pct_exec)||0,qtd_exec:Number(d.qtd_exec)||0};
+      });
+    }
+  }catch(e){
+    // silencioso — dados ficam vazios
+  }
+  renderAcompContent();
+  renderNomListas();
 }
 
 // PENDENTES
