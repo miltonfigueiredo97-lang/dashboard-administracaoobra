@@ -8,7 +8,7 @@
     "data_inicio": "2025-06-01",
     "data_prevista": "2026-12-31",
     "status": "ativa",
-    "gerado_em": "2026-06-04T20:59:13.288Z",
+    "gerado_em": "2026-06-04T21:52:39.762Z",
     "schema_version": "2.0"
   },
   "kpis": {
@@ -433,7 +433,7 @@
         "obra_id": "essence",
         "andar": 1,
         "local_id": "ap1",
-        "nome_local": "AP 1",
+        "nome_local": "AP 11",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -441,7 +441,7 @@
         "obra_id": "essence",
         "andar": 1,
         "local_id": "ap2",
-        "nome_local": "AP 2",
+        "nome_local": "AP 12",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -465,7 +465,7 @@
         "obra_id": "essence",
         "andar": 2,
         "local_id": "ap1",
-        "nome_local": "AP 1",
+        "nome_local": "AP 21",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -473,7 +473,7 @@
         "obra_id": "essence",
         "andar": 2,
         "local_id": "ap2",
-        "nome_local": "AP 2",
+        "nome_local": "AP 22",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -497,7 +497,7 @@
         "obra_id": "essence",
         "andar": 3,
         "local_id": "ap1",
-        "nome_local": "AP 1",
+        "nome_local": "AP 31",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -505,7 +505,7 @@
         "obra_id": "essence",
         "andar": 3,
         "local_id": "ap2",
-        "nome_local": "AP 2",
+        "nome_local": "AP 32",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -529,7 +529,7 @@
         "obra_id": "essence",
         "andar": 4,
         "local_id": "ap1",
-        "nome_local": "AP 1",
+        "nome_local": "AP 41",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -537,7 +537,7 @@
         "obra_id": "essence",
         "andar": 4,
         "local_id": "ap2",
-        "nome_local": "AP 2",
+        "nome_local": "AP 42",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -561,7 +561,7 @@
         "obra_id": "essence",
         "andar": 5,
         "local_id": "ap1",
-        "nome_local": "AP 1",
+        "nome_local": "AP 51",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -569,7 +569,7 @@
         "obra_id": "essence",
         "andar": 5,
         "local_id": "ap2",
-        "nome_local": "AP 2",
+        "nome_local": "AP 52",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -593,7 +593,7 @@
         "obra_id": "essence",
         "andar": 6,
         "local_id": "ap1",
-        "nome_local": "AP 1",
+        "nome_local": "AP 61",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -601,7 +601,7 @@
         "obra_id": "essence",
         "andar": 6,
         "local_id": "ap2",
-        "nome_local": "AP 2",
+        "nome_local": "AP 62",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -625,7 +625,7 @@
         "obra_id": "essence",
         "andar": 7,
         "local_id": "ap1",
-        "nome_local": "AP 1",
+        "nome_local": "AP 71",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -633,7 +633,7 @@
         "obra_id": "essence",
         "andar": 7,
         "local_id": "ap2",
-        "nome_local": "AP 2",
+        "nome_local": "AP 72",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -657,7 +657,7 @@
         "obra_id": "essence",
         "andar": 8,
         "local_id": "ap1",
-        "nome_local": "AP 1",
+        "nome_local": "AP 81",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -665,7 +665,7 @@
         "obra_id": "essence",
         "andar": 8,
         "local_id": "ap2",
-        "nome_local": "AP 2",
+        "nome_local": "AP 82",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -689,7 +689,7 @@
         "obra_id": "essence",
         "andar": 9,
         "local_id": "ap1",
-        "nome_local": "AP 1",
+        "nome_local": "AP 91",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -697,7 +697,7 @@
         "obra_id": "essence",
         "andar": 9,
         "local_id": "ap2",
-        "nome_local": "AP 2",
+        "nome_local": "AP 92",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -721,7 +721,7 @@
         "obra_id": "essence",
         "andar": 10,
         "local_id": "ap1",
-        "nome_local": "AP 1",
+        "nome_local": "AP 101",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -729,7 +729,7 @@
         "obra_id": "essence",
         "andar": 10,
         "local_id": "ap2",
-        "nome_local": "AP 2",
+        "nome_local": "AP 102",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -753,7 +753,7 @@
         "obra_id": "essence",
         "andar": 11,
         "local_id": "ap1",
-        "nome_local": "AP 1",
+        "nome_local": "AP 111",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -761,7 +761,7 @@
         "obra_id": "essence",
         "andar": 11,
         "local_id": "ap2",
-        "nome_local": "AP 2",
+        "nome_local": "AP 112",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -785,7 +785,7 @@
         "obra_id": "essence",
         "andar": 12,
         "local_id": "ap1",
-        "nome_local": "AP 1",
+        "nome_local": "AP 121",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -793,7 +793,7 @@
         "obra_id": "essence",
         "andar": 12,
         "local_id": "ap2",
-        "nome_local": "AP 2",
+        "nome_local": "AP 122",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -817,7 +817,7 @@
         "obra_id": "essence",
         "andar": 13,
         "local_id": "ap1",
-        "nome_local": "AP 1",
+        "nome_local": "AP 131",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -825,7 +825,7 @@
         "obra_id": "essence",
         "andar": 13,
         "local_id": "ap2",
-        "nome_local": "AP 2",
+        "nome_local": "AP 132",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -849,7 +849,7 @@
         "obra_id": "essence",
         "andar": 14,
         "local_id": "ap1",
-        "nome_local": "AP 1",
+        "nome_local": "AP 141",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -857,7 +857,7 @@
         "obra_id": "essence",
         "andar": 14,
         "local_id": "ap2",
-        "nome_local": "AP 2",
+        "nome_local": "AP 142",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -881,7 +881,7 @@
         "obra_id": "essence",
         "andar": 15,
         "local_id": "ap1",
-        "nome_local": "AP 1",
+        "nome_local": "AP151 - Inferior",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -889,7 +889,7 @@
         "obra_id": "essence",
         "andar": 15,
         "local_id": "ap2",
-        "nome_local": "AP 2",
+        "nome_local": "AP152 - Inferior",
         "tipo": "apartamento",
         "ativo": "SIM"
       },
@@ -904,6 +904,38 @@
       {
         "obra_id": "essence",
         "andar": 15,
+        "local_id": "escada",
+        "nome_local": "Escada",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 16,
+        "local_id": "ap1",
+        "nome_local": "AP151 - Superior",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 16,
+        "local_id": "ap2",
+        "nome_local": "AP152 - Superior",
+        "tipo": "apartamento",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 16,
+        "local_id": "hall",
+        "nome_local": "Hall",
+        "tipo": "area_comum",
+        "ativo": "SIM"
+      },
+      {
+        "obra_id": "essence",
+        "andar": 16,
         "local_id": "escada",
         "nome_local": "Escada",
         "tipo": "area_comum",
@@ -1205,51 +1237,16 @@
       }
     ]
   },
-  "resumo_acompanhamento": [],
-  "historico_recente": [
+  "resumo_acompanhamento": [
     {
-      "timestamp": "2026-05-20 09:00:00",
       "obra_id": "essence",
-      "unidade": "31",
-      "etapa_id": "pintura",
-      "valor_anterior": 0,
-      "valor_novo": 0,
-      "usuario": "import_script",
-      "ip": "localhost",
-      "fonte": "import"
-    },
-    {
-      "timestamp": "2026-05-20 16:12:05",
-      "obra_id": "essence",
-      "unidade": "21",
-      "etapa_id": "contrapiso",
-      "valor_anterior": 100,
-      "valor_novo": 100,
-      "usuario": "maria@construtora.com",
-      "ip": "191.x.x.x",
-      "fonte": "admin"
-    },
-    {
-      "timestamp": "2026-05-21 10:31:22",
-      "obra_id": "essence",
-      "unidade": "12",
-      "etapa_id": "infra_eletrica",
-      "valor_anterior": 0,
-      "valor_novo": 25,
-      "usuario": "joao@construtora.com",
-      "ip": "177.72.x.x",
-      "fonte": "admin"
-    },
-    {
-      "timestamp": "2026-05-21 10:30:00",
-      "obra_id": "essence",
-      "unidade": "11",
-      "etapa_id": "alvenaria",
-      "valor_anterior": 50,
-      "valor_novo": 75,
-      "usuario": "joao@construtora.com",
-      "ip": "177.72.x.x",
-      "fonte": "admin"
+      "andar": 1,
+      "local_id": "ap1",
+      "local_nome": "AP 11",
+      "tarefa_id": "infra_eletrica",
+      "tarefa_nome": "Infra Elétrica",
+      "pct_tarefa": 100,
+      "area_total_m2": 1
     }
   ]
 }
