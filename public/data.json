@@ -8,7 +8,7 @@
     "data_inicio": "2025-06-01",
     "data_prevista": "2026-12-31",
     "status": "ativa",
-    "gerado_em": "2026-06-05T00:25:09.932Z",
+    "gerado_em": "2026-06-05T00:35:05.924Z",
     "schema_version": "2.0"
   },
   "kpis": {
@@ -1243,9 +1243,9 @@
       "andar": 1,
       "local_id": "ap1",
       "local_nome": "AP 11",
-      "tarefa_id": "infra_hidraulica",
-      "tarefa_nome": "Infra Hidráulica",
-      "pct_tarefa": 51.5,
+      "tarefa_id": "infra_eletrica",
+      "tarefa_nome": "Infra Elétrica",
+      "pct_tarefa": 22.5,
       "area_total_m2": 2
     }
   ]
