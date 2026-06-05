@@ -49,14 +49,12 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
 .filter-bar::-webkit-scrollbar{display:none}
 .ftab{padding:9px 18px;border-radius:999px;border:1px solid var(--border);background:var(--bg3);color:var(--text2);font-size:13px;font-weight:600;white-space:nowrap;cursor:pointer;flex-shrink:0}
 .ftab.active{background:var(--yellow);border-color:var(--yellow);color:#111}
-
 .filter-row{padding:10px 14px;display:flex;gap:8px;align-items:center}
 .search-input{flex:1;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:10px 16px;border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:14px;outline:none}
 .search-input:focus{border-color:var(--yellow)}
 .search-input::placeholder{color:var(--text3)}
 .pill-btn{padding:9px 16px;border-radius:999px;border:1px solid var(--border);background:var(--bg3);color:var(--text2);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0}
 .pill-btn.on{background:var(--yglow);border-color:var(--yellow);color:var(--yellow)}
-
 .legenda{display:flex;gap:12px;flex-wrap:wrap;padding:0 14px 12px;font-size:12px;color:var(--text2)}
 .leg-item{display:flex;align-items:center;gap:6px}
 .leg-dot{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-size:11px;font-weight:700}
@@ -64,7 +62,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
 .mapa-wrap{margin:0 14px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:auto;flex:1;-webkit-overflow-scrolling:touch}
 .mapa-wrap::-webkit-scrollbar{height:5px;width:5px}
 .mapa-wrap::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:999px}
-
 table{border-collapse:separate;border-spacing:3px;font-family:'JetBrains Mono',monospace;padding:8px}
 
 thead tr.grp-row th{background:var(--bg2);font-family:'Sora',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:8px 6px 6px;text-align:center;white-space:nowrap;border-radius:6px;position:sticky;top:0;z-index:5}
@@ -74,17 +71,13 @@ thead tr.grp-row th.grp-eletrica{background:rgba(245,158,11,.15);color:#fbbf24}
 thead tr.grp-row th.grp-hidraulica{background:rgba(96,165,250,.15);color:#93c5fd}
 thead tr.grp-row th.grp-instalacoes{background:rgba(34,211,160,.15);color:#6ee7b7}
 thead tr.grp-row th.grp-acabamento{background:rgba(248,113,113,.15);color:#fca5a5}
-
 thead tr.lbl-row th{position:sticky;top:40px;z-index:4;background:var(--bg3);padding:8px 5px;font-size:11px;font-weight:600;color:var(--text);white-space:nowrap;text-align:center;border-radius:6px;min-width:52px;border:1px solid var(--border)}
 thead tr.lbl-row th.ap-th{position:sticky;left:0;top:40px;z-index:6;background:var(--bg3);color:var(--yellow);font-weight:700;min-width:52px;border:1px solid var(--yellow)}
 thead tr.lbl-row th.col-proj{color:var(--text3);font-style:italic;background:rgba(167,139,250,.06)}
-
 tbody td{padding:2px;vertical-align:middle}
 tbody td.ap-td{position:sticky;left:0;z-index:2;background:var(--bg3);color:var(--yellow);font-weight:700;font-size:13px;text-align:center;padding:0 6px;border-radius:8px;border:1px solid var(--border2);min-width:52px;white-space:nowrap}
 tbody tr.floor-div td{padding-top:6px}
-
-.cell{display:grid;place-items:center;width:52px;height:42px;border-radius:8px;font-size:14px;font-weight:700;position:relative;border:1.5px solid transparent;transition:transform .1s}
-tbody td:active .cell{transform:scale(.85)}
+.cell{display:grid;place-items:center;width:52px;height:42px;border-radius:8px;font-size:14px;font-weight:700;position:relative;border:1.5px solid transparent}
 .cell.s-idle{background:var(--bg3);color:var(--text2);border-color:var(--border)}
 .cell.s-done{background:var(--gbg);color:var(--green);border-color:rgba(34,211,160,.3)}
 .cell.s-doing{background:var(--bbg);color:var(--blue);border-color:rgba(96,165,250,.3)}
@@ -92,11 +85,9 @@ tbody td:active .cell{transform:scale(.85)}
 .cell.s-np{background:repeating-linear-gradient(45deg,transparent,transparent 3px,rgba(74,85,104,.3) 3px,rgba(74,85,104,.3) 4px);color:var(--text3);font-size:9px;border-color:var(--border)}
 .cell.late-warn::after{content:'';position:absolute;top:4px;right:4px;width:7px;height:7px;border-radius:50%;background:var(--orange)}
 .cell-pct{font-size:8px;position:absolute;bottom:2px;right:3px;opacity:.75}
-
 .hide-proj thead tr.grp-row th.grp-proj,
 .hide-proj thead tr.lbl-row th.col-proj,
 .hide-proj tbody td.col-proj{display:none}
-
 .update-bar{padding:6px 14px 4px;font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;text-align:right}
 
 .rel-wrap{padding:14px;display:flex;flex-direction:column;gap:12px}
@@ -122,38 +113,38 @@ tbody td:active .cell{transform:scale(.85)}
       <div class="brand-mark">E</div>
       <div><div class="page-title">Essence Residence</div><div class="page-sub">Mapa de Acompanhamento</div></div>
     </div>
-    <button class="icon-btn" onclick="carregarDados()">↻</button>
+    <button class="icon-btn" onclick="carregarDados()">&#8635;</button>
   </div>
   <div class="kpis">
     <div class="kpi main">
-      <div class="kpi-icon" style="background:var(--yglow)">📐</div>
+      <div class="kpi-icon" style="background:var(--yglow)">&#128208;</div>
       <div style="flex:1;min-width:0">
         <div class="kpi-label">Progresso Geral</div>
-        <div class="kpi-value" id="kpi-prog">—</div>
+        <div class="kpi-value" id="kpi-prog">--</div>
         <div class="kpi-bar"><div class="kpi-bar-fill" id="kpi-bar" style="width:0%"></div></div>
       </div>
     </div>
-    <div class="kpi" style="text-align:center"><div class="kpi-lbl-sm">Concluídos</div><div class="kpi-val-sm" style="color:var(--green)" id="kpi-done">—</div></div>
-    <div class="kpi" style="text-align:center"><div class="kpi-lbl-sm">Em Execução</div><div class="kpi-val-sm" style="color:var(--blue)" id="kpi-doing">—</div></div>
-    <div class="kpi" style="text-align:center"><div class="kpi-lbl-sm">Atrasados</div><div class="kpi-val-sm" style="color:var(--red)" id="kpi-late">—</div></div>
-    <div class="kpi" style="text-align:center"><div class="kpi-lbl-sm">Não Iniciados</div><div class="kpi-val-sm" style="color:var(--text3)" id="kpi-idle">—</div></div>
+    <div class="kpi" style="text-align:center"><div class="kpi-lbl-sm">Concluidos</div><div class="kpi-val-sm" style="color:var(--green)" id="kpi-done">--</div></div>
+    <div class="kpi" style="text-align:center"><div class="kpi-lbl-sm">Em Execucao</div><div class="kpi-val-sm" style="color:var(--blue)" id="kpi-doing">--</div></div>
+    <div class="kpi" style="text-align:center"><div class="kpi-lbl-sm">Atrasados</div><div class="kpi-val-sm" style="color:var(--red)" id="kpi-late">--</div></div>
+    <div class="kpi" style="text-align:center"><div class="kpi-lbl-sm">Nao Iniciados</div><div class="kpi-val-sm" style="color:var(--text3)" id="kpi-idle">--</div></div>
   </div>
   <div class="filter-bar">
     <button class="ftab active" data-f="todos">Todos</button>
-    <button class="ftab" data-f="atrasados">⚠ Atrasados</button>
-    <button class="ftab" data-f="emexec">● Em execução</button>
-    <button class="ftab" data-f="concluidos">✓ Concluídos</button>
+    <button class="ftab" data-f="atrasados">Atrasados</button>
+    <button class="ftab" data-f="emexec">Em execucao</button>
+    <button class="ftab" data-f="concluidos">Concluidos</button>
   </div>
   <div class="filter-row">
-    <input class="search-input" id="search" placeholder="🔍 Buscar AP..." oninput="filtrarBusca(this.value)">
-    <button class="pill-btn" id="btn-hide" onclick="toggleProj(this)">👁 Projetos</button>
+    <input class="search-input" id="search" placeholder="Buscar AP..." oninput="filtrarBusca(this.value)">
+    <button class="pill-btn" id="btn-hide" onclick="toggleProj(this)">Projetos</button>
   </div>
   <div class="legenda">
-    <div class="leg-item"><div class="leg-dot" style="background:var(--gbg);color:var(--green)">✓</div>Concluído</div>
-    <div class="leg-item"><div class="leg-dot" style="background:var(--bbg);color:var(--blue)">●</div>Execução</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--gbg);color:var(--green)">&#10003;</div>Concluido</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--bbg);color:var(--blue)">&#9679;</div>Execucao</div>
     <div class="leg-item"><div class="leg-dot" style="background:var(--rbg);color:var(--red);font-size:9px">ATR</div>Atrasado</div>
-    <div class="leg-item"><div class="leg-dot" style="background:var(--bg3);color:var(--text2)">□</div>Não iniciado</div>
-    <div class="leg-item"><span style="color:var(--orange);font-size:20px;line-height:1">●</span>Fora do prazo</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--bg3);color:var(--text2)">&#9633;</div>Nao iniciado</div>
+    <div class="leg-item"><span style="color:var(--orange);font-size:20px;line-height:1">&#9679;</span>Fora do prazo</div>
   </div>
   <div class="mapa-wrap" id="mapa-wrap"><div class="loading"><div class="spinner"></div>Carregando...</div></div>
   <div class="update-bar" id="update-bar"></div>
@@ -163,17 +154,16 @@ tbody td:active .cell{transform:scale(.85)}
   <div class="page-header">
     <div style="display:flex;align-items:center;gap:10px">
       <div class="brand-mark">E</div>
-      <div><div class="page-title">Relatórios</div><div class="page-sub">Progresso por AP</div></div>
+      <div><div class="page-title">Relatorios</div><div class="page-sub">Progresso por AP</div></div>
     </div>
   </div>
   <div class="rel-wrap" id="rel-wrap"><div class="loading"><div class="spinner"></div>Carregando...</div></div>
 </div>
 
 <nav class="bottom-nav">
-  <button class="nav-btn active" data-page="mapa" onclick="switchPage(this)"><span class="nav-icon">◉</span>Mapa</button>
-  <button class="nav-btn" data-page="rel" onclick="switchPage(this)"><span class="nav-icon">📊</span>Relatório</button>
-  <button class="nav-btn" data-page="acomp" onclick="switchPage(this)"><span class="nav-icon">📋</span>Acomp.</button>
-  <button class="nav-btn" onclick="window.location.href='admin.html'"><span class="nav-icon">🔐</span>Admin</button>
+  <button class="nav-btn active" data-page="mapa" onclick="switchPage(this)"><span class="nav-icon">&#9711;</span>Mapa</button>
+  <button class="nav-btn" data-page="rel" onclick="switchPage(this)"><span class="nav-icon">&#128202;</span>Relatorio</button>
+  <button class="nav-btn" onclick="window.location.href='admin.html'"><span class="nav-icon">&#128274;</span>Admin</button>
 </nav>
 
 <script>
@@ -182,74 +172,75 @@ const TODAY=new Date();
 let DADOS={},UNIDADES=[],jsonKPIs={};
 
 const GRUPOS=[
-  {id:'vedacao',nome:'Vedação',etapas:[
-    {id:'proj_vedacao',nome:'Projeto de Vedação',abrev:'P.Vedação',projeto:true,prev:'2026-01-15'},
+  {id:'vedacao',nome:'Vedacao',etapas:[
+    {id:'proj_vedacao',nome:'Projeto de Vedacao',abrev:'P.Vedacao',projeto:true,prev:'2026-01-15'},
     {id:'alvenaria',nome:'Alvenaria',abrev:'Alvenaria',projeto:false,prev:'2026-01-30'},
     {id:'encunhamento',nome:'Encunhamento',abrev:'Encunham.',projeto:false,prev:'2026-02-10'},
   ]},
-  {id:'eletrica',nome:'Elétrica',etapas:[
-    {id:'proj_infra_el',nome:'Proj. Infra Elétrica',abrev:'P.Infra El.',projeto:true,prev:'2026-01-10'},
-    {id:'infra_eletrica',nome:'Infra Elétrica',abrev:'Infra El.',projeto:false,prev:'2026-02-05'},
+  {id:'eletrica',nome:'Eletrica',etapas:[
+    {id:'proj_infra_el',nome:'Proj. Infra Eletrica',abrev:'P.Infra El.',projeto:true,prev:'2026-01-10'},
+    {id:'infra_eletrica',nome:'Infra Eletrica',abrev:'Infra El.',projeto:false,prev:'2026-02-05'},
     {id:'proj_quadros',nome:'Proj. Quadros Dist.',abrev:'P.Quadros',projeto:true,prev:'2026-01-20'},
-    {id:'quadros_dist',nome:'Quadros de Distribuição',abrev:'Quadros',projeto:false,prev:'2026-02-20'},
+    {id:'quadros_dist',nome:'Quadros de Distribuicao',abrev:'Quadros',projeto:false,prev:'2026-02-20'},
     {id:'proj_prumada',nome:'Proj. Prumada',abrev:'P.Prumada',projeto:true,prev:'2026-01-12'},
     {id:'prumada',nome:'Prumada',abrev:'Prumada',projeto:false,prev:'2026-02-15'},
   ]},
-  {id:'hidraulica',nome:'Hidráulica',etapas:[
-    {id:'proj_aereo_hid',nome:'Proj. Aéreo Hidráulica',abrev:'P.Aér.Hid.',projeto:true,prev:'2026-01-18'},
-    {id:'aereo_hidraulica',nome:'Aéreo Hidráulica',abrev:'Aéreo Hid.',projeto:false,prev:'2026-02-25'},
-    {id:'proj_dist_hid',nome:'Proj. Dist. Hidráulica',abrev:'P.Dist.Hid.',projeto:true,prev:'2026-01-22'},
-    {id:'dist_hidraulica',nome:'Distribuição Hidráulica',abrev:'Dist.Hid.',projeto:false,prev:'2026-03-01'},
+  {id:'hidraulica',nome:'Hidraulica',etapas:[
+    {id:'proj_aereo_hid',nome:'Proj. Aereo Hidraulica',abrev:'P.Aer.Hid.',projeto:true,prev:'2026-01-18'},
+    {id:'aereo_hidraulica',nome:'Aereo Hidraulica',abrev:'Aereo Hid.',projeto:false,prev:'2026-02-25'},
+    {id:'proj_dist_hid',nome:'Proj. Dist. Hidraulica',abrev:'P.Dist.Hid.',projeto:true,prev:'2026-01-22'},
+    {id:'dist_hidraulica',nome:'Distribuicao Hidraulica',abrev:'Dist.Hid.',projeto:false,prev:'2026-03-01'},
     {id:'proj_hd_banh',nome:'Proj. Hd. Banheira',abrev:'P.Banh.',projeto:true,prev:'2026-01-25'},
     {id:'infra_hd_banh',nome:'Infra Hd. Banheira',abrev:'I.Banh.',projeto:false,prev:'2026-03-05'},
-    {id:'proj_gas',nome:'Proj. Infra Gás',abrev:'P.Gás',projeto:true,prev:'2026-01-15'},
-    {id:'infra_gas',nome:'Infra Gás',abrev:'Infra Gás',projeto:false,prev:'2026-02-28'},
+    {id:'proj_gas',nome:'Proj. Infra Gas',abrev:'P.Gas',projeto:true,prev:'2026-01-15'},
+    {id:'infra_gas',nome:'Infra Gas',abrev:'Infra Gas',projeto:false,prev:'2026-02-28'},
   ]},
-  {id:'instalacoes',nome:'Instalações',etapas:[
+  {id:'instalacoes',nome:'Instalacoes',etapas:[
     {id:'det_nichos',nome:'Detalhe dos Nichos',abrev:'Det.Nichos',projeto:true,prev:'2026-02-01'},
     {id:'nichos',nome:'Nichos',abrev:'Nichos',projeto:false,prev:'2026-03-10'},
     {id:'det_contrapiso',nome:'Detalhe Contrapisos',abrev:'Det.Cpiso',projeto:true,prev:'2026-02-01'},
     {id:'contrapiso',nome:'Contrapiso',abrev:'Contrapiso',projeto:false,prev:'2026-03-15'},
     {id:'proj_ar',nome:'Proj. Ar Condicionado',abrev:'P.A/C',projeto:true,prev:'2026-02-05'},
     {id:'ar_condicionado',nome:'Ar Condicionado',abrev:'Ar Cond.',projeto:false,prev:'2026-03-20'},
-    {id:'proj_aspiracao',nome:'Proj. Aspiração Central',abrev:'P.Aspir.',projeto:true,prev:'2026-02-05'},
-    {id:'aspiracao',nome:'Aspiração Central',abrev:'Aspiração',projeto:false,prev:'2026-03-25'},
-    {id:'proj_automacao',nome:'Proj. Automação',abrev:'P.Autom.',projeto:true,prev:'2026-02-10'},
-    {id:'automacao',nome:'Automação',abrev:'Automação',projeto:false,prev:'2026-04-01'},
+    {id:'proj_aspiracao',nome:'Proj. Aspiracao Central',abrev:'P.Aspir.',projeto:true,prev:'2026-02-05'},
+    {id:'aspiracao',nome:'Aspiracao Central',abrev:'Aspiracao',projeto:false,prev:'2026-03-25'},
+    {id:'proj_automacao',nome:'Proj. Automacao',abrev:'P.Autom.',projeto:true,prev:'2026-02-10'},
+    {id:'automacao',nome:'Automacao',abrev:'Automacao',projeto:false,prev:'2026-04-01'},
   ]},
   {id:'acabamento',nome:'Acabamento',etapas:[
     {id:'proj_acabamento',nome:'Proj. Acabamento Interno',abrev:'P.Acab.',projeto:true,prev:'2026-03-01'},
     {id:'gesso_liso',nome:'Gesso Liso',abrev:'Gesso',projeto:false,prev:'2026-04-10'},
     {id:'forro',nome:'Forro',abrev:'Forro',projeto:false,prev:'2026-04-15'},
-    {id:'impermeabilizacao',nome:'Impermeabilização',abrev:'Impermeab.',projeto:false,prev:'2026-04-05'},
+    {id:'impermeabilizacao',nome:'Impermeabilizacao',abrev:'Impermeab.',projeto:false,prev:'2026-04-05'},
     {id:'revestimentos',nome:'Revestimentos',abrev:'Revestim.',projeto:false,prev:'2026-04-20'},
     {id:'proj_bancadas',nome:'Proj. Bancadas',abrev:'P.Bancadas',projeto:true,prev:'2026-03-10'},
     {id:'granito',nome:'Granito',abrev:'Granito',projeto:false,prev:'2026-05-01'},
     {id:'pintura',nome:'Pintura',abrev:'Pintura',projeto:false,prev:'2026-05-15'},
   ]},
 ];
-const ETAPAS=GRUPOS.flatMap(g=>g.etapas.map(e=>({...e,grupo:g.id})));
+const ETAPAS=GRUPOS.flatMap(function(g){return g.etapas.map(function(e){return Object.assign({},e,{grupo:g.id});});});
 
 async function carregarDados(){
   document.getElementById('mapa-wrap').innerHTML='<div class="loading"><div class="spinner"></div>Carregando...</div>';
   try{
-    const r=await fetch(DATA_URL+'?t='+Date.now());
-    const json=await r.json();
+    var r=await fetch(DATA_URL+'?t='+Date.now());
+    var json=await r.json();
     if(json.unidades){
-      UNIDADES=json.unidades.map(u=>({u:String(u.unidade),a:u.andar,prog:u.progresso||0}));
-      json.unidades.forEach(u=>{
+      UNIDADES=json.unidades.map(function(u){return {u:String(u.unidade),a:u.andar,prog:u.progresso||0};});
+      json.unidades.forEach(function(u){
         DADOS[String(u.unidade)]={};
-        Object.entries(u.etapas||{}).forEach(([eid,cel])=>{
-          DADOS[String(u.unidade)][eid]=cel.valor!==undefined?cel.valor:cel;
+        Object.entries(u.etapas||{}).forEach(function(entry){
+          DADOS[String(u.unidade)][entry[0]]=entry[1].valor!==undefined?entry[1].valor:entry[1];
         });
       });
       jsonKPIs=json.kpis||{};
     }
     renderKPIs();renderMapa();renderRel();
-    const ts=json.meta?.gerado_em?new Date(json.meta.gerado_em).toLocaleString('pt-BR'):'—';
+    var ts=json.meta&&json.meta.gerado_em?new Date(json.meta.gerado_em).toLocaleString('pt-BR'):'--';
     document.getElementById('update-bar').textContent='Atualizado: '+ts;
   }catch(e){
-    document.getElementById('mapa-wrap').innerHTML='<div class="loading" style="color:var(--red)">Erro ao carregar. Toque ↻ para tentar novamente.</div>';
+    document.getElementById('mapa-wrap').innerHTML='<div class="loading" style="color:var(--red)">Erro ao carregar. Toque para tentar novamente.</div>';
+    console.error(e);
   }
 }
 
@@ -262,31 +253,29 @@ function renderKPIs(){
   document.getElementById('kpi-idle').textContent=jsonKPIs.idle||0;
 }
 
-function statusOf(v){if(v==='NP')return'np';if(v==='ATR')return'late';const n=Number(v);if(!n)return'idle';if(n===100)return'done';return'doing';}
-function symbolOf(v){if(v==='NP')return'NP';if(v==='ATR')return'ATR';const n=Number(v);if(!n)return'□';if(n===100)return'✓';return'●';}
+function statusOf(v){if(v==='NP')return'np';if(v==='ATR')return'late';var n=Number(v);if(!n)return'idle';if(n===100)return'done';return'doing';}
+function symbolOf(v){if(v==='NP')return'NP';if(v==='ATR')return'ATR';var n=Number(v);if(!n)return'&#9633;';if(n===100)return'&#10003;';return'&#9679;';}
 function isLate(v,prev){if(v==='NP'||Number(v)===100)return false;return prev&&new Date(prev)<TODAY;}
 
 function renderMapa(){
   if(!UNIDADES.length){document.getElementById('mapa-wrap').innerHTML='<div class="loading" style="color:var(--text3)">Sem dados.</div>';return;}
-  let h='<table><thead><tr class="grp-row"><th class="corner"></th>';
-  GRUPOS.forEach(g=>{h+='<th class="grp-'+g.id+'" colspan="'+g.etapas.length+'">'+g.nome+'</th>';});
+  var h='<table><thead><tr class="grp-row"><th class="corner"></th>';
+  GRUPOS.forEach(function(g){h+='<th class="grp-'+g.id+'" colspan="'+g.etapas.length+'">'+g.nome+'</th>';});
   h+='</tr><tr class="lbl-row"><th class="ap-th">AP</th>';
-  ETAPAS.forEach(e=>{h+='<th class="'+(e.projeto?'col-proj':'')+'" title="'+e.nome+'">'+e.abrev+'</th>';});
+  ETAPAS.forEach(function(e){h+='<th class="'+(e.projeto?'col-proj':'')+'" title="'+e.nome+'">'+e.abrev+'</th>';});
   h+='</tr></thead><tbody>';
-  let lastA=-1;
+  var lastA=-1;
   UNIDADES.forEach(function(un){
-    var u=un.u,a=un.a;
-    var div=a!==lastA;lastA=a;
-    h+='<tr class="'+(div?'floor-div':'')+'"><td class="ap-td">'+u+'</td>';
+    var div=un.a!==lastA;lastA=un.a;
+    h+='<tr class="'+(div?'floor-div':'')+'"><td class="ap-td">'+un.u+'</td>';
     ETAPAS.forEach(function(e){
-      var v=(DADOS[u]||{})[e.id];
+      var v=(DADOS[un.u]||{})[e.id];
       var val=v!==undefined?v:0;
       var st=statusOf(val);
       var sym=symbolOf(val);
       var pct=typeof val==='number'&&val>0&&val<100;
       var lw=isLate(val,e.prev);
-      h+='<td class="'+(e.projeto?'col-proj':'')+'">';
-      h+='<div class="cell s-'+st+(lw?' late-warn':'')+'"><span>'+sym+'</span>';
+      h+='<td class="'+(e.projeto?'col-proj':'')+'"><div class="cell s-'+st+(lw?' late-warn':'')+'"><span>'+sym+'</span>';
       if(pct)h+='<span class="cell-pct">'+val+'</span>';
       h+='</div></td>';
     });
@@ -308,8 +297,8 @@ function renderRel(){
     return c+'</div>';
   }
   document.getElementById('rel-wrap').innerHTML=
-    card('🏆 Top 10 · Mais avançados',sorted.slice(0,10))+
-    card('⚠ Bottom 10 · Mais atrasados',[].concat(sorted).reverse().slice(0,10));
+    card('Top 10 - Mais avancados',sorted.slice(0,10))+
+    card('Bottom 10 - Mais atrasados',[].concat(sorted).reverse().slice(0,10));
 }
 
 function toggleProj(btn){
@@ -318,7 +307,7 @@ function toggleProj(btn){
   t.classList.toggle('hide-proj');
   var on=t.classList.contains('hide-proj');
   btn.classList.toggle('on',on);
-  btn.textContent=on?'🙈 Projetos':'👁 Projetos';
+  btn.textContent=on?'Sem Projetos':'Projetos';
 }
 
 document.querySelectorAll('.ftab').forEach(function(b){
@@ -354,169 +343,6 @@ function switchPage(btn){
   btn.classList.add('active');
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
   document.getElementById('page-'+btn.dataset.page).classList.add('active');
-}
-
-
-// ── ACOMPANHAMENTO ───────────────────────────────────────────────────────────
-var andarSel = 1;
-var NOM = { locais:[], tarefas:[], comodos:[] };
-var RESUMO = [];
-
-function renderAndares() {
-  var wrap = document.getElementById('acomp-andares');
-  if (!wrap) return;
-  var html = '';
-  for (var a=1; a<=15; a++) {
-    html += '<button class="andar-chip'+(a===andarSel?' active':'')+'" onclick="selAndar('+a+')">'+a+'º</button>';
-  }
-  wrap.innerHTML = html;
-}
-
-function selAndar(a) {
-  andarSel = a;
-  document.querySelectorAll('.andar-chip').forEach(function(b) {
-    b.classList.toggle('active', parseInt(b.textContent)===a);
-  });
-  renderAcompContent();
-}
-
-function renderAcompContent() {
-  var wrap = document.getElementById('acomp-content');
-  if (!wrap) return;
-  if (!NOM.locais.length) {
-    wrap.innerHTML = '<p style="color:var(--text3);font-size:13px;text-align:center;padding:32px;font-family:'JetBrains Mono',monospace">Carregando nomenclatura...</p>';
-    return;
-  }
-
-  var locaisDoAndar = NOM.locais.filter(function(l) { return l.ativo === 'SIM'; });
-  var html = '';
-
-  locaisDoAndar.forEach(function(local) {
-    // progresso do local = média das tarefas
-    var tarefasLocal = NOM.tarefas.filter(function(t) {
-      return t.ativo==='SIM' && (t.aplica_em==='todos' || t.aplica_em===local.tipo || (t.aplica_em==='ap' && local.tipo==='apartamento') || (t.aplica_em==='area_comum' && local.tipo==='area_comum'));
-    });
-
-    var progLocal = 0;
-    var nTarefas = 0;
-    tarefasLocal.forEach(function(t) {
-      var resumoItem = RESUMO.find(function(r) {
-        return String(r.andar)===String(andarSel) && r.local_id===local.local_id && r.tarefa_id===t.tarefa_id;
-      });
-      if (resumoItem) { progLocal += Number(resumoItem.pct_tarefa)||0; nTarefas++; }
-    });
-    progLocal = nTarefas > 0 ? Math.round(progLocal/nTarefas*10)/10 : 0;
-
-    var corProg = progLocal>=100?'var(--green)':progLocal>50?'var(--yellow)':'var(--blue)';
-
-    html += '<div class="local-card" id="lc-'+local.local_id+'">';
-    html += '<div class="local-header" onclick="toggleLocal(''+local.local_id+'')">';
-    html += '<div class="local-nome">'+local.nome_local+'</div>';
-    html += '<div style="display:flex;align-items:center;gap:10px">';
-    html += '<div class="local-prog" style="color:'+corProg+'">'+progLocal.toFixed(1)+'%</div>';
-    html += '<div class="chevron">›</div>';
-    html += '</div></div>';
-    html += '<div class="local-bar"><div class="local-bar-fill" style="width:'+progLocal+'%;background:'+corProg+'"></div></div>';
-    html += '<div class="local-body">';
-
-    tarefasLocal.forEach(function(tarefa) {
-      var resumoItem = RESUMO.find(function(r) {
-        return String(r.andar)===String(andarSel) && r.local_id===local.local_id && r.tarefa_id===tarefa.tarefa_id;
-      });
-      var progTarefa = resumoItem ? Number(resumoItem.pct_tarefa)||0 : 0;
-      var corTar = progTarefa>=100?'var(--green)':progTarefa>0?'var(--blue)':'var(--text3)';
-
-      var comodos = NOM.comodos.filter(function(c) {
-        return c.ativo==='SIM' && (c.local_id===local.local_id || c.local_id===local.tipo || (local.tipo==='apartamento'&&c.local_id==='ap'));
-      });
-
-      html += '<div class="tarefa-row" id="tr-'+local.local_id+'-'+tarefa.tarefa_id+'">';
-      html += '<div class="tarefa-header" onclick="toggleTarefa(''+local.local_id+'',''+tarefa.tarefa_id+'')">';
-      html += '<div class="tarefa-nome">'+tarefa.nome+'</div>';
-      html += '<div style="display:flex;align-items:center;gap:8px">';
-      html += '<div class="tarefa-prog" style="color:'+corTar+'">'+progTarefa.toFixed(1)+'%</div>';
-      html += '<div class="chevron" style="font-size:14px">›</div>';
-      html += '</div></div>';
-      html += '<div class="tarefa-body">';
-
-      if (comodos.length === 0) {
-        html += '<p style="color:var(--text3);font-size:12px;font-family:'JetBrains Mono',monospace">Nenhum cômodo cadastrado</p>';
-      } else {
-        comodos.forEach(function(comodo) {
-          var area = Number(comodo.area_m2)||0;
-          // buscar dado de ACOMPANHAMENTO
-          var dadoComp = (DADOS_ACOMP[andarSel+'|'+local.local_id+'|'+tarefa.tarefa_id+'|'+comodo.comodo_id])||{pct_exec:0};
-          var pct = Number(dadoComp.pct_exec)||0;
-          var corC = pct>=100?'#22d3a0':pct>0?'#60a5fa':'#374460';
-          html += '<div class="comodo-item">';
-          html += '<div class="comodo-nome">'+comodo.nome_comodo+'</div>';
-          html += '<div class="comodo-area">'+area+'m²</div>';
-          html += '<div class="comodo-bar-wrap"><div class="comodo-bar" style="width:'+pct+'%;background:'+corC+'"></div></div>';
-          html += '<div class="comodo-pct" style="color:'+corC+'">'+pct+'%</div>';
-          html += '</div>';
-        });
-      }
-
-      html += '</div></div>';
-    });
-
-    html += '</div></div>';
-  });
-
-  wrap.innerHTML = html || '<p style="color:var(--text3);font-size:13px;text-align:center;padding:32px">Nenhum local cadastrado</p>';
-}
-
-var DADOS_ACOMP = {};
-
-function toggleLocal(lid) {
-  var card = document.getElementById('lc-'+lid);
-  if (card) card.classList.toggle('open');
-}
-function toggleTarefa(lid, tid) {
-  var row = document.getElementById('tr-'+lid+'-'+tid);
-  if (row) row.classList.toggle('open');
-}
-
-// Integrar carregarDados para preencher NOM e RESUMO
-var _origCarregarDados = carregarDados;
-carregarDados = async function() {
-  await _origCarregarDados();
-};
-
-// Sobrescrever carregarDados completamente para capturar nomenclatura e resumo
-var DATA_URL_ORIG = DATA_URL;
-async function carregarDados() {
-  document.getElementById('mapa-wrap').innerHTML='<div class="loading"><div class="spinner"></div>Carregando...</div>';
-  try {
-    var r = await fetch(DATA_URL_ORIG+'?t='+Date.now());
-    var json = await r.json();
-    if (json.unidades) {
-      UNIDADES = json.unidades.map(function(u){return {u:String(u.unidade),a:u.andar,prog:u.progresso||0};});
-      json.unidades.forEach(function(u){
-        DADOS[String(u.unidade)]={};
-        Object.entries(u.etapas||{}).forEach(function(entry){
-          DADOS[String(u.unidade)][entry[0]] = entry[1].valor!==undefined?entry[1].valor:entry[1];
-        });
-      });
-      jsonKPIs = json.kpis||{};
-    }
-    if (json.nomenclatura) {
-      NOM = json.nomenclatura;
-    }
-    if (json.resumo_acompanhamento) {
-      RESUMO = json.resumo_acompanhamento;
-      DADOS_ACOMP = {};
-      json.resumo_acompanhamento.forEach(function(r2) {
-        // não é por comodo aqui, é por tarefa — ok
-      });
-    }
-    renderKPIs(); renderMapa(); renderRel();
-    renderAndares(); renderAcompContent();
-    var ts = json.meta && json.meta.gerado_em ? new Date(json.meta.gerado_em).toLocaleString('pt-BR') : '—';
-    document.getElementById('update-bar').textContent='Atualizado: '+ts;
-  } catch(e) {
-    document.getElementById('mapa-wrap').innerHTML='<div class="loading" style="color:var(--red)">Erro ao carregar. Toque ↻ para tentar novamente.</div>';
-  }
 }
 
 carregarDados();
