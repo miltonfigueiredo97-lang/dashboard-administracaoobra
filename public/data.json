@@ -8,7 +8,7 @@
     "data_inicio": "2025-06-01",
     "data_prevista": "2026-12-31",
     "status": "ativa",
-    "gerado_em": "2026-06-05T03:39:22.313Z",
+    "gerado_em": "2026-06-05T03:39:34.031Z",
     "schema_version": "2.0"
   },
   "kpis": {
@@ -377,6 +377,10 @@
       "andar": 1,
       "progresso": 6.6,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 100,
           "atualizado_em": "2026-05-21 10:30:00"
@@ -524,6 +528,10 @@
       "andar": 1,
       "progresso": 6.6,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 100,
           "atualizado_em": "2026-05-21 10:30:00"
@@ -671,6 +679,10 @@
       "andar": 2,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -818,6 +830,10 @@
       "andar": 2,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -965,6 +981,10 @@
       "andar": 3,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -1112,6 +1132,10 @@
       "andar": 3,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -1259,6 +1283,10 @@
       "andar": 4,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -1406,6 +1434,10 @@
       "andar": 4,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -1553,6 +1585,10 @@
       "andar": 5,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -1700,6 +1736,10 @@
       "andar": 5,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -1847,6 +1887,10 @@
       "andar": 6,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -1994,6 +2038,10 @@
       "andar": 6,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -2141,6 +2189,10 @@
       "andar": 7,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -2288,6 +2340,10 @@
       "andar": 7,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -2435,6 +2491,10 @@
       "andar": 8,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -2582,6 +2642,10 @@
       "andar": 8,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -2729,6 +2793,10 @@
       "andar": 9,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -2876,6 +2944,10 @@
       "andar": 9,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -3023,6 +3095,10 @@
       "andar": 10,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -3170,6 +3246,10 @@
       "andar": 10,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -3317,6 +3397,10 @@
       "andar": 11,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -3464,6 +3548,10 @@
       "andar": 11,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -3611,6 +3699,10 @@
       "andar": 12,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -3758,6 +3850,10 @@
       "andar": 12,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -3905,6 +4001,10 @@
       "andar": 13,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -4052,6 +4152,10 @@
       "andar": 13,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -4199,6 +4303,10 @@
       "andar": 14,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -4346,6 +4454,10 @@
       "andar": 14,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -4493,6 +4605,10 @@
       "andar": 15,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
@@ -4640,6 +4756,10 @@
       "andar": 15,
       "progresso": 0,
       "etapas": {
+        "1111": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T10:39:29.000Z"
+        },
         "proj_vedacao": {
           "valor": 0,
           "atualizado_em": "2026-06-05T08:20:22.000Z"
