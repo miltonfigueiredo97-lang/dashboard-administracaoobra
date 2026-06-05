@@ -1273,28 +1273,30 @@ function toggleTarefa(lid,tid){var r=document.getElementById('tr-'+lid+'-'+tid);
 var selectsInit=false;
 function initSelects(){
   if(selectsInit)return;selectsInit=true;
+  // initSelects só popula elementos que existem no DOM
   var sa=document.getElementById('sel-andar');
   var sae=document.getElementById('sel-andar-etapa');
   var sap=document.getElementById('sel-ap');
   for(var a=1;a<=15;a++){
-    sa.innerHTML+='<option value="'+a+'">'+a+'o Andar</option>';
-    sae.innerHTML+='<option value="'+a+'">'+a+'o Andar</option>';
+    if(sa)sa.innerHTML+='<option value="'+a+'">'+a+'o Andar</option>';
+    if(sae)sae.innerHTML+='<option value="'+a+'">'+a+'o Andar</option>';
   }
-  sa.value=1;
-  getEtapas().forEach(function(e){
-    document.getElementById('sel-etapa').innerHTML+='<option value="'+e.id+'">'+e.nome+'</option>';
+  if(sa)sa.value=1;
+  var selEtapa=document.getElementById('sel-etapa');
+  if(selEtapa)getEtapas().forEach(function(e){
+    selEtapa.innerHTML+='<option value="'+e.id+'">'+e.nome+'</option>';
   });
-  UNIDADES.forEach(function(un){
+  if(sap)UNIDADES.forEach(function(un){
     sap.innerHTML+='<option value="'+un.u+'">AP '+un.u+' - '+un.a+'o</option>';
   });
   var ba=document.getElementById('bulk-aps');
-  UNIDADES.forEach(function(un){
+  if(ba)UNIDADES.forEach(function(un){
     var b=document.createElement('button');b.className='chip';b.dataset.u=un.u;b.textContent='AP '+un.u;
     b.onclick=function(){b.classList.toggle('sel');updateBulkCount();};
     ba.appendChild(b);
   });
   var be=document.getElementById('bulk-etapas');
-  getEtapas().forEach(function(e){
+  if(be)getEtapas().forEach(function(e){
     var d=document.createElement('div');d.className='etapa-check';
     d.innerHTML='<input type="checkbox" data-eid="'+e.id+'" onchange="updateBulkCount()"> '+e.nome;
     be.appendChild(d);
