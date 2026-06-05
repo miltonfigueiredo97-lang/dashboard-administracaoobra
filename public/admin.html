@@ -386,25 +386,30 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
   <div class="panel" id="panel-cfg">
     <div class="sub-tabs">
       <button class="sub-tab active" data-sub="cfg-tarefas" onclick="switchSub(this)">Tarefas</button>
-      <button class="sub-tab" data-sub="cfg-aps" onclick="switchSub(this)">APs</button>
+      <button class="sub-tab" data-sub="cfg-grupos" onclick="switchSub(this)">Grupos</button>
+      <button class="sub-tab" data-sub="cfg-aps" onclick="switchSub(this)">Locais</button>
+      <button class="sub-tab" data-sub="cfg-comodos" onclick="switchSub(this)">Cômodos</button>
       <button class="sub-tab" data-sub="cfg-andares" onclick="switchSub(this)">Andares</button>
-      <button class="sub-tab" data-sub="cfg-locais" onclick="switchSub(this)">Locais</button>
     </div>
     <div class="sub-panel active" id="sub-cfg-tarefas">
       <button class="add-btn" onclick="abrirModalCfg('tarefa',null)">+ Nova Tarefa</button>
       <div id="cfg-tarefas-list"></div>
     </div>
+    <div class="sub-panel" id="sub-cfg-grupos">
+      <button class="add-btn" onclick="abrirModalCfg('grupo',null)">+ Novo Grupo</button>
+      <div id="cfg-grupos-list"></div>
+    </div>
     <div class="sub-panel" id="sub-cfg-aps">
-      <button class="add-btn" onclick="abrirModalCfg('ap',null)">+ Novo AP</button>
+      <button class="add-btn" onclick="abrirModalCfg('ap',null)">+ Novo Local</button>
       <div id="cfg-aps-list"></div>
+    </div>
+    <div class="sub-panel" id="sub-cfg-comodos">
+      <button class="add-btn" onclick="abrirModalCfg('comodo',null)">+ Novo Cômodo</button>
+      <div id="cfg-comodos-list"></div>
     </div>
     <div class="sub-panel" id="sub-cfg-andares">
       <button class="add-btn" onclick="abrirModalCfg('andar',null)">+ Adicionar Andar</button>
       <div id="cfg-andares-list"></div>
-    </div>
-    <div class="sub-panel" id="sub-cfg-locais">
-      <button class="add-btn" onclick="abrirModalCfg('local',null)">+ Novo Local</button>
-      <div id="cfg-locais-list"></div>
     </div>
   </div>
 
@@ -1640,11 +1645,50 @@ function removerNomItem(tipo,idx){
 }
 
 // USUÁRIOS
+// Grupos — armazenados em localStorage
+function getGruposCfg(){
+  var DEFAULT=[
+    {id:'vedacao',nome:'Vedação'},
+    {id:'eletrica',nome:'Elétrica'},
+    {id:'hidraulica',nome:'Hidráulica'},
+    {id:'instalacoes',nome:'Instalações'},
+    {id:'acabamento',nome:'Acabamento'},
+  ];
+  try{var g=JSON.parse(localStorage.getItem('grupos_'+OBRA_ID));return g&&g.length?g:DEFAULT;}catch{return DEFAULT;}
+}
+function setGruposCfg(g){localStorage.setItem('grupos_'+OBRA_ID,JSON.stringify(g));}
+
 function renderCfg(){
   renderCfgTarefas();
+  renderCfgGrupos();
   renderCfgAPs();
+  renderCfgComodos();
   renderCfgAndares();
-  renderCfgLocais();
+}
+
+function renderCfgGrupos(){
+  var list=document.getElementById('cfg-grupos-list');if(!list)return;
+  var grupos=getGruposCfg();
+  list.innerHTML=grupos.map(function(g,i){
+    var tarefasGrupo=(NOM.tarefas||[]).filter(function(t){return t.grupo===g.id;});
+    return '<div class="nom-item">'+
+      '<div class="nom-info" style="cursor:pointer" onclick="abrirModalCfg(&quot;grupo&quot;,'+i+')">'+
+        '<div class="nom-nome">'+g.nome+'</div>'+
+        '<div class="nom-meta">'+tarefasGrupo.length+' tarefa(s) · ID: '+g.id+'</div>'+
+      '</div>'+
+      '<button class="nom-edit" onclick="abrirModalCfg(&quot;grupo&quot;,'+i+')" title="Editar">&#9998;</button>'+
+      '<button class="nom-del" onclick="removerGrupo('+i+')">&#10005;</button>'+
+    '</div>';
+  }).join('');
+}
+
+function removerGrupo(idx){
+  var grupos=getGruposCfg();
+  if(!confirm('Remover grupo "'+grupos[idx].nome+'"?'))return;
+  grupos.splice(idx,1);
+  setGruposCfg(grupos);
+  renderCfgGrupos();
+  toast('Grupo removido');
 }
 
 function getTarefaAPs(tid){
@@ -1690,24 +1734,68 @@ function renderCfgAndares(){
 
 function renderCfgAPs(){
   var list=document.getElementById('cfg-aps-list');if(!list)return;
-  var aps=(NOM.locais||[]).filter(function(l){return l.tipo==='apartamento';});
-  // deduplicar por local_id+andar (cada combinação é única)
-  var vistos={};var unicos=[];
-  aps.forEach(function(l){
-    var key=l.andar+'|'+l.local_id;
-    if(!vistos[key]){vistos[key]=true;unicos.push(l);}
+  var locais=(NOM.locais||[]).filter(function(l){return l.ativo==='SIM';});
+  if(!locais.length){list.innerHTML='<p class="empty">Nenhum local cadastrado</p>';return;}
+  // Agrupar por andar
+  var porAndar={};
+  locais.forEach(function(l){
+    var a=l.andar;
+    if(!porAndar[a])porAndar[a]=[];
+    porAndar[a].push(l);
   });
-  // ordenar por andar
-  unicos.sort(function(a,b){return Number(a.andar)-Number(b.andar)||(a.local_id>b.local_id?1:-1);});
-  if(!unicos.length){list.innerHTML='<p class="empty">Nenhum AP cadastrado</p>';return;}
-  list.innerHTML=unicos.map(function(l,i){
-    return '<div class="nom-item">'+
-      '<div class="nom-info" style="cursor:pointer" onclick="abrirModalCfg(&quot;ap&quot;,'+i+')">'+
-        '<div class="nom-nome">'+l.nome_local+'</div>'+
-        '<div class="nom-meta">ID: '+l.local_id+'</div>'+
-      '</div>'+
-      '<button class="nom-edit" onclick="abrirModalCfg(&quot;ap&quot;,'+i+')" title="Editar">&#9998;</button>'+
-      '<button class="nom-del" onclick="removerCfgItem(&quot;aps&quot;,'+i+')">&#10005;</button>'+
+  var andares=Object.keys(porAndar).map(Number).sort(function(a,b){return a-b;});
+  // índice global para o modal
+  var idxGlobal=0;
+  var todosOrdenados=[];
+  andares.forEach(function(a){porAndar[a].forEach(function(l){todosOrdenados.push(l);});});
+  list.innerHTML=andares.map(function(a){
+    var items=porAndar[a];
+    var itemsHtml=items.map(function(l){
+      var idx=todosOrdenados.indexOf(l);
+      var icon=l.tipo==='apartamento'?'🚪':'🏛';
+      return '<div class="nom-item" style="margin-left:8px;background:var(--bg4)">'+
+        '<div class="nom-info" style="cursor:pointer" onclick="abrirModalCfg(&quot;ap&quot;,'+idx+')">'+
+          '<div class="nom-nome">'+icon+' '+l.nome_local+'</div>'+
+          '<div class="nom-meta">'+l.tipo+' · ID: '+l.local_id+'</div>'+
+        '</div>'+
+        '<button class="nom-edit" onclick="abrirModalCfg(&quot;ap&quot;,'+idx+')" title="Editar">&#9998;</button>'+
+        '<button class="nom-del" onclick="removerCfgItem(&quot;aps&quot;,'+idx+')">&#10005;</button>'+
+      '</div>';
+    }).join('');
+    return '<div style="margin-bottom:8px">'+
+      '<div style="font-size:11px;color:var(--text3);font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.1em;padding:8px 4px 4px">'+a+'º Andar</div>'+
+      itemsHtml+
+    '</div>';
+  }).join('');
+}
+
+function renderCfgComodos(){
+  var list=document.getElementById('cfg-comodos-list');if(!list)return;
+  var comodos=(NOM.comodos||[]).filter(function(c){return c.ativo==='SIM';});
+  if(!comodos.length){list.innerHTML='<p class="empty">Nenhum cômodo cadastrado</p>';return;}
+  // Agrupar por local_id
+  var porLocal={};
+  comodos.forEach(function(c){
+    var lid=c.local_id||'ap';
+    if(!porLocal[lid])porLocal[lid]=[];
+    porLocal[lid].push(c);
+  });
+  list.innerHTML=Object.keys(porLocal).map(function(lid){
+    var items=porLocal[lid];
+    var itemsHtml=items.map(function(c,i){
+      var idxGlobal=comodos.indexOf(c);
+      return '<div class="nom-item" style="margin-left:8px;background:var(--bg4)">'+
+        '<div class="nom-info">'+
+          '<div class="nom-nome">'+c.nome_comodo+'</div>'+
+          '<div class="nom-meta">'+Number(c.area_m2||0)+'m² · ID: '+c.comodo_id+'</div>'+
+        '</div>'+
+        '<button class="nom-edit" onclick="abrirModalCfg(&quot;comodo&quot;,'+idxGlobal+')" title="Editar">&#9998;</button>'+
+        '<button class="nom-del" onclick="removerCfgItem(&quot;comodos&quot;,'+idxGlobal+')">&#10005;</button>'+
+      '</div>';
+    }).join('');
+    return '<div style="margin-bottom:8px">'+
+      '<div style="font-size:11px;color:var(--text3);font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.1em;padding:8px 4px 4px">'+lid+'</div>'+
+      itemsHtml+
     '</div>';
   }).join('');
 }
@@ -1792,15 +1880,23 @@ async function removerCfgItem(tipo,idx){
     NOM.tarefas.splice(idx,1);
     renderCfgTarefas();
     await salvarNomSheets('tarefas',NOM.tarefas);
-  } else if(tipo==='aps'||tipo==='locais'){
-    var aps=(NOM.locais||[]).filter(function(l){return tipo==='aps'?l.tipo==='apartamento':l.tipo==='area_comum';});
-    var vistos={};var unicos=[];
-    aps.forEach(function(l){if(!vistos[l.local_id]){vistos[l.local_id]=true;unicos.push(l);}});
-    var item=unicos[idx];
-    if(!confirm('Remover "'+item.nome_local+'" de todos os andares?'))return;
-    NOM.locais=NOM.locais.filter(function(l){return l.local_id!==item.local_id;});
-    renderCfgAPs();renderCfgLocais();renderAcompContent();
+  } else if(tipo==='aps'){
+    // idx é índice na lista global ordenada
+    var todosLocs=(NOM.locais||[]).filter(function(l){return l.ativo==='SIM';});
+    var porA={};todosLocs.forEach(function(l){var a=l.andar;if(!porA[a])porA[a]=[];porA[a].push(l);});
+    var andA=Object.keys(porA).map(Number).sort(function(a,b){return a-b;});
+    var todosO=[];andA.forEach(function(a){porA[a].forEach(function(l){todosO.push(l);});});
+    var item=todosO[idx];
+    if(!item||!confirm('Remover "'+item.nome_local+'" do '+item.andar+'º andar?'))return;
+    NOM.locais=NOM.locais.filter(function(l){return !(l.andar===item.andar&&l.local_id===item.local_id);});
+    renderCfgAPs();renderAcompContent();
     await salvarNomSheets('locais',NOM.locais);
+  } else if(tipo==='comodos'){
+    var c=NOM.comodos[idx];
+    if(!c||!confirm('Remover cômodo "'+c.nome_comodo+'"?'))return;
+    NOM.comodos.splice(idx,1);
+    renderCfgComodos();renderAcompContent();
+    await salvarNomSheets('comodos',NOM.comodos);
   }
 }
 
@@ -1851,28 +1947,36 @@ function abrirModalCfg(tipo,idx){
            '</select></div>'+
            '<div class="field"><label>Unidade de medida</label><input type="text" id="cfg-unidade" value="'+(t.unidade_medida||'m²')+'"></div>'+
            '<div class="field"><label>APs que possuem esta tarefa</label>'+
-           '<label class="chk-row" style="margin-bottom:8px"><input type="checkbox" id="cfg-todos-aps" '+(apsAtual==='todos'?'checked':'')+' onchange="toggleTodosAPs(this)"> Todos os APs</label>'+
-           '<div id="cfg-aps-check" style="'+(apsAtual==='todos'?'opacity:.4;pointer-events:none':'')+';display:flex;flex-wrap:wrap;gap:8px">'+
+           '<label class="chk-row" style="margin-bottom:8px;padding:8px;background:var(--yglow);border-radius:var(--rsm)"><input type="checkbox" id="cfg-todos-aps" '+(apsAtual==='todos'?'checked':'')+' onchange="toggleTodosAPs(this)"> <b>Selecionar todos</b></label>'+
+           '<div id="cfg-aps-check" style="display:flex;flex-wrap:wrap;gap:8px;'+(apsAtual==='todos'?'opacity:.5':'')+'">'+
            apsUnicos.map(function(a){
-             var chk=(apsAtual==='todos'||apsAtual===a.local_id||(Array.isArray(apsAtual)&&apsAtual.indexOf(a.local_id)>=0))?'checked':'';
-             return '<label class="chk-row"><input type="checkbox" class="cfg-ap-check" value="'+a.local_id+'" '+chk+'> '+a.nome_local+'</label>';
+             var chk=(apsAtual==='todos'||(Array.isArray(apsAtual)&&apsAtual.indexOf(a.local_id)>=0))?'checked':'';
+             return '<label class="chk-row" style="min-width:80px"><input type="checkbox" class="cfg-ap-check" value="'+a.local_id+'" '+chk+'> '+a.nome_local+'</label>';
            }).join('')+
            '</div></div>';
+  } else if(tipo==='grupo'){
+    var grupos=getGruposCfg();
+    var g=isEdit?(grupos[idx]||{}):{};
+    var tarefasGrupo=(NOM.tarefas||[]).filter(function(t){return t.grupo===(g.id||'');});
+    var tarefasOpts=(NOM.tarefas||[]).map(function(t){
+      var vinc=t.grupo===(g.id||'');
+      return '<label class="chk-row"><input type="checkbox" class="cfg-grupo-tarefa" value="'+(t.tarefa_id||t.id)+'" '+(vinc?'checked':'')+' data-gid="'+(g.id||'')+'">'+(t.nome||t.tarefa_id)+'</label>';
+    }).join('');
+    fields='<div class="field"><label>ID (slug)</label><input type="text" id="cfg-id" placeholder="Ex: estrutura" value="'+(g.id||'')+'"></div>'+
+           '<div class="field"><label>Nome</label><input type="text" id="cfg-nome" placeholder="Ex: Estrutura" value="'+(g.nome||'')+'"></div>'+
+           (isEdit&&tarefasOpts?'<div class="field"><label>Tarefas deste grupo</label><div style="max-height:200px;overflow-y:auto">'+tarefasOpts+'</div></div>':'');
   } else if(tipo==='andar'){
     fields='<div class="field"><label>Número do andar</label><input type="number" id="cfg-andar-num" placeholder="Ex: 16" min="1" max="99"></div>';
   } else if(tipo==='ap'){
-    // Reconstruir lista igual ao renderCfgAPs
-    var apsAll=(NOM.locais||[]).filter(function(l){return l.tipo==='apartamento';});
-    var vistos2={};var apsArr=[];
-    apsAll.forEach(function(l){var k=l.andar+'|'+l.local_id;if(!vistos2[k]){vistos2[k]=true;apsArr.push(l);}});
-    apsArr.sort(function(a,b){return Number(a.andar)-Number(b.andar)||(a.local_id>b.local_id?1:-1);});
-    var ap=isEdit?apsArr[idx]:{};
-    // Tarefas vinculadas a este AP
+    // Lista todos os locais na mesma ordem do render
+    var todosLocais=(NOM.locais||[]).filter(function(l){return l.ativo==='SIM';});
+    var porAndarAp={};
+    todosLocais.forEach(function(l){var a=l.andar;if(!porAndarAp[a])porAndarAp[a]=[];porAndarAp[a].push(l);});
+    var andoresAp=Object.keys(porAndarAp).map(Number).sort(function(a,b){return a-b;});
+    var todosOrd=[];
+    andoresAp.forEach(function(a){porAndarAp[a].forEach(function(l){todosOrd.push(l);});});
+    var ap=isEdit?(todosOrd[idx]||{}):{};
     var tid2=ap.local_id||'';
-    var tarefasVinc=(NOM.tarefas||[]).filter(function(t){
-      var aps2=getTarefaAPs(t.tarefa_id||t.id);
-      return aps2==='todos'||(Array.isArray(aps2)&&aps2.indexOf(tid2)>=0);
-    });
     var tarefasCheck=(NOM.tarefas||[]).map(function(t){
       var aps2=getTarefaAPs(t.tarefa_id||t.id);
       var vinc=aps2==='todos'||(Array.isArray(aps2)&&aps2.indexOf(tid2)>=0);
@@ -1880,10 +1984,22 @@ function abrirModalCfg(tipo,idx){
     }).join('');
     fields='<div class="field"><label>ID (slug)</label><input type="text" id="cfg-id" placeholder="Ex: ap3" value="'+(ap.local_id||'')+'"></div>'+
            '<div class="field"><label>Nome</label><input type="text" id="cfg-nome" placeholder="Ex: AP 3" value="'+(ap.nome_local||'')+'"></div>'+
+           '<div class="field"><label>Tipo</label><select class="sel" id="cfg-tipo" style="width:100%"><option value="apartamento" '+(ap.tipo==='apartamento'?'selected':'')+'>Apartamento</option><option value="area_comum" '+(ap.tipo==='area_comum'?'selected':'')+'>Área Comum</option></select></div>'+
            (isEdit?'<div class="field"><label>Tarefas vinculadas</label><div style="max-height:200px;overflow-y:auto">'+tarefasCheck+'</div></div>':'');
   } else if(tipo==='local'){
     fields='<div class="field"><label>ID (slug)</label><input type="text" id="cfg-id" placeholder="Ex: deposito"></div>'+
            '<div class="field"><label>Nome</label><input type="text" id="cfg-nome" placeholder="Ex: Depósito"></div>';
+  } else if(tipo==='comodo'){
+    var comodoEdit=isEdit?(NOM.comodos[idx]||{}):{};
+    var locaisOpts=(NOM.locais||[]).filter(function(l){return l.ativo==='SIM';});
+    var vistosLoc={};var locaisUniq=[];
+    locaisOpts.forEach(function(l){if(!vistosLoc[l.local_id]){vistosLoc[l.local_id]=true;locaisUniq.push(l);}});
+    fields='<div class="field"><label>Local</label><select class="sel" id="cfg-comodo-local" style="width:100%">'+
+           locaisUniq.map(function(l){return '<option value="'+l.local_id+'" '+(comodoEdit.local_id===l.local_id?'selected':'')+'>'+l.nome_local+' ('+l.local_id+')</option>';}).join('')+
+           '</select></div>'+
+           '<div class="field"><label>ID (slug)</label><input type="text" id="cfg-id" placeholder="Ex: quarto4" value="'+(comodoEdit.comodo_id||'')+'"></div>'+
+           '<div class="field"><label>Nome</label><input type="text" id="cfg-nome" placeholder="Ex: Quarto 4" value="'+(comodoEdit.nome_comodo||'')+'"></div>'+
+           '<div class="field"><label>Área m²</label><input type="number" id="cfg-area" step="0.5" min="0" placeholder="Ex: 12.5" value="'+(comodoEdit.area_m2||'')+'"></div>';
   }
   document.getElementById('cfg-modal-fields').innerHTML=fields;
   document.getElementById('modal-cfg').style.display='flex';
@@ -1932,6 +2048,22 @@ async function salvarCfgItem(){
     await salvarNomSheets('tarefas',NOM.tarefas);
     // Se tarefa nova, inicializar no DADOS com NP para APs não vinculados
     if(!isEdit) await inicializarTarefaNovaDados(id);
+  } else if(tipo==='grupo'){
+    var id=document.getElementById('cfg-id').value.trim().toLowerCase().replace(/\s+/g,'_');
+    var nome=document.getElementById('cfg-nome').value.trim();
+    if(!id||!nome){toast('Preencha ID e Nome','err');return;}
+    var grupos=getGruposCfg();
+    if(isEdit){grupos[cfgModalIdx]={id:id,nome:nome};}
+    else{grupos.push({id:id,nome:nome});}
+    setGruposCfg(grupos);
+    // Atualizar tarefas vinculadas
+    if(isEdit){
+      var sels=[].slice.call(document.querySelectorAll('.cfg-grupo-tarefa:checked')).map(function(c){return c.value;});
+      NOM.tarefas.forEach(function(t){if(sels.indexOf(t.tarefa_id||t.id)>=0)t.grupo=id;});
+      await salvarNomSheets('tarefas',NOM.tarefas);
+    }
+    fecharModal('modal-cfg');renderCfgGrupos();renderCfgTarefas();
+    toast('Grupo salvo!');
   } else if(tipo==='andar'){
     var num=parseInt(document.getElementById('cfg-andar-num').value);
     if(!num){toast('Número inválido','err');return;}
@@ -1958,8 +2090,19 @@ async function salvarCfgItem(){
     var andares=[];var vistos={};
     (NOM.locais||[]).forEach(function(l){if(!vistos[l.andar]){vistos[l.andar]=true;andares.push(Number(l.andar));}});
     andares.forEach(function(a){NOM.locais.push({obra_id:OBRA_ID,andar:a,local_id:id,nome_local:nome,tipo:'area_comum',ativo:'SIM'});});
-    fecharModal('modal-cfg');renderCfgLocais();renderAcompContent();
+    fecharModal('modal-cfg');renderCfgAPs();renderAcompContent();
     await salvarNomSheets('locais',NOM.locais);
+  } else if(tipo==='comodo'){
+    var id=document.getElementById('cfg-id').value.trim().toLowerCase().replace(/\s+/g,'_');
+    var nome=document.getElementById('cfg-nome').value.trim();
+    var lid=document.getElementById('cfg-comodo-local').value;
+    var area=parseFloat(document.getElementById('cfg-area').value)||0;
+    if(!id||!nome){toast('Preencha ID e Nome','err');return;}
+    var item={obra_id:OBRA_ID,local_id:lid,comodo_id:id,nome_comodo:nome,area_m2:area,ativo:'SIM'};
+    if(isEdit){NOM.comodos[cfgModalIdx]=Object.assign(NOM.comodos[cfgModalIdx],item);}
+    else{NOM.comodos.push(item);}
+    fecharModal('modal-cfg');renderCfgComodos();renderAcompContent();
+    await salvarNomSheets('comodos',NOM.comodos);
   }
 }
 
