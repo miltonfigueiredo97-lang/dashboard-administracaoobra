@@ -265,6 +265,14 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
 .nc-stat{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:12px 16px;flex:1;text-align:center}
 .nc-stat-val{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700}
 .nc-stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-top:3px;font-family:'JetBrains Mono',monospace}
+
+.grupo-row{border-bottom:1px solid var(--border)}
+.grupo-row:last-child{border:none}
+.grupo-hdr{display:flex;align-items:center;justify-content:space-between;padding:11px 16px;cursor:pointer;background:rgba(255,255,255,.03)}
+.grupo-nome{font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.1em}
+.grupo-body{display:block}
+.ftab{padding:9px 18px;border-radius:999px;border:1px solid var(--border);background:var(--bg3);color:var(--text2);font-size:13px;font-weight:600;white-space:nowrap;cursor:pointer;flex-shrink:0}
+.ftab.active{background:var(--yellow);border-color:var(--yellow);color:#111}
 </style>
 </head>
 <body>
@@ -308,123 +316,12 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
   <!-- ACOMPANHAMENTO -->
   <div class="panel active" id="panel-acomp">
     <div class="andar-scroll" id="acomp-andares"></div>
-    <div style="flex:1;overflow-y:auto;padding-top:10px" id="acomp-content">
+    <div style="display:flex;gap:6px;padding:8px 14px 0;flex-shrink:0">
+      <button class="ftab active" id="vis-tarefa" onclick="setVisao('tarefa')">Por Tarefa</button>
+      <button class="ftab" id="vis-comodo" onclick="setVisao('comodo')">Por Cômodo</button>
+    </div>
+    <div id="acomp-content">
       <p class="empty">Selecione um andar acima</p>
-    </div>
-  </div>
-
-  <!-- MEXER DEPOIS (antigo admin) -->
-  <div class="panel" id="panel-mexer">
-    <div class="sub-tabs">
-      <button class="sub-tab active" data-sub="andar" onclick="switchSub(this)">Andar</button>
-      <button class="sub-tab" data-sub="etapa" onclick="switchSub(this)">Etapa</button>
-      <button class="sub-tab" data-sub="ap" onclick="switchSub(this)">AP</button>
-      <button class="sub-tab" data-sub="bulk" onclick="switchSub(this)">Mult.</button>
-    </div>
-
-    <!-- sub: andar -->
-    <div class="sub-panel active" id="sub-andar">
-      <!-- Inicializar DADOS -->
-      <div class="card" style="margin-bottom:10px">
-        <div class="card-head">
-          <div><div class="card-title">Inicializar Mapa</div><div class="card-sub">Cria todas as linhas AP x Etapa na aba DADOS zeradas</div></div>
-          <button class="qbtn" style="color:var(--yellow);border-color:var(--yellow)" onclick="inicializarDados()">&#9654; Inicializar</button>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <div class="sel-row"><span class="lbl">Andar</span><select class="sel" id="sel-andar" onchange="renderPorAndar()"></select></div>
-          <div class="sel-row"><span class="lbl">Grupo</span>
-            <select class="sel" id="sel-grupo-andar" onchange="renderPorAndar()">
-              <option value="">Todos</option>
-              <option value="vedacao">Vedação</option>
-              <option value="eletrica">Elétrica</option>
-              <option value="hidraulica">Hidráulica</option>
-              <option value="instalacoes">Instalações</option>
-              <option value="acabamento">Acabamento</option>
-            </select>
-          </div>
-          <label class="chk-row"><input type="checkbox" id="chk-proj-andar" onchange="renderPorAndar()"> Mostrar projetos</label>
-        </div>
-      </div>
-      <div class="quick-row">
-        <button class="qbtn" onclick="setAll('andar',0)">0%</button>
-        <button class="qbtn" onclick="setAll('andar',25)">25%</button>
-        <button class="qbtn" onclick="setAll('andar',50)">50%</button>
-        <button class="qbtn" onclick="setAll('andar',75)">75%</button>
-        <button class="qbtn" onclick="setAll('andar',100)">100%</button>
-        <button class="qbtn atr" onclick="setAll('andar','ATR')">ATR</button>
-      </div>
-      <div class="item-list" id="list-andar"><p class="empty">Selecione um andar</p></div>
-    </div>
-
-    <!-- sub: etapa -->
-    <div class="sub-panel" id="sub-etapa">
-      <div class="card">
-        <div class="card-body">
-          <div class="sel-row"><span class="lbl">Etapa</span><select class="sel" id="sel-etapa" onchange="renderPorEtapa()"></select></div>
-          <div class="sel-row"><span class="lbl">Andar</span><select class="sel" id="sel-andar-etapa" onchange="renderPorEtapa()"><option value="">Todos</option></select></div>
-        </div>
-      </div>
-      <div class="counters" id="cnt-etapa" style="display:none">
-        <div class="counter"><div class="counter-val" id="ce-done">0</div><div class="counter-lbl">Concl.</div></div>
-        <div class="counter"><div class="counter-val" id="ce-doing">0</div><div class="counter-lbl">Exec.</div></div>
-        <div class="counter"><div class="counter-val" id="ce-idle">0</div><div class="counter-lbl">N.In.</div></div>
-        <div class="counter"><div class="counter-val" id="ce-late">0</div><div class="counter-lbl">ATR</div></div>
-        <div class="counter"><div class="counter-val" id="ce-np">0</div><div class="counter-lbl">NP</div></div>
-      </div>
-      <div class="quick-row">
-        <button class="qbtn" onclick="setAll('etapa',0)">0%</button>
-        <button class="qbtn" onclick="setAll('etapa',50)">50%</button>
-        <button class="qbtn" onclick="setAll('etapa',100)">100%</button>
-        <button class="qbtn atr" onclick="setAll('etapa','ATR')">ATR</button>
-        <button class="qbtn np" onclick="setAll('etapa','NP')">NP</button>
-      </div>
-      <div class="item-list" id="list-etapa"><p class="empty">Selecione uma etapa</p></div>
-    </div>
-
-    <!-- sub: ap -->
-    <div class="sub-panel" id="sub-ap">
-      <div class="card">
-        <div class="card-body">
-          <div class="sel-row"><span class="lbl">AP</span><select class="sel" id="sel-ap" onchange="renderPorAP()"></select></div>
-          <label class="chk-row"><input type="checkbox" id="chk-proj-ap" onchange="renderPorAP()"> Mostrar projetos</label>
-        </div>
-      </div>
-      <div class="quick-row">
-        <button class="qbtn" onclick="setAll('ap',0)">0%</button>
-        <button class="qbtn" onclick="setAll('ap',50)">50%</button>
-        <button class="qbtn" onclick="setAll('ap',100)">100%</button>
-        <button class="qbtn atr" onclick="setAll('ap','ATR')">ATR</button>
-      </div>
-      <div class="item-list" id="list-ap"><p class="empty">Selecione uma AP</p></div>
-    </div>
-
-    <!-- sub: bulk -->
-    <div class="sub-panel" id="sub-bulk">
-      <div class="bulk-section">
-        <div class="bulk-title">1 · APs</div>
-        <div class="bulk-chips" id="bulk-aps"></div>
-      </div>
-      <div class="bulk-section">
-        <div class="bulk-title">2 · Etapas</div>
-        <div id="bulk-etapas"></div>
-      </div>
-      <div class="bulk-section">
-        <div class="bulk-title">3 · Aplicar</div>
-        <div class="bulk-apply">
-          <div class="bulk-count" id="bulk-count">0 combinações</div>
-          <div class="quick-row" style="justify-content:center">
-            <button class="qbtn" onclick="aplicarBulk(0)">0%</button>
-            <button class="qbtn" onclick="aplicarBulk(25)">25%</button>
-            <button class="qbtn" onclick="aplicarBulk(50)">50%</button>
-            <button class="qbtn" onclick="aplicarBulk(75)">75%</button>
-            <button class="qbtn" onclick="aplicarBulk(100)">100%</button>
-            <button class="qbtn atr" onclick="aplicarBulk('ATR')">ATR</button>
-            <button class="qbtn np" onclick="aplicarBulk('NP')">NP</button>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -486,7 +383,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
 <nav class="bottom-nav">
   <button class="nav-btn active" data-panel="acomp" onclick="switchPanel(this)"><span class="nav-icon">&#128200;</span>Acomp.</button>
   <button class="nav-btn" data-panel="nc" onclick="switchPanel(this)"><span class="nav-icon">&#9888;</span>NC</button>
-  <button class="nav-btn" data-panel="mexer" onclick="switchPanel(this)"><span class="nav-icon">&#9881;</span>Mexer dep.</button>
   <button class="nav-btn" data-panel="hist" onclick="switchPanel(this)"><span class="nav-icon">&#128203;</span>Log</button>
   <button class="nav-btn" data-panel="nom" onclick="switchPanel(this)"><span class="nav-icon">&#128196;</span>Nomencl.</button>
   <button class="nav-btn" data-panel="users" onclick="switchPanel(this)"><span class="nav-icon">&#128101;</span>Users</button>
@@ -639,8 +535,10 @@ async function fazerLogin(){
   document.getElementById('app').classList.add('show');
   document.getElementById('t-user').textContent=u.nome+' · '+u.email;
   if(u.role!=='admin'){
-    document.querySelector('[data-panel="users"]').style.display='none';
-    document.querySelector('[data-panel="nom"]').style.display='none';
+    var btnUsers=document.querySelector('[data-panel="users"]');
+    var btnNom=document.querySelector('[data-panel="nom"]');
+    if(btnUsers)btnUsers.style.display='none';
+    if(btnNom)btnNom.style.display='none';
   }
   initSelects();
   carregarNomenclatura();
@@ -654,54 +552,70 @@ document.getElementById('login-senha').addEventListener('keydown',function(e){if
 document.getElementById('login-email').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('login-senha').focus();});
 
 // ETAPAS (catálogo para "mexer depois")
-var GRUPOS=[
-  {id:'vedacao',nome:'Vedação',etapas:[
-    {id:'proj_vedacao',nome:'Projeto de Vedação',projeto:true,prev:'2026-01-15'},
-    {id:'alvenaria',nome:'Alvenaria',projeto:false,prev:'2026-01-30'},
-    {id:'encunhamento',nome:'Encunhamento',projeto:false,prev:'2026-02-10'},
-  ]},
-  {id:'eletrica',nome:'Elétrica',etapas:[
-    {id:'proj_infra_el',nome:'Proj. Infra Elétrica',projeto:true,prev:'2026-01-10'},
-    {id:'infra_eletrica',nome:'Infra Elétrica',projeto:false,prev:'2026-02-05'},
-    {id:'proj_quadros',nome:'Proj. Quadros Dist.',projeto:true,prev:'2026-01-20'},
-    {id:'quadros_dist',nome:'Quadros de Distribuição',projeto:false,prev:'2026-02-20'},
-    {id:'proj_prumada',nome:'Proj. Prumada',projeto:true,prev:'2026-01-12'},
-    {id:'prumada',nome:'Prumada',projeto:false,prev:'2026-02-15'},
-  ]},
-  {id:'hidraulica',nome:'Hidráulica',etapas:[
-    {id:'proj_aereo_hid',nome:'Proj. Aéreo Hidráulica',projeto:true,prev:'2026-01-18'},
-    {id:'aereo_hidraulica',nome:'Aéreo Hidráulica',projeto:false,prev:'2026-02-25'},
-    {id:'proj_dist_hid',nome:'Proj. Dist. Hidráulica',projeto:true,prev:'2026-01-22'},
-    {id:'dist_hidraulica',nome:'Distribuição Hidráulica',projeto:false,prev:'2026-03-01'},
-    {id:'proj_hd_banh',nome:'Proj. Hd. Banheira',projeto:true,prev:'2026-01-25'},
-    {id:'infra_hd_banh',nome:'Infra Hd. Banheira',projeto:false,prev:'2026-03-05'},
-    {id:'proj_gas',nome:'Proj. Infra Gás',projeto:true,prev:'2026-01-15'},
-    {id:'infra_gas',nome:'Infra Gás',projeto:false,prev:'2026-02-28'},
-  ]},
-  {id:'instalacoes',nome:'Instalações',etapas:[
-    {id:'det_nichos',nome:'Detalhe dos Nichos',projeto:true,prev:'2026-02-01'},
-    {id:'nichos',nome:'Nichos',projeto:false,prev:'2026-03-10'},
-    {id:'det_contrapiso',nome:'Detalhe Contrapisos',projeto:true,prev:'2026-02-01'},
-    {id:'contrapiso',nome:'Contrapiso',projeto:false,prev:'2026-03-15'},
-    {id:'proj_ar',nome:'Proj. Ar Condicionado',projeto:true,prev:'2026-02-05'},
-    {id:'ar_condicionado',nome:'Ar Condicionado',projeto:false,prev:'2026-03-20'},
-    {id:'proj_aspiracao',nome:'Proj. Aspiração Central',projeto:true,prev:'2026-02-05'},
-    {id:'aspiracao',nome:'Aspiração Central',projeto:false,prev:'2026-03-25'},
-    {id:'proj_automacao',nome:'Proj. Automação',projeto:true,prev:'2026-02-10'},
-    {id:'automacao',nome:'Automação',projeto:false,prev:'2026-04-01'},
-  ]},
-  {id:'acabamento',nome:'Acabamento',etapas:[
-    {id:'proj_acabamento',nome:'Proj. Acabamento Interno',projeto:true,prev:'2026-03-01'},
-    {id:'gesso_liso',nome:'Gesso Liso',projeto:false,prev:'2026-04-10'},
-    {id:'forro',nome:'Forro',projeto:false,prev:'2026-04-15'},
-    {id:'impermeabilizacao',nome:'Impermeabilização',projeto:false,prev:'2026-04-05'},
-    {id:'revestimentos',nome:'Revestimentos',projeto:false,prev:'2026-04-20'},
-    {id:'proj_bancadas',nome:'Proj. Bancadas',projeto:true,prev:'2026-03-10'},
-    {id:'granito',nome:'Granito',projeto:false,prev:'2026-05-01'},
-    {id:'pintura',nome:'Pintura',projeto:false,prev:'2026-05-15'},
-  ]},
+// GRUPOS e ETAPAS — carregados dinamicamente do Sheets via NOM
+// Fallback para lista hardcoded caso NOM ainda não tenha carregado
+var GRUPOS_DEFAULT=[
+  {id:'vedacao',   nome:'Vedação'},
+  {id:'eletrica',  nome:'Elétrica'},
+  {id:'hidraulica',nome:'Hidráulica'},
+  {id:'instalacoes',nome:'Instalações'},
+  {id:'acabamento',nome:'Acabamento'},
 ];
-function getEtapas(){return GRUPOS.flatMap(function(g){return g.etapas.map(function(e){return Object.assign({},e,{grupo:g.id});});});}
+var GRUPOS=GRUPOS_DEFAULT;
+function getEtapas(){
+  // Se NOM.tarefas foi carregado do Sheets, usa ele
+  if(NOM&&NOM.tarefas&&NOM.tarefas.length){
+    return NOM.tarefas.map(function(t){
+      return {
+        id:t.tarefa_id,
+        nome:t.nome,
+        projeto:t.eh_projeto==='SIM',
+        prev:t.data_prev||'',
+        grupo:t.grupo||'instalacoes',
+        aplica_em:t.aplica_em||'ap',
+        unidade:t.unidade_medida||'m2'
+      };
+    });
+  }
+  // fallback hardcoded
+  return [
+    {id:'proj_vedacao',nome:'Projeto de Vedação',projeto:true,prev:'2026-01-15',grupo:'vedacao'},
+    {id:'alvenaria',nome:'Alvenaria',projeto:false,prev:'2026-01-30',grupo:'vedacao'},
+    {id:'encunhamento',nome:'Encunhamento',projeto:false,prev:'2026-02-10',grupo:'vedacao'},
+    {id:'proj_infra_el',nome:'Proj. Infra Elétrica',projeto:true,prev:'2026-01-10',grupo:'eletrica'},
+    {id:'infra_eletrica',nome:'Infra Elétrica',projeto:false,prev:'2026-02-05',grupo:'eletrica'},
+    {id:'proj_quadros',nome:'Proj. Quadros Dist.',projeto:true,prev:'2026-01-20',grupo:'eletrica'},
+    {id:'quadros_dist',nome:'Quadros de Distribuição',projeto:false,prev:'2026-02-20',grupo:'eletrica'},
+    {id:'proj_prumada',nome:'Proj. Prumada',projeto:true,prev:'2026-01-12',grupo:'eletrica'},
+    {id:'prumada',nome:'Prumada',projeto:false,prev:'2026-02-15',grupo:'eletrica'},
+    {id:'proj_aereo_hid',nome:'Proj. Aéreo Hidráulica',projeto:true,prev:'2026-01-18',grupo:'hidraulica'},
+    {id:'aereo_hidraulica',nome:'Aéreo Hidráulica',projeto:false,prev:'2026-02-25',grupo:'hidraulica'},
+    {id:'proj_dist_hid',nome:'Proj. Dist. Hidráulica',projeto:true,prev:'2026-01-22',grupo:'hidraulica'},
+    {id:'dist_hidraulica',nome:'Distribuição Hidráulica',projeto:false,prev:'2026-03-01',grupo:'hidraulica'},
+    {id:'proj_hd_banh',nome:'Proj. Hd. Banheira',projeto:true,prev:'2026-01-25',grupo:'hidraulica'},
+    {id:'infra_hd_banh',nome:'Infra Hd. Banheira',projeto:false,prev:'2026-03-05',grupo:'hidraulica'},
+    {id:'proj_gas',nome:'Proj. Infra Gás',projeto:true,prev:'2026-01-15',grupo:'hidraulica'},
+    {id:'infra_gas',nome:'Infra Gás',projeto:false,prev:'2026-02-28',grupo:'hidraulica'},
+    {id:'det_nichos',nome:'Detalhe dos Nichos',projeto:true,prev:'2026-02-01',grupo:'instalacoes'},
+    {id:'nichos',nome:'Nichos',projeto:false,prev:'2026-03-10',grupo:'instalacoes'},
+    {id:'det_contrapiso',nome:'Detalhe Contrapisos',projeto:true,prev:'2026-02-01',grupo:'instalacoes'},
+    {id:'contrapiso',nome:'Contrapiso',projeto:false,prev:'2026-03-15',grupo:'instalacoes'},
+    {id:'proj_ar',nome:'Proj. Ar Condicionado',projeto:true,prev:'2026-02-05',grupo:'instalacoes'},
+    {id:'ar_condicionado',nome:'Ar Condicionado',projeto:false,prev:'2026-03-20',grupo:'instalacoes'},
+    {id:'proj_aspiracao',nome:'Proj. Aspiração Central',projeto:true,prev:'2026-02-05',grupo:'instalacoes'},
+    {id:'aspiracao',nome:'Aspiração Central',projeto:false,prev:'2026-03-25',grupo:'instalacoes'},
+    {id:'proj_automacao',nome:'Proj. Automação',projeto:true,prev:'2026-02-10',grupo:'instalacoes'},
+    {id:'automacao',nome:'Automação',projeto:false,prev:'2026-04-01',grupo:'instalacoes'},
+    {id:'proj_acabamento',nome:'Proj. Acabamento Interno',projeto:true,prev:'2026-03-01',grupo:'acabamento'},
+    {id:'gesso_liso',nome:'Gesso Liso',projeto:false,prev:'2026-04-10',grupo:'acabamento'},
+    {id:'forro',nome:'Forro',projeto:false,prev:'2026-04-15',grupo:'acabamento'},
+    {id:'impermeabilizacao',nome:'Impermeabilização',projeto:false,prev:'2026-04-05',grupo:'acabamento'},
+    {id:'revestimentos',nome:'Revestimentos',projeto:false,prev:'2026-04-20',grupo:'acabamento'},
+    {id:'proj_bancadas',nome:'Proj. Bancadas',projeto:true,prev:'2026-03-10',grupo:'acabamento'},
+    {id:'granito',nome:'Granito',projeto:false,prev:'2026-05-01',grupo:'acabamento'},
+    {id:'pintura',nome:'Pintura',projeto:false,prev:'2026-05-15',grupo:'acabamento'},
+  ];
+}
 var UNIDADES=[];
 for(var a=1;a<=15;a++){UNIDADES.push({u:String(a)+'1',a:a});UNIDADES.push({u:String(a)+'2',a:a});}
 var DADOS={};
@@ -842,6 +756,14 @@ async function salvarTudo(){
 
 // ── ACOMPANHAMENTO ────────────────────────────────────────────────────────────
 var andarSel=1;
+var visaoSel='tarefa'; // 'tarefa' ou 'comodo'
+
+function setVisao(v){
+  visaoSel=v;
+  document.getElementById('vis-tarefa').classList.toggle('active',v==='tarefa');
+  document.getElementById('vis-comodo').classList.toggle('active',v==='comodo');
+  renderAcompContent();
+}
 
 function renderAndares(){
   var wrap=document.getElementById('acomp-andares');
@@ -908,6 +830,40 @@ function getComodos(lid){
   });
 }
 
+function getGrupos(){
+  var GRUPOS_NOMES={vedacao:'Vedação',eletrica:'Elétrica',hidraulica:'Hidráulica',instalacoes:'Instalações',acabamento:'Acabamento'};
+  var grupos={};
+  getTarefasParaLocal('_all').forEach(function(t){
+    var g=t.grupo||'outros';
+    if(!grupos[g])grupos[g]={id:g,nome:GRUPOS_NOMES[g]||g,tarefas:[]};
+    grupos[g].tarefas.push(t);
+  });
+  return Object.values(grupos);
+}
+
+function getTarefasParaLocal(lid){
+  if(!NOM||!NOM.tarefas||!NOM.tarefas.length) return getEtapas().filter(function(e){return !e.projeto;});
+  if(lid==='_all') return NOM.tarefas.filter(function(t){return t.ativo==='SIM';});
+  var local=NOM.locais.find(function(l){return l.local_id===lid;});
+  var tipo=local?local.tipo:'apartamento';
+  return NOM.tarefas.filter(function(t){
+    if(t.ativo!=='SIM')return false;
+    if(t.aplica_em==='todos')return true;
+    if(t.aplica_em==='ap'&&tipo==='apartamento')return true;
+    if(t.aplica_em==='area_comum'&&tipo==='area_comum')return true;
+    return false;
+  });
+}
+
+function getComodos(lid){
+  var local=NOM.locais.find(function(l){return l.local_id===lid;});
+  var tipo=local?local.tipo:'ap';
+  return NOM.comodos.filter(function(c){
+    if(c.ativo!=='SIM')return false;
+    return c.local_id===lid||c.local_id===tipo||(tipo==='apartamento'&&c.local_id==='ap');
+  });
+}
+
 function renderAcompContent(){
   var wrap=document.getElementById('acomp-content');
   if(!NOM.locais.length){wrap.innerHTML='<div class="loading"><div class="spinner"></div>Carregando...</div>';return;}
@@ -919,65 +875,132 @@ function renderAcompContent(){
   locais.forEach(function(local){
     var prog=getProgLocal(andarSel,local.local_id);
     var cor=prog>=100?'var(--green)':prog>50?'var(--yellow)':'var(--blue)';
-    var tarefas=getTarefasParaLocal(local.local_id);
-    html+='<div class="local-card" id="lc-'+local.local_id+'">';
     var ncLocal=temNCAberta(andarSel,local.local_id,null,null);
+    html+='<div class="local-card" id="lc-'+local.local_id+'">';
     html+='<div class="local-hdr" onclick="toggleLocal(\''+local.local_id+'\')"><div class="local-nome">'+local.nome_local+(ncLocal?' <span style="color:var(--red)">⚠</span>':'')+'</div>';
-    html+='<div style="display:flex;align-items:center;gap:10px"><div class="local-prog" id="lprog-'+andarSel+'-'+local.local_id+'" style="color:'+cor+'">'+prog.toFixed(1)+'%</div><div class="chevron">&#8250;</div></div></div>';
+    html+='<div style="display:flex;align-items:center;gap:10px"><div class="local-prog" id="lprog-'+andarSel+'-'+local.local_id+'" style="color:'+cor+'">'+prog.toFixed(1)+'%</div><div class="chevron">›</div></div></div>';
     html+='<div class="local-progbar"><div class="local-progbar-fill" id="lbar-'+andarSel+'-'+local.local_id+'" style="width:'+prog+'%;background:'+cor+'"></div></div>';
     html+='<div class="local-body">';
-    tarefas.forEach(function(tarefa){
-      var comodos=getComodos(local.local_id);
-      var areaTot=comodos.reduce(function(a,c){return a+Number(c.area_m2||0);},0);
-      var progTar=calcProgTarefa(andarSel,local.local_id,tarefa.tarefa_id,comodos,areaTot);
-      var corT=progTar>=100?'var(--green)':progTar>0?'var(--blue)':'var(--text3)';
-      html+='<div class="tarefa-row" id="tr-'+local.local_id+'-'+tarefa.tarefa_id+'">';
-      var ncTarefa=temNCAberta(andarSel,local.local_id,tarefa.tarefa_id,null);
-      html+='<div class="tarefa-hdr" onclick="toggleTarefa(\''+local.local_id+'\',\''+tarefa.tarefa_id+'\')"><div class="tarefa-nome">'+tarefa.nome+(ncTarefa?' <span style="color:var(--red);font-size:10px">⚠</span>':'')+'</div>';
-      html+='<div style="display:flex;align-items:center;gap:8px"><div class="tarefa-prog" id="tprog-'+andarSel+'-'+local.local_id+'-'+tarefa.tarefa_id+'" style="color:'+corT+'">'+progTar.toFixed(1)+'%</div><div class="tarefa-chev">&#8250;</div></div></div>';
-      // preview bar
-      html+='<div class="preview-bar" id="prev-'+andarSel+'-'+local.local_id+'-'+tarefa.tarefa_id+'" style="display:none">';
-      html+='<div class="preview-item"><div class="preview-lbl">Tarefa</div><div class="preview-val" id="prev-tar-val-'+andarSel+'-'+local.local_id+'-'+tarefa.tarefa_id+'" style="color:'+corT+'">'+progTar.toFixed(1)+'%</div><div class="preview-mini-bar"><div class="preview-mini-fill" id="prev-tar-bar-'+andarSel+'-'+local.local_id+'-'+tarefa.tarefa_id+'" style="width:'+progTar+'%;background:'+corT+'"></div></div></div>';
-      html+='<div class="preview-item"><div class="preview-lbl">'+local.nome_local+'</div><div class="preview-val" id="prev-local-val-'+andarSel+'-'+local.local_id+'" style="color:'+cor+'">'+prog.toFixed(1)+'%</div><div class="preview-mini-bar"><div class="preview-mini-fill" id="prev-local-bar-'+andarSel+'-'+local.local_id+'" style="width:'+prog+'%;background:'+cor+'"></div></div></div>';
-      html+='</div>';
-      html+='<div class="tarefa-body">';
-      comodos.forEach(function(comodo){
-        var k=andarSel+'|'+local.local_id+'|'+tarefa.tarefa_id+'|'+comodo.comodo_id;
-        var d=DADOS_ACOMP[k]||{pct_exec:0,status_vis:0,status_conf:0};
-        var pct=Number(d.pct_exec)||0;
-        var cor2=pct>=100?'var(--green)':pct>0?'var(--blue)':'var(--border2)';
-        var sid2=('c_'+andarSel+'_'+local.local_id+'_'+tarefa.tarefa_id+'_'+comodo.comodo_id).replace(/[^a-z0-9]/gi,'_');
-        var vis=d.status_vis?'visualizado':'';
-        var conf=d.status_conf?'conferido':'';
-        var temNC=NAO_CONFORMIDADES.some(function(nc){return String(nc.andar)===String(andarSel)&&nc.local_id===local.local_id&&nc.tarefa_id===tarefa.tarefa_id&&nc.comodo_id===comodo.comodo_id&&nc.status==='aberto';});
-        html+='<div class="comodo-item" style="flex-direction:column;align-items:stretch;padding:12px 16px">';
-        html+='<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">';
-        html+='<div class="comodo-info"><div class="comodo-nome">'+comodo.nome_comodo+'</div><div class="comodo-area">'+Number(comodo.area_m2||0)+'m2</div></div>';
-        html+='<input type="range" class="slider-sm" id="sl_'+sid2+'" min="0" max="100" step="1" value="'+pct+'" data-andar="'+andarSel+'" data-lid="'+local.local_id+'" data-tid="'+tarefa.tarefa_id+'" data-cid="'+comodo.comodo_id+'" data-ltid="'+andarSel+'-'+local.local_id+'-'+tarefa.tarefa_id+'">';
-        html+='<input type="number" class="pct-small" id="inp_'+sid2+'" min="0" max="100" step="1" value="'+pct+'">';
-        html+='<span class="pct-small-unit">%</span>';
-        html+='</div>';
-        html+='<div class="status-btns">';
-        html+='<button class="sbtn-status '+vis+'" id="vis_'+sid2+'" onclick="toggleStatus(\'vis\',\''+sid2+'\','+andarSel+',\''+local.local_id+'\',\''+tarefa.tarefa_id+'\',\''+comodo.comodo_id+'\')">&#128065; Visualizado</button>';
-        html+='<button class="sbtn-status '+conf+'" id="conf_'+sid2+'" onclick="toggleStatus(\'conf\',\''+sid2+'\','+andarSel+',\''+local.local_id+'\',\''+tarefa.tarefa_id+'\',\''+comodo.comodo_id+'\')">&#10003; Conferido</button>';
-        var classProb=temNC?'sbtn-status problema':'sbtn-status';
-        html+='<button class="'+classProb+'" onclick="abrirProblema('+andarSel+',\''+local.local_id+'\',\''+local.nome_local+'\',\''+tarefa.tarefa_id+'\',\''+tarefa.nome+'\',\''+comodo.comodo_id+'\',\''+comodo.nome_comodo+'\')">&#9888; Problema</button>';
-        html+='</div>';
-        html+='</div>';
+
+    if(visaoSel==='tarefa'){
+      // VISÃO POR TAREFA: Grupo → Tarefa → Cômodos
+      var grupos=getGruposPorLocal(local.local_id);
+      grupos.forEach(function(grupo){
+        var ncGrupo=grupo.tarefas.some(function(t){return temNCAberta(andarSel,local.local_id,t.tarefa_id||t.id,null);});
+        html+='<div class="grupo-row">';
+        html+='<div class="grupo-hdr" onclick="toggleGrupo(\''+local.local_id+'_'+grupo.id+'\')"><div class="grupo-nome">'+grupo.nome+(ncGrupo?' <span style="color:var(--red)">⚠</span>':'')+'</div><div class="tarefa-chev" id="gchev-'+local.local_id+'_'+grupo.id+'">›</div></div>';
+        html+='<div class="grupo-body" id="gb-'+local.local_id+'_'+grupo.id+'">';
+        grupo.tarefas.forEach(function(tarefa){
+          html+=renderTarefaComodos(andarSel,local,tarefa);
+        });
+        html+='</div></div>';
       });
-      html+='</div></div>';
-    });
+    } else {
+      // VISÃO POR CÔMODO: Cômodo → Tarefas
+      var comodos=getComodos(local.local_id);
+      var tarefas=getTarefasParaLocal(local.local_id);
+      comodos.forEach(function(comodo){
+        var ncComodo=tarefas.some(function(t){return temNCAberta(andarSel,local.local_id,t.tarefa_id||t.id,comodo.comodo_id);});
+        html+='<div class="tarefa-row" id="cr-'+local.local_id+'-'+comodo.comodo_id+'">';
+        html+='<div class="tarefa-hdr" onclick="toggleTarefa(\''+local.local_id+'\',\''+comodo.comodo_id+'\')"><div class="tarefa-nome">'+comodo.nome_comodo+' <span style="color:var(--text3);font-size:10px">'+Number(comodo.area_m2||0)+'m²</span>'+(ncComodo?' <span style="color:var(--red)">⚠</span>':'')+'</div><div class="tarefa-chev">›</div></div>';
+        html+='<div class="tarefa-body">';
+        tarefas.forEach(function(tarefa){
+          var k=andarSel+'|'+local.local_id+'|'+(tarefa.tarefa_id||tarefa.id)+'|'+comodo.comodo_id;
+          var d=DADOS_ACOMP[k]||{pct_exec:0,status_vis:0,status_conf:0};
+          var pct=Number(d.pct_exec)||0;
+          var sid2=('c_'+andarSel+'_'+local.local_id+'_'+(tarefa.tarefa_id||tarefa.id)+'_'+comodo.comodo_id).replace(/[^a-z0-9]/gi,'_');
+          var vis=d.status_vis?'visualizado':'';
+          var conf=d.status_conf?'conferido':'';
+          var temNC2=temNCAberta(andarSel,local.local_id,tarefa.tarefa_id||tarefa.id,comodo.comodo_id);
+          var cor2=pct>=100?'var(--green)':pct>0?'var(--blue)':'var(--border2)';
+          html+=renderComodoSlider(sid2,tarefa.nome,null,comodo,pct,vis,conf,temNC2,cor2,andarSel,local.local_id,tarefa.tarefa_id||tarefa.id);
+        });
+        html+='</div></div>';
+      });
+    }
     html+='</div></div>';
   });
   wrap.innerHTML=html;
   attachAcompEvents();
 }
 
+function getGruposPorLocal(lid){
+  var GRUPOS_NOMES={vedacao:'Vedação',eletrica:'Elétrica',hidraulica:'Hidráulica',instalacoes:'Instalações',acabamento:'Acabamento'};
+  var tarefas=getTarefasParaLocal(lid);
+  var grupos={};
+  var ordem=['vedacao','eletrica','hidraulica','instalacoes','acabamento'];
+  tarefas.forEach(function(t){
+    var g=t.grupo||'outros';
+    if(!grupos[g])grupos[g]={id:g,nome:GRUPOS_NOMES[g]||g,tarefas:[]};
+    grupos[g].tarefas.push(t);
+  });
+  var result=[];
+  ordem.forEach(function(g){if(grupos[g])result.push(grupos[g]);});
+  Object.keys(grupos).forEach(function(g){if(ordem.indexOf(g)<0)result.push(grupos[g]);});
+  return result;
+}
 
-var autoSaveTimer=null;
-function agendarAutoSave(){
-  clearTimeout(autoSaveTimer);
-  autoSaveTimer=setTimeout(function(){salvarSilencioso();},2000);
+function renderTarefaComodos(andar,local,tarefa){
+  var tid=tarefa.tarefa_id||tarefa.id;
+  var comodos=getComodos(local.local_id);
+  var areaTot=comodos.reduce(function(a,c){return a+Number(c.area_m2||0);},0);
+  var progTar=calcProgTarefa(andar,local.local_id,tid,comodos,areaTot);
+  var corT=progTar>=100?'var(--green)':progTar>0?'var(--blue)':'var(--text3)';
+  var ncTar=temNCAberta(andar,local.local_id,tid,null);
+  var ltid=andar+'-'+local.local_id+'-'+tid;
+  var h='<div class="tarefa-row" id="tr-'+local.local_id+'-'+tid+'">';
+  h+='<div class="tarefa-hdr" onclick="toggleTarefa(\''+local.local_id+'\',\''+tid+'\')"><div class="tarefa-nome">'+tarefa.nome+(ncTar?' <span style="color:var(--red);font-size:10px">⚠</span>':'')+'</div>';
+  h+='<div style="display:flex;align-items:center;gap:8px"><div class="tarefa-prog" id="tprog-'+ltid+'" style="color:'+corT+'">'+progTar.toFixed(1)+'%</div><div class="tarefa-chev">›</div></div></div>';
+  h+='<div class="preview-bar" id="prev-'+ltid+'" style="display:none">';
+  h+='<div class="preview-item"><div class="preview-lbl">Tarefa</div><div class="preview-val" id="prev-tar-val-'+ltid+'" style="color:'+corT+'">'+progTar.toFixed(1)+'%</div><div class="preview-mini-bar"><div class="preview-mini-fill" id="prev-tar-bar-'+ltid+'" style="width:'+progTar+'%;background:'+corT+'"></div></div></div>';
+  h+='<div class="preview-item"><div class="preview-lbl">'+local.nome_local+'</div><div class="preview-val" id="prev-local-val-'+andar+'-'+local.local_id+'" style="color:var(--blue)">'+getProgLocal(andar,local.local_id).toFixed(1)+'%</div><div class="preview-mini-bar"><div class="preview-mini-fill" id="prev-local-bar-'+andar+'-'+local.local_id+'" style="width:'+getProgLocal(andar,local.local_id)+'%;background:var(--blue)"></div></div></div>';
+  h+='</div>';
+  h+='<div class="tarefa-body">';
+  comodos.forEach(function(comodo){
+    var k=andar+'|'+local.local_id+'|'+tid+'|'+comodo.comodo_id;
+    var d=DADOS_ACOMP[k]||{pct_exec:0,status_vis:0,status_conf:0};
+    var pct=Number(d.pct_exec)||0;
+    var cor2=pct>=100?'var(--green)':pct>0?'var(--blue)':'var(--border2)';
+    var sid2=('c_'+andar+'_'+local.local_id+'_'+tid+'_'+comodo.comodo_id).replace(/[^a-z0-9]/gi,'_');
+    var vis=d.status_vis?'visualizado':'';
+    var conf=d.status_conf?'conferido':'';
+    var temNC2=temNCAberta(andar,local.local_id,tid,comodo.comodo_id);
+    h+=renderComodoSlider(sid2,null,comodo,comodo,pct,vis,conf,temNC2,cor2,andar,local.local_id,tid);
+  });
+  h+='</div></div>';
+  return h;
+}
+
+function renderComodoSlider(sid2,tarefaNome,comodoLabel,comodo,pct,vis,conf,temNC2,cor2,andar,lid,tid){
+  var cid=comodo.comodo_id;
+  var ltid=andar+'-'+lid+'-'+tid;
+  var h='<div class="comodo-item" style="flex-direction:column;align-items:stretch;padding:12px 16px">';
+  h+='<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">';
+  h+='<div class="comodo-info">';
+  if(tarefaNome)h+='<div class="comodo-nome">'+tarefaNome+'</div>';
+  else h+='<div class="comodo-nome">'+comodo.nome_comodo+'</div>';
+  h+='<div class="comodo-area">'+Number(comodo.area_m2||0)+'m²</div>';
+  h+='</div>';
+  h+='<input type="range" class="slider-sm" id="sl_'+sid2+'" min="0" max="100" step="1" value="'+pct+'" data-andar="'+andar+'" data-lid="'+lid+'" data-tid="'+tid+'" data-cid="'+cid+'" data-ltid="'+ltid+'">';
+  h+='<input type="number" class="pct-small" id="inp_'+sid2+'" min="0" max="100" step="1" value="'+pct+'">';
+  h+='<span class="pct-small-unit">%</span>';
+  h+='</div>';
+  h+='<div class="status-btns">';
+  h+='<button class="sbtn-status '+vis+'" id="vis_'+sid2+'" onclick="toggleStatus(\'vis\',\''+sid2+'\','+andar+',\''+lid+'\',\''+tid+'\',\''+cid+'\')">👁 Visualizado</button>';
+  h+='<button class="sbtn-status '+conf+'" id="conf_'+sid2+'" onclick="toggleStatus(\'conf\',\''+sid2+'\','+andar+',\''+lid+'\',\''+tid+'\',\''+cid+'\')">✓ Conferido</button>';
+  var classProb=temNC2?'sbtn-status problema':'sbtn-status';
+  h+='<button class="'+classProb+'" id="prob_'+sid2+'" onclick="abrirProblema('+andar+',\''+lid+'\',\''+(NOM.locais.find(function(l){return l.local_id===lid;})||{nome_local:lid}).nome_local+'\',\''+tid+'\',\''+((NOM.tarefas||[]).find(function(t){return (t.tarefa_id||t.id)===tid;})||{nome:tid}).nome+'\',\''+cid+'\',\''+comodo.nome_comodo+'\')">⚠ Problema</button>';
+  h+='</div></div>';
+  return h;
+}
+
+function toggleGrupo(gid){
+  var body=document.getElementById('gb-'+gid);
+  var chev=document.getElementById('gchev-'+gid);
+  if(!body)return;
+  var open=body.style.display!=='none'&&body.style.display!=='';
+  body.style.display=open?'none':'block';
+  if(chev)chev.style.transform=open?'':'rotate(90deg)';
 }
 
 function attachAcompEvents(){
@@ -1154,7 +1177,8 @@ async function salvarProblema(){
   };
   NAO_CONFORMIDADES.push(nc);
   fecharModal('modal-problema');
-  toast('Problema registrado!','warn');
+  toast('Problema registrado!');
+  renderAcompContent();
   // salvar no Sheets
   try{
     var res=await fetch(SCRIPT_URL+'?token='+(ME?ME.hash:''),{
@@ -1563,7 +1587,7 @@ function removerUser(i){
 
 // PANELS / SUB-TABS
 var panelAtual='acomp';var subAtual={mexer:'andar',nom:'nom-locais'};
-var panelTitles={acomp:'Acompanhamento',nc:'NC · Não Conformidades',mexer:'Mexer depois',hist:'Historico',nom:'Nomenclatura',users:'Usuarios'};
+var panelTitles={acomp:'Acompanhamento',nc:'NC · Não Conformidades',hist:'Historico',nom:'Nomenclatura',users:'Usuarios'};
 function switchPanel(btn){
   document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
