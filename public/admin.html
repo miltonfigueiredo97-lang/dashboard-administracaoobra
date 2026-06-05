@@ -726,7 +726,7 @@ async function carregarNomenclatura(){
     DADOS_ACOMP={};
     dados.forEach(function(d){
       var key=String(d.andar)+'|'+d.local_id+'|'+d.tarefa_id+'|'+d.comodo_id;
-      DADOS_ACOMP[key]={pct_exec:Number(d.pct_exec)||0,qtd_exec:Number(d.qtd_exec)||0};
+      DADOS_ACOMP[key]={pct_exec:Number(d.pct_exec)||0,qtd_exec:Number(d.qtd_exec)||0,status_vis:Number(d.status_vis)||0,status_conf:Number(d.status_conf)||0};
     });
     console.log('DADOS_ACOMP:',Object.keys(DADOS_ACOMP).length,'registros');
   }
