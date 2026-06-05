@@ -3,19 +3,19 @@
     "obra_id": "essence",
     "nome": "Obra Essence Residence",
     "endereco": "Av. Exemplo, 123 – São Paulo/SP",
-    "qtd_unidades": 2,
+    "qtd_unidades": 30,
     "qtd_andares": 15,
     "data_inicio": "2025-06-01",
     "data_prevista": "2026-12-31",
     "status": "ativa",
-    "gerado_em": "2026-06-05T01:00:10.343Z",
+    "gerado_em": "2026-06-05T01:20:27.137Z",
     "schema_version": "2.0"
   },
   "kpis": {
-    "progresso_geral": 56.3,
+    "progresso_geral": 0.4,
     "done": 2,
     "doing": 4,
-    "idle": 62,
+    "idle": 1042,
     "late": 0,
     "np": 2
   },
@@ -375,7 +375,7 @@
     {
       "unidade": "11",
       "andar": 1,
-      "progresso": 56.3,
+      "progresso": 6.6,
       "etapas": {
         "proj_vedacao": {
           "valor": 100,
@@ -396,13 +396,133 @@
         "infra_eletrica": {
           "valor": "NP",
           "atualizado_em": "2026-05-21 10:30:00"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
         }
       }
     },
     {
       "unidade": "12",
       "andar": 1,
-      "progresso": 56.3,
+      "progresso": 6.6,
       "etapas": {
         "proj_vedacao": {
           "valor": 100,
@@ -423,6 +543,4242 @@
         "infra_eletrica": {
           "valor": "NP",
           "atualizado_em": "2026-05-21 10:30:00"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "21",
+      "andar": 2,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "22",
+      "andar": 2,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "31",
+      "andar": 3,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "32",
+      "andar": 3,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "41",
+      "andar": 4,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "42",
+      "andar": 4,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "51",
+      "andar": 5,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "52",
+      "andar": 5,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "61",
+      "andar": 6,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "62",
+      "andar": 6,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "71",
+      "andar": 7,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "72",
+      "andar": 7,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "81",
+      "andar": 8,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "82",
+      "andar": 8,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "91",
+      "andar": 9,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "92",
+      "andar": 9,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "101",
+      "andar": 10,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "102",
+      "andar": 10,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "111",
+      "andar": 11,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "112",
+      "andar": 11,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "121",
+      "andar": 12,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "122",
+      "andar": 12,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "131",
+      "andar": 13,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "132",
+      "andar": 13,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "141",
+      "andar": 14,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "142",
+      "andar": 14,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "151",
+      "andar": 15,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        }
+      }
+    },
+    {
+      "unidade": "152",
+      "andar": 15,
+      "progresso": 0,
+      "etapas": {
+        "proj_vedacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "alvenaria": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "encunhamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_infra_el": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_eletrica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_quadros": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "quadros_dist": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "prumada": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aereo_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aereo_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_dist_hid": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "dist_hidraulica": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_hd_banh": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "infra_gas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "nichos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "det_contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "contrapiso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_ar": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "ar_condicionado": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "aspiracao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "automacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_acabamento": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "gesso_liso": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "forro": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "impermeabilizacao": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "revestimentos": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "proj_bancadas": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "granito": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
+        },
+        "pintura": {
+          "valor": 0,
+          "atualizado_em": "2026-06-05T08:20:22.000Z"
         }
       }
     }
