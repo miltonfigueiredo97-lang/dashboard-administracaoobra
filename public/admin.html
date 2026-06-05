@@ -35,7 +35,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
 .btn-login:active{opacity:.8}
 
 /* APP */
-.app{display:none;flex-direction:column;min-height:100vh;padding-bottom:72px}
+.app{display:none;flex-direction:column;height:100vh;overflow:hidden;padding-bottom:72px}
 .app.show{display:flex}
 
 /* TOPBAR */
@@ -61,8 +61,8 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
 .nav-icon{font-size:19px;line-height:1}
 
 /* PANELS */
-.panel{display:none;flex-direction:column;padding:14px;gap:12px;flex:1;overflow:hidden}
-.panel.active{display:flex;overflow:hidden}
+.panel{display:none;flex-direction:column;padding:14px;gap:12px;flex:1;overflow-y:auto}
+.panel.active{display:flex;overflow-y:auto}
 
 /* CARDS */
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
@@ -472,7 +472,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
         <option value="resolvido">Resolvidos</option>
       </select>
     </div>
-    <div id="nc-list" style="overflow-y:auto;flex:1"><p class="empty">Nenhuma não conformidade registrada</p></div>
+    <div id="nc-list" style="overflow-y:auto;min-height:100px"><p class="empty">Nenhuma não conformidade registrada</p></div>
   </div>
 <!-- BOTTOM NAV -->
 <nav class="bottom-nav">
