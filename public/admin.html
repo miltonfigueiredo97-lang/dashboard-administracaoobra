@@ -35,7 +35,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
 .btn-login:active{opacity:.8}
 
 /* APP */
-.app{display:none;flex-direction:column;height:100vh;overflow:hidden}
+.app{display:none;flex-direction:column;min-height:100vh}
 .app.show{display:flex}
 
 /* TOPBAR */
@@ -61,7 +61,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
 .nav-icon{font-size:19px;line-height:1}
 
 /* PANELS */
-.panel{display:none;flex-direction:column;padding:14px;gap:12px;overflow-y:auto;height:calc(100vh - 130px)}
+.panel{display:none;flex-direction:column;padding:14px;padding-bottom:80px;gap:12px}
 .panel.active{display:flex}
 
 /* CARDS */
