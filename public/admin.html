@@ -477,10 +477,10 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
 <!-- BOTTOM NAV -->
 <nav class="bottom-nav">
   <button class="nav-btn active" data-panel="acomp" onclick="switchPanel(this)"><span class="nav-icon">&#128200;</span>Acomp.</button>
+  <button class="nav-btn" data-panel="nc" onclick="switchPanel(this)"><span class="nav-icon">&#9888;</span>NC</button>
   <button class="nav-btn" data-panel="mexer" onclick="switchPanel(this)"><span class="nav-icon">&#9881;</span>Mexer dep.</button>
   <button class="nav-btn" data-panel="hist" onclick="switchPanel(this)"><span class="nav-icon">&#128203;</span>Log</button>
   <button class="nav-btn" data-panel="nom" onclick="switchPanel(this)"><span class="nav-icon">&#128196;</span>Nomencl.</button>
-  <button class="nav-btn" data-panel="nc" onclick="switchPanel(this)"><span class="nav-icon">&#9888;</span>N.Conf.</button>
   <button class="nav-btn" data-panel="users" onclick="switchPanel(this)"><span class="nav-icon">&#128101;</span>Users</button>
 </nav>
 
@@ -1442,7 +1442,7 @@ function removerUser(i){
 
 // PANELS / SUB-TABS
 var panelAtual='acomp';var subAtual={mexer:'andar',nom:'nom-locais'};
-var panelTitles={acomp:'Acompanhamento',mexer:'Mexer depois',hist:'Historico',nom:'Nomenclatura',users:'Usuarios',nc:'Nao Conformidades'};
+var panelTitles={acomp:'Acompanhamento',nc:'NC · Não Conformidades',mexer:'Mexer depois',hist:'Historico',nom:'Nomenclatura',users:'Usuarios'};
 function switchPanel(btn){
   document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
