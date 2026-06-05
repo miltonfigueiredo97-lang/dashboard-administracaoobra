@@ -460,19 +460,20 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
 
   <!-- NAO CONFORMIDADES -->
   <div class="panel" id="panel-nc">
-    <div style="display:flex;gap:8px;margin-bottom:4px;flex-shrink:0">
-      <div class="nc-stat"><div class="nc-stat-val" style="color:var(--red)" id="nc-total-aberto">0</div><div class="nc-stat-lbl">Abertos</div></div>
-      <div class="nc-stat"><div class="nc-stat-val" style="color:var(--green)" id="nc-total-resolvido">0</div><div class="nc-stat-lbl">Resolvidos</div></div>
+    <div style="display:flex;gap:8px;margin-bottom:10px;flex-shrink:0">
+      <div class="nc-stat" style="cursor:pointer" onclick="filtrarNC('aberto')"><div class="nc-stat-val" style="color:var(--red)" id="nc-total-aberto">0</div><div class="nc-stat-lbl">Abertas</div></div>
+      <div class="nc-stat" style="cursor:pointer" onclick="filtrarNC('resolvido')"><div class="nc-stat-val" style="color:var(--green)" id="nc-total-resolvido">0</div><div class="nc-stat-lbl">Corrigidas</div></div>
+      <div class="nc-stat" style="cursor:pointer" onclick="filtrarNC('')"><div class="nc-stat-val" style="color:var(--text2)" id="nc-total-todas">0</div><div class="nc-stat-lbl">Todas</div></div>
     </div>
     <div class="nc-filter-row" style="flex-shrink:0">
       <select class="sel" id="nc-fil-andar" onchange="renderNC()" style="flex:1"><option value="">Todos os andares</option></select>
       <select class="sel" id="nc-fil-status" onchange="renderNC()" style="flex:1">
-        <option value="">Todos</option>
-        <option value="aberto">Abertos</option>
-        <option value="resolvido">Resolvidos</option>
+        <option value="aberto">Abertas</option>
+        <option value="resolvido">Corrigidas</option>
+        <option value="">Todas</option>
       </select>
     </div>
-    <div id="nc-list" style="overflow-y:auto;min-height:100px"><p class="empty">Nenhuma não conformidade registrada</p></div>
+    <div id="nc-list"><p class="empty">Nenhuma não conformidade</p></div>
   </div>
 <!-- BOTTOM NAV -->
 <nav class="bottom-nav">
@@ -571,6 +572,23 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
     <div class="modal-actions">
       <button class="mbtn mbtn-cancel" onclick="fecharModal('modal-problema')">Cancelar</button>
       <button class="mbtn mbtn-ok" style="background:var(--red);color:#fff" onclick="salvarProblema()">Registrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL RESOLVER NC -->
+<div class="modal-overlay" id="modal-resolver" style="display:none">
+  <div class="modal-box">
+    <div class="modal-handle"></div>
+    <div class="modal-title">&#10003; Registrar Correção</div>
+    <div style="font-size:12px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-bottom:8px" id="resolv-titulo"></div>
+    <div style="font-size:13px;color:var(--text2);padding:10px 12px;background:var(--rbg);border-radius:var(--rsm);border-left:3px solid var(--red);margin-bottom:14px" id="resolv-prob"></div>
+    <div class="field"><label>O que foi feito para corrigir?</label>
+      <textarea id="resolv-desc" placeholder="Descreva a correção aplicada..." style="width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:12px 14px;border-radius:var(--rsm);font-family:'Sora',sans-serif;font-size:14px;outline:none;resize:vertical;min-height:80px;line-height:1.5"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="mbtn mbtn-cancel" onclick="fecharModal('modal-resolver')">Cancelar</button>
+      <button class="mbtn mbtn-ok" style="background:var(--green);color:#111" onclick="confirmarResolver()">Confirmar correção</button>
     </div>
   </div>
 </div>
@@ -784,7 +802,7 @@ async function salvarTudo(){
       var res=await fetch(SCRIPT_URL+'?token='+(ME?ME.hash:''),{
         method:'POST',
         body:JSON.stringify({action:'salvar_acompanhamento',obra_id:OBRA_ID,usuario:ME?ME.email:'admin',
-          itens:pendentesAcomp.map(function(p){return {andar:p.andar,local_id:p.local_id,tarefa_id:p.tarefa_id,comodo_id:p.comodo_id,pct_exec:p.pct_exec,qtd_exec:p.qtd_exec,unidade:p.unidade};})
+          itens:pendentesAcomp.map(function(p){return {andar:p.andar,local_id:p.local_id,tarefa_id:p.tarefa_id,comodo_id:p.comodo_id,pct_exec:p.pct_exec,qtd_exec:p.qtd_exec,unidade:p.unidade,status_vis:p.status_vis||0,status_conf:p.status_conf||0};})
         })
       });
       var json=await res.json();
@@ -918,9 +936,10 @@ function renderAcompContent(){
         var sid2=('c_'+andarSel+'_'+local.local_id+'_'+tarefa.tarefa_id+'_'+comodo.comodo_id).replace(/[^a-z0-9]/gi,'_');
         var vis=d.status_vis?'visualizado':'';
         var conf=d.status_conf?'conferido':'';
-        html+='<div class="comodo-item" style="flex-direction:column;align-items:stretch;padding:12px 16px">';
+        var temNC=NAO_CONFORMIDADES.some(function(nc){return String(nc.andar)===String(andarSel)&&nc.local_id===local.local_id&&nc.tarefa_id===tarefa.tarefa_id&&nc.comodo_id===comodo.comodo_id&&nc.status==='aberto';});
+        html+='<div class="comodo-item" style="flex-direction:column;align-items:stretch;padding:12px 16px'+(temNC?';border-left:3px solid var(--red)':'')+'">';
         html+='<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">';
-        html+='<div class="comodo-info"><div class="comodo-nome">'+comodo.nome_comodo+'</div><div class="comodo-area">'+Number(comodo.area_m2||0)+'m2</div></div>';
+        html+='<div class="comodo-info"><div class="comodo-nome">'+comodo.nome_comodo+(temNC?' <span style="color:var(--red);font-size:11px">⚠ NC</span>':'')+'</div><div class="comodo-area">'+Number(comodo.area_m2||0)+'m2</div></div>';
         html+='<input type="range" class="slider-sm" id="sl_'+sid2+'" min="0" max="100" step="1" value="'+pct+'" data-andar="'+andarSel+'" data-lid="'+local.local_id+'" data-tid="'+tarefa.tarefa_id+'" data-cid="'+comodo.comodo_id+'" data-ltid="'+andarSel+'-'+local.local_id+'-'+tarefa.tarefa_id+'">';
         html+='<input type="number" class="pct-small" id="inp_'+sid2+'" min="0" max="100" step="1" value="'+pct+'">';
         html+='<span class="pct-small-unit">%</span>';
@@ -941,6 +960,12 @@ function renderAcompContent(){
 }
 
 
+var autoSaveTimer=null;
+function agendarAutoSave(){
+  clearTimeout(autoSaveTimer);
+  autoSaveTimer=setTimeout(function(){salvarTudo();},2000);
+}
+
 function attachAcompEvents(){
   var wrap=document.getElementById('acomp-content');if(!wrap)return;
   wrap.querySelectorAll('.slider-sm').forEach(function(sl){
@@ -951,12 +976,15 @@ function attachAcompEvents(){
     var lid=sl.dataset.lid;
     var tid=sl.dataset.tid;
     var cid=sl.dataset.cid;
-    var ltid=sl.dataset.ltid; // andar-lid-tid
+    var ltid=sl.dataset.ltid;
     sl.addEventListener('input',function(){
       var v=parseInt(sl.value)||0;
       if(inp)inp.value=v;
       addPendAcomp(andar,lid,tid,cid,v,0,'m2');
       atualizarPreview(andar,lid,tid,ltid);
+    });
+    sl.addEventListener('change',function(){
+      agendarAutoSave();
     });
     if(inp&&!inp._bound){
       inp._bound=true;
@@ -965,6 +993,7 @@ function attachAcompEvents(){
         inp.value=v;if(sl)sl.value=v;
         addPendAcomp(andar,lid,tid,cid,v,0,'m2');
         atualizarPreview(andar,lid,tid,ltid);
+        agendarAutoSave();
       });
     }
   });
@@ -1032,6 +1061,7 @@ function toggleStatus(tipo,sid,andar,lid,tid,cid){
     pendentesAcomp[pendentesAcomp.length-1]['status_'+tipo]=DADOS_ACOMP[k][field];
   }
   atualizarSaveBar();
+  agendarAutoSave();
 }
 
 // NAO CONFORMIDADES
@@ -1082,21 +1112,40 @@ async function salvarProblema(){
   }catch(e){toast('Salvo localmente (sem conexao)','warn');}
   if(panelAtual==='nc')renderNC();
 }
-async function resolverNC(idx){
+var resolverNCIdx=-1;
+function abrirResolverNC(idx){
+  resolverNCIdx=idx;
+  var nc=NAO_CONFORMIDADES[idx];
+  document.getElementById('resolv-titulo').textContent=nc.andar+'o · '+nc.local_nome+' · '+nc.tarefa_nome+' · '+nc.comodo_nome;
+  document.getElementById('resolv-prob').textContent=nc.descricao;
+  document.getElementById('resolv-desc').value='';
+  document.getElementById('modal-resolver').style.display='flex';
+}
+async function confirmarResolver(){
+  var desc=document.getElementById('resolv-desc').value.trim();
+  var idx=resolverNCIdx;
   NAO_CONFORMIDADES[idx].status='resolvido';
   NAO_CONFORMIDADES[idx].data_resolucao=new Date().toLocaleString('pt-BR');
+  NAO_CONFORMIDADES[idx].obs_resolucao=desc;
   try{
     await fetch(SCRIPT_URL+'?token='+(ME?ME.hash:''),{
       method:'POST',
-      body:JSON.stringify({action:'resolver_nc',obra_id:OBRA_ID,id:NAO_CONFORMIDADES[idx].id,usuario:ME?ME.email:'admin'})
+      body:JSON.stringify({action:'resolver_nc',obra_id:OBRA_ID,id:NAO_CONFORMIDADES[idx].id,obs_resolucao:desc,usuario:ME?ME.email:'admin'})
     });
   }catch(e){}
-  renderNC();toast('Marcado como resolvido!');
+  fecharModal('modal-resolver');
+  renderNC();
+  renderAcompContent();
+  toast('Corrigido!');
 }
 async function carregarNC(){
   var dados=await fetchJSON(SCRIPT_URL+'?action=nao_conformidades&obra='+OBRA_ID+'&t='+Date.now());
   if(Array.isArray(dados)) NAO_CONFORMIDADES=dados;
   console.log('NC:',NAO_CONFORMIDADES.length,'registros');
+  renderNC();
+}
+function filtrarNC(status){
+  document.getElementById('nc-fil-status').value=status;
   renderNC();
 }
 function renderNC(){
@@ -1111,6 +1160,7 @@ function renderNC(){
   var resolvidos=NAO_CONFORMIDADES.filter(function(x){return x.status==='resolvido';}).length;
   document.getElementById('nc-total-aberto').textContent=abertos;
   document.getElementById('nc-total-resolvido').textContent=resolvidos;
+  document.getElementById('nc-total-todas').textContent=NAO_CONFORMIDADES.length;
   var list=document.getElementById('nc-list');
   if(!lista.length){list.innerHTML='<p class="empty">Nenhuma não conformidade'+(fil_andar||fil_status?' com este filtro':'')+'</p>';return;}
   list.innerHTML=lista.map(function(nc,i){
@@ -1122,8 +1172,8 @@ function renderNC(){
         '<span class="nc-status nc-'+nc.status+'">'+nc.status.toUpperCase()+'</span>'+
       '</div>'+
       '<div class="nc-desc">'+nc.descricao+'</div>'+
-      (nc.status==='aberto'?'<div class="nc-actions"><button class="nc-btn resolve" onclick="resolverNC('+i+')">&#10003; Marcar resolvido</button></div>':
-       '<div class="nc-meta">Resolvido em: '+nc.data_resolucao+'</div>')+
+      (nc.status==='aberto'?'<div class="nc-actions"><button class="nc-btn resolve" onclick="abrirResolverNC('+i+')">&#10003; Marcar como corrigido</button></div>':
+       '<div class="nc-meta" style="color:var(--green)">&#10003; Corrigido em: '+nc.data_resolucao+'</div><div class="nc-desc" style="border-color:var(--green);margin-top:6px">'+(nc.obs_resolucao||'—')+'</div>')+
     '</div>';
   }).join('');
 }
