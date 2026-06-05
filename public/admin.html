@@ -910,7 +910,8 @@ function renderAcompContent(){
     var cor=prog>=100?'var(--green)':prog>50?'var(--yellow)':'var(--blue)';
     var tarefas=getTarefasParaLocal(local.local_id);
     html+='<div class="local-card" id="lc-'+local.local_id+'">';
-    html+='<div class="local-hdr" onclick="toggleLocal(\''+local.local_id+'\')"><div class="local-nome">'+local.nome_local+'</div>';
+    var ncLocal=temNCAberta(andarSel,local.local_id,null,null);
+    html+='<div class="local-hdr" onclick="toggleLocal(\''+local.local_id+'\')"><div class="local-nome">'+local.nome_local+(ncLocal?' <span style="color:var(--red)">⚠</span>':'')+'</div>';
     html+='<div style="display:flex;align-items:center;gap:10px"><div class="local-prog" id="lprog-'+andarSel+'-'+local.local_id+'" style="color:'+cor+'">'+prog.toFixed(1)+'%</div><div class="chevron">&#8250;</div></div></div>';
     html+='<div class="local-progbar"><div class="local-progbar-fill" id="lbar-'+andarSel+'-'+local.local_id+'" style="width:'+prog+'%;background:'+cor+'"></div></div>';
     html+='<div class="local-body">';
@@ -920,7 +921,8 @@ function renderAcompContent(){
       var progTar=calcProgTarefa(andarSel,local.local_id,tarefa.tarefa_id,comodos,areaTot);
       var corT=progTar>=100?'var(--green)':progTar>0?'var(--blue)':'var(--text3)';
       html+='<div class="tarefa-row" id="tr-'+local.local_id+'-'+tarefa.tarefa_id+'">';
-      html+='<div class="tarefa-hdr" onclick="toggleTarefa(\''+local.local_id+'\',\''+tarefa.tarefa_id+'\')"><div class="tarefa-nome">'+tarefa.nome+'</div>';
+      var ncTarefa=temNCAberta(andarSel,local.local_id,tarefa.tarefa_id,null);
+      html+='<div class="tarefa-hdr" onclick="toggleTarefa(\''+local.local_id+'\',\''+tarefa.tarefa_id+'\')"><div class="tarefa-nome">'+tarefa.nome+(ncTarefa?' <span style="color:var(--red);font-size:10px">⚠</span>':'')+'</div>';
       html+='<div style="display:flex;align-items:center;gap:8px"><div class="tarefa-prog" id="tprog-'+andarSel+'-'+local.local_id+'-'+tarefa.tarefa_id+'" style="color:'+corT+'">'+progTar.toFixed(1)+'%</div><div class="tarefa-chev">&#8250;</div></div></div>';
       // preview bar
       html+='<div class="preview-bar" id="prev-'+andarSel+'-'+local.local_id+'-'+tarefa.tarefa_id+'" style="display:none">';
@@ -937,9 +939,9 @@ function renderAcompContent(){
         var vis=d.status_vis?'visualizado':'';
         var conf=d.status_conf?'conferido':'';
         var temNC=NAO_CONFORMIDADES.some(function(nc){return String(nc.andar)===String(andarSel)&&nc.local_id===local.local_id&&nc.tarefa_id===tarefa.tarefa_id&&nc.comodo_id===comodo.comodo_id&&nc.status==='aberto';});
-        html+='<div class="comodo-item" style="flex-direction:column;align-items:stretch;padding:12px 16px'+(temNC?';border-left:3px solid var(--red)':'')+'">';
+        html+='<div class="comodo-item" style="flex-direction:column;align-items:stretch;padding:12px 16px">';
         html+='<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">';
-        html+='<div class="comodo-info"><div class="comodo-nome">'+comodo.nome_comodo+(temNC?' <span style="color:var(--red);font-size:11px">⚠ NC</span>':'')+'</div><div class="comodo-area">'+Number(comodo.area_m2||0)+'m2</div></div>';
+        html+='<div class="comodo-info"><div class="comodo-nome">'+comodo.nome_comodo+'</div><div class="comodo-area">'+Number(comodo.area_m2||0)+'m2</div></div>';
         html+='<input type="range" class="slider-sm" id="sl_'+sid2+'" min="0" max="100" step="1" value="'+pct+'" data-andar="'+andarSel+'" data-lid="'+local.local_id+'" data-tid="'+tarefa.tarefa_id+'" data-cid="'+comodo.comodo_id+'" data-ltid="'+andarSel+'-'+local.local_id+'-'+tarefa.tarefa_id+'">';
         html+='<input type="number" class="pct-small" id="inp_'+sid2+'" min="0" max="100" step="1" value="'+pct+'">';
         html+='<span class="pct-small-unit">%</span>';
@@ -947,7 +949,8 @@ function renderAcompContent(){
         html+='<div class="status-btns">';
         html+='<button class="sbtn-status '+vis+'" id="vis_'+sid2+'" onclick="toggleStatus(\'vis\',\''+sid2+'\','+andarSel+',\''+local.local_id+'\',\''+tarefa.tarefa_id+'\',\''+comodo.comodo_id+'\')">&#128065; Visualizado</button>';
         html+='<button class="sbtn-status '+conf+'" id="conf_'+sid2+'" onclick="toggleStatus(\'conf\',\''+sid2+'\','+andarSel+',\''+local.local_id+'\',\''+tarefa.tarefa_id+'\',\''+comodo.comodo_id+'\')">&#10003; Conferido</button>';
-        html+='<button class="sbtn-status" onclick="abrirProblema('+andarSel+',\''+local.local_id+'\',\''+local.nome_local+'\',\''+tarefa.tarefa_id+'\',\''+tarefa.nome+'\',\''+comodo.comodo_id+'\',\''+comodo.nome_comodo+'\')">&#9888; Problema</button>';
+        var classProb=temNC?'sbtn-status problema':'sbtn-status';
+        html+='<button class="'+classProb+'" onclick="abrirProblema('+andarSel+',\''+local.local_id+'\',\''+local.nome_local+'\',\''+tarefa.tarefa_id+'\',\''+tarefa.nome+'\',\''+comodo.comodo_id+'\',\''+comodo.nome_comodo+'\')">&#9888; Problema</button>';
         html+='</div>';
         html+='</div>';
       });
@@ -999,6 +1002,12 @@ function attachAcompEvents(){
   });
 }
 
+function temNCAberta(andar,lid,tid,cid){
+  return NAO_CONFORMIDADES.some(function(nc){
+    return String(nc.andar)===String(andar)&&nc.local_id===lid&&
+      (tid?nc.tarefa_id===tid:true)&&(cid?nc.comodo_id===cid:true)&&nc.status==='aberto';
+  });
+}
 function calcProgTarefa(andar,lid,tid,comodos,areaTot){
   if(!comodos||!comodos.length)return 0;
   var soma=0;
@@ -1127,16 +1136,19 @@ async function confirmarResolver(){
   NAO_CONFORMIDADES[idx].status='resolvido';
   NAO_CONFORMIDADES[idx].data_resolucao=new Date().toLocaleString('pt-BR');
   NAO_CONFORMIDADES[idx].obs_resolucao=desc;
+  toast('Salvando...','warn');
   try{
-    await fetch(SCRIPT_URL+'?token='+(ME?ME.hash:''),{
+    var res=await fetch(SCRIPT_URL+'?token='+(ME?ME.hash:''),{
       method:'POST',
       body:JSON.stringify({action:'resolver_nc',obra_id:OBRA_ID,id:NAO_CONFORMIDADES[idx].id,obs_resolucao:desc,usuario:ME?ME.email:'admin'})
     });
-  }catch(e){}
+    var json=await res.json();
+    if(json.ok) toast('Corrigido e salvo!');
+    else toast('Erro: '+(json.erro||'falha'),'err');
+  }catch(e){toast('Erro de conexao','err');}
   fecharModal('modal-resolver');
   renderNC();
   renderAcompContent();
-  toast('Corrigido!');
 }
 async function carregarNC(){
   var dados=await fetchJSON(SCRIPT_URL+'?action=nao_conformidades&obra='+OBRA_ID+'&t='+Date.now());
