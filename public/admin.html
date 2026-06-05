@@ -232,6 +232,8 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
 .sub-tab{flex:1;padding:8px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;color:var(--text3);border:none;background:none;font-family:'Sora',sans-serif;text-align:center}
 .sub-tab:hover{color:var(--text)}
 .sub-tab.active{background:var(--bg2);color:var(--yellow);box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.sub-panel{display:none}
+.sub-panel.active{display:block}
 
 /* STATUS BUTTONS */
 .status-btns{display:flex;gap:6px;margin-top:8px}
@@ -1689,8 +1691,14 @@ function renderCfgAndares(){
 function renderCfgAPs(){
   var list=document.getElementById('cfg-aps-list');if(!list)return;
   var aps=(NOM.locais||[]).filter(function(l){return l.tipo==='apartamento';});
+  // deduplicar por local_id+andar (cada combinação é única)
   var vistos={};var unicos=[];
-  aps.forEach(function(l){if(!vistos[l.local_id]){vistos[l.local_id]=true;unicos.push(l);}});
+  aps.forEach(function(l){
+    var key=l.andar+'|'+l.local_id;
+    if(!vistos[key]){vistos[key]=true;unicos.push(l);}
+  });
+  // ordenar por andar
+  unicos.sort(function(a,b){return Number(a.andar)-Number(b.andar)||(a.local_id>b.local_id?1:-1);});
   if(!unicos.length){list.innerHTML='<p class="empty">Nenhum AP cadastrado</p>';return;}
   list.innerHTML=unicos.map(function(l,i){
     return '<div class="nom-item">'+
@@ -1853,7 +1861,11 @@ function abrirModalCfg(tipo,idx){
   } else if(tipo==='andar'){
     fields='<div class="field"><label>Número do andar</label><input type="number" id="cfg-andar-num" placeholder="Ex: 16" min="1" max="99"></div>';
   } else if(tipo==='ap'){
-    var apsArr=apsUnicos;
+    // Reconstruir lista igual ao renderCfgAPs
+    var apsAll=(NOM.locais||[]).filter(function(l){return l.tipo==='apartamento';});
+    var vistos2={};var apsArr=[];
+    apsAll.forEach(function(l){var k=l.andar+'|'+l.local_id;if(!vistos2[k]){vistos2[k]=true;apsArr.push(l);}});
+    apsArr.sort(function(a,b){return Number(a.andar)-Number(b.andar)||(a.local_id>b.local_id?1:-1);});
     var ap=isEdit?apsArr[idx]:{};
     // Tarefas vinculadas a este AP
     var tid2=ap.local_id||'';
