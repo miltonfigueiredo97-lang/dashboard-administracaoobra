@@ -8,7 +8,7 @@
     "data_inicio": "2025-06-01",
     "data_prevista": "2026-12-31",
     "status": "ativa",
-    "gerado_em": "2026-06-05T03:39:34.031Z",
+    "gerado_em": "2026-06-05T18:20:38.927Z",
     "schema_version": "2.0"
   },
   "kpis": {
@@ -5717,7 +5717,7 @@
         "obra_id": "essence",
         "tarefa_id": "proj_vedacao",
         "nome": "Projeto de Vedação",
-        "grupo": "projetos",
+        "grupo": "vedacao",
         "unidade": "m²",
         "aplica_em": "ap",
         "ativo": "SIM",
