@@ -565,8 +565,10 @@ html,body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;m
     <input type="hidden" id="prob-lnome"><input type="hidden" id="prob-tid">
     <input type="hidden" id="prob-tnome"><input type="hidden" id="prob-cid">
     <input type="hidden" id="prob-cnome">
-    <div class="field"><label>Descreva o problema</label>
-      <textarea id="prob-desc" placeholder="Ex: Alvenaria com fissura na parede sul, necessita retrabalho..." style="width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:12px 14px;border-radius:var(--rsm);font-family:'Sora',sans-serif;font-size:14px;outline:none;resize:vertical;min-height:100px;line-height:1.5"></textarea>
+    <div id="prob-nc-lista" style="display:none"></div>
+    <div style="font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;margin-top:4px">Adicionar novo problema</div>
+    <div class="field">
+      <textarea id="prob-desc" placeholder="Descreva o novo problema..." style="width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:12px 14px;border-radius:var(--rsm);font-family:'Sora',sans-serif;font-size:14px;outline:none;resize:vertical;min-height:80px;line-height:1.5"></textarea>
     </div>
     <div class="modal-err" id="prob-err">Descreva o problema antes de salvar.</div>
     <div class="modal-actions">
@@ -1080,6 +1082,7 @@ function toggleStatus(tipo,sid,andar,lid,tid,cid){
 // NAO CONFORMIDADES
 var NAO_CONFORMIDADES=[];
 function abrirProblema(andar,lid,lnome,tid,tnome,cid,cnome){
+  // guardar contexto
   document.getElementById('prob-andar').value=andar;
   document.getElementById('prob-lid').value=lid;
   document.getElementById('prob-lnome').value=lnome;
@@ -1088,8 +1091,42 @@ function abrirProblema(andar,lid,lnome,tid,tnome,cid,cnome){
   document.getElementById('prob-cid').value=cid;
   document.getElementById('prob-cnome').value=cnome;
   document.getElementById('prob-desc').value='';
-  document.getElementById('prob-titulo').textContent=lnome+' · '+tnome+' · '+cnome;
   document.getElementById('prob-err').style.display='none';
+
+  // NCs existentes deste cômodo
+  var ncsComodo=NAO_CONFORMIDADES.filter(function(nc){
+    return String(nc.andar)===String(andar)&&nc.local_id===lid&&nc.tarefa_id===tid&&nc.comodo_id===cid;
+  });
+
+  var titulo=lnome+' · '+tnome+' · '+cnome;
+  document.getElementById('prob-titulo').textContent=titulo;
+
+  // montar lista de NCs existentes
+  var listaEl=document.getElementById('prob-nc-lista');
+  if(ncsComodo.length){
+    var html='<div style="margin-bottom:14px">';
+    html+='<div style="font-size:11px;color:var(--text3);font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">NCs existentes</div>';
+    ncsComodo.forEach(function(nc,i){
+      var idx=NAO_CONFORMIDADES.indexOf(nc);
+      var cor=nc.status==='aberto'?'var(--red)':'var(--green)';
+      html+='<div style="background:var(--bg4);border-radius:var(--rsm);padding:10px 12px;margin-bottom:6px;border-left:3px solid '+cor+'">';
+      html+='<div style="font-size:12px;color:var(--text2);margin-bottom:6px">'+nc.descricao+'</div>';
+      html+='<div style="font-size:10px;color:var(--text3);font-family:JetBrains Mono,monospace;margin-bottom:6px">'+nc.data_registro+' · '+nc.status.toUpperCase()+'</div>';
+      if(nc.status==='aberto'){
+        html+='<button onclick="abrirResolverNCEFechar('+idx+')" style="width:100%;padding:8px;border-radius:var(--rsm);background:var(--gbg);border:1px solid var(--green);color:var(--green);font-size:12px;font-weight:700;cursor:pointer">&#10003; Marcar como corrigido</button>';
+      } else {
+        html+='<div style="font-size:11px;color:var(--green)">&#10003; Corrigido: '+(nc.obs_resolucao||'—')+'</div>';
+      }
+      html+='</div>';
+    });
+    html+='</div>';
+    listaEl.innerHTML=html;
+    listaEl.style.display='block';
+  } else {
+    listaEl.innerHTML='';
+    listaEl.style.display='none';
+  }
+
   document.getElementById('modal-problema').style.display='flex';
 }
 async function salvarProblema(){
@@ -1125,6 +1162,7 @@ async function salvarProblema(){
   }catch(e){toast('Salvo localmente (sem conexao)','warn');}
   if(panelAtual==='nc')renderNC();
 }
+function abrirResolverNCEFechar(idx){fecharModal('modal-problema');abrirResolverNC(idx);}
 var resolverNCIdx=-1;
 function abrirResolverNC(idx){
   resolverNCIdx=idx;
