@@ -731,6 +731,10 @@ async function carregarNomenclatura(){
     console.log('DADOS_ACOMP:',Object.keys(DADOS_ACOMP).length,'registros');
   }
 
+  // carregar NC para exibir indicadores no acompanhamento
+  var dadosNC=await fetchJSON(SCRIPT_URL+'?action=nao_conformidades&obra='+OBRA_ID+'&t='+Date.now());
+  if(Array.isArray(dadosNC)) NAO_CONFORMIDADES=dadosNC;
+
   renderAcompContent();
   renderNomListas();
 }
