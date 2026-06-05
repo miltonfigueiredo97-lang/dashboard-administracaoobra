@@ -641,10 +641,18 @@ async function fetchJSON(url){
 }
 
 async function carregarNomenclatura(){
-  var json=await fetchJSON(SCRIPT_URL+'?action=nomenclatura&obra='+OBRA_ID+'&t='+Date.now());
-  if(json&&json.locais) NOM=json;
+  var t=Date.now();
+  // Carregar tudo em paralelo
+  var results=await Promise.all([
+    fetchJSON(SCRIPT_URL+'?action=nomenclatura&obra='+OBRA_ID+'&t='+t),
+    fetchJSON(SCRIPT_URL+'?action=acompanhamento&obra='+OBRA_ID+'&t='+(t+1)),
+    fetchJSON(SCRIPT_URL+'?action=nao_conformidades&obra='+OBRA_ID+'&t='+(t+2))
+  ]);
+  var json=results[0];
+  var dados=results[1];
+  var dadosNC=results[2];
 
-  var dados=await fetchJSON(SCRIPT_URL+'?action=acompanhamento&obra='+OBRA_ID+'&t='+Date.now());
+  if(json&&json.locais) NOM=json;
   if(Array.isArray(dados)){
     DADOS_ACOMP={};
     dados.forEach(function(d){
@@ -653,11 +661,8 @@ async function carregarNomenclatura(){
     });
     console.log('DADOS_ACOMP:',Object.keys(DADOS_ACOMP).length,'registros');
   }
-
-  // carregar NC para exibir indicadores no acompanhamento
-  var dadosNC=await fetchJSON(SCRIPT_URL+'?action=nao_conformidades&obra='+OBRA_ID+'&t='+Date.now());
   if(Array.isArray(dadosNC)) NAO_CONFORMIDADES=dadosNC;
-
+  console.log('NOM carregado: locais='+NOM.locais.length+' tarefas='+NOM.tarefas.length);
   renderAcompContent();
   renderNomListas();
 }
